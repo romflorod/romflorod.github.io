@@ -111,6 +111,17 @@
         text-align: center;
       }
     </style>
+     <script>
+      function adivinarNumero() {
+        var numeroAleatorio = Math.floor(Math.random() * 10) + 1;
+        var numeroElegido = prompt("Adivina un número del 1 al 10:");
+        if (numeroElegido == numeroAleatorio) {
+          alert("¡Adivinaste!");
+        } else {
+          alert("Lo siento, el número era " + numeroAleatorio);
+        }
+      }
+    </script>
   </head>
   <body>
     <header>
@@ -139,69 +150,71 @@
     </footer>
     <script>
       function memoryGame() {
-        const cardNumbers = [1, 2, 3, 4, 5, 6];
-        const shuffledCardNumbers = shuffleArray(cardNumbers.concat(cardNumbers));
-        let selectedCards = [];
-        let cardsFlipped = 0;
-        const gameContainer = document.getElementById("memory-game");
-    function shuffleArray(array) {
-      return array.sort(() => Math.random() - 0.5);
-    }
+  const cardNumbers = [1, 2, 3, 4, 5, 6];
+  const shuffledCardNumbers = shuffleArray(cardNumbers.concat(cardNumbers));
+  let selectedCards = [];
+  let cardsFlipped = 0;
+  const gameContainer = document.getElementById("memory-game");
 
-    function flipCard(card) {
-      if (
-        selectedCards.length < 2 &&
-        !selectedCards.includes(card) &&
-        !card.classList.contains("flipped")
-      ) {
-        card.classList.add("flipped");
-        selectedCards.push(card);
-        if (selectedCards.length === 2) {
-          if (
-            selectedCards[0].dataset.number ===
-            selectedCards[1].dataset.number
-          ) {
-            cardsFlipped += 2;
-            selectedCards = [];
-            if (cardsFlipped === shuffledCardNumbers.length) {
-              setTimeout(() => {
-                alert("¡Felicidades, has ganado!");
-                gameContainer.innerHTML = "";
-                memoryGame();
-              }, 1000);
-            }
-          } else {
+  function shuffleArray(array) {
+    return array.sort(() => Math.random() - 0.5);
+  }
+
+  function flipCard(card) {
+    if (
+      selectedCards.length < 2 &&
+      !selectedCards.includes(card) &&
+      !card.classList.contains("flipped")
+    ) {
+      card.classList.add("flipped");
+      selectedCards.push(card);
+      if (selectedCards.length === 2) {
+        if (
+          selectedCards[0].dataset.number ===
+          selectedCards[1].dataset.number
+        ) {
+          cardsFlipped += 2;
+          selectedCards = [];
+          if (cardsFlipped === shuffledCardNumbers.length) {
             setTimeout(() => {
-              selectedCards.forEach((card) =>
-                card.classList.remove("flipped")
-              );
-              selectedCards = [];
+              alert("¡Felicidades, has ganado!");
+              gameContainer.innerHTML = "";
+              memoryGame();
             }, 1000);
           }
+        } else {
+          setTimeout(() => {
+            selectedCards.forEach((card) =>
+              card.classList.remove("flipped")
+            );
+            selectedCards = [];
+          }, 1000);
         }
       }
     }
-
-    for (let i = 0; i < shuffledCardNumbers.length; i++) {
-      const card = document.createElement("div");
-      card.classList.add("card");
-      card.dataset.number = shuffledCardNumbers[i];
-      card.addEventListener("click", () => flipCard(card));
-      const inner = document.createElement("div");
-      inner.classList.add("inner");
-      const front = document.createElement("div");
-      front.classList.add("front");
-      const back = document.createElement("div");
-      back.classList.add("back");
-      back.innerText = shuffledCardNumbers[i];
-      inner.appendChild(front);
-      inner.appendChild(back);
-      card.appendChild(inner);
-      gameContainer.appendChild(card);
-    }
   }
 
-  memoryGame();
+  for (let i = 0; i < shuffledCardNumbers.length; i++) {
+    const card = document.createElement("div");
+    card.classList.add("card");
+    card.dataset.number = shuffledCardNumbers[i];
+    card.addEventListener("click", () => flipCard(card));
+    const inner = document.createElement("div");
+    inner.classList.add("inner");
+    const front = document.createElement("div");
+    front.classList.add("front");
+    const back = document.createElement("div");
+    back.classList.add("back");
+    back.innerText = shuffledCardNumbers[i];
+    inner.appendChild(front);
+    inner.appendChild(back);
+    card.appendChild(inner);
+    gameContainer.appendChild(card);
+  }
+}
+
+memoryGame();
+
 </script>
 </body>
 </html>
