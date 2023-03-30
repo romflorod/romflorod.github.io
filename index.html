@@ -1,46 +1,46 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Román Flores Rodríguez - Página de GitHub</title>
-    <script>
-      function adivinarNumero() {
-        var numeroAleatorio = Math.floor(Math.random() * 10) + 1;
-        var numeroElegido = prompt("Adivina un número del 1 al 10:");
-        if (numeroElegido == numeroAleatorio) {
-          alert("¡Adivinaste!");
-        } else {
-          alert("Lo siento, el número era " + numeroAleatorio);
-        }
-      }
-    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Román Flores Rodríguez - Programador</title>
     <style>
-      body {
-        font-family: Arial, sans-serif;
+      /* Estilos globales */
+      * {
+        box-sizing: border-box;
         margin: 0;
         padding: 0;
+      }
+      
+      body {
+        font-family: Arial, sans-serif;
         background-color: #f2f2f2;
       }
+
+      /* Encabezado */
       header {
         background-color: #333;
         color: #fff;
         padding: 20px;
       }
-      h1 {
-        margin: 0;
-      }
+
+      /* Barra de navegación */
       nav {
         background-color: #ccc;
         padding: 10px;
       }
+
       nav ul {
         list-style-type: none;
         margin: 0;
         padding: 0;
         overflow: hidden;
       }
+
       nav li {
         float: left;
       }
+
       nav li a {
         display: block;
         color: #333;
@@ -48,13 +48,62 @@
         padding: 14px 16px;
         text-decoration: none;
       }
+
       nav li a:hover {
         background-color: #ddd;
       }
+
+      /* Contenido */
       section {
         padding: 20px;
-        margin: 0;
       }
+
+      h1 {
+        margin: 0;
+        font-size: 36px;
+      }
+
+      h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+
+      p {
+        font-size: 18px;
+        line-height: 1.5;
+      }
+
+      /* Juegos */
+      .game {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 20px 0;
+      }
+
+      .game h3 {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+
+      .game p {
+        margin-bottom: 10px;
+      }
+
+      .game button {
+        padding: 10px;
+        font-size: 18px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+      }
+
+      .game button:hover {
+        background-color: #555;
+      }
+
+      /* Pie de página */
       footer {
         background-color: #333;
         color: #fff;
@@ -65,13 +114,14 @@
   </head>
   <body>
     <header>
-      <h1>Román Flores Rodríguez - Programador</h1>
+      <h1>Román Flores Rodríguez</h1>
     </header>
     <nav>
       <ul>
         <li><a href="#">Inicio</a></li>
         <li><a href="#">Proyectos</a></li>
         <li><a href="#">Contacto</a></li>
+        <li><a href="#">Juegos</a></li>
       </ul>
     </nav>
     <section>
@@ -80,9 +130,83 @@
       <h3>Adivinar número</h3>
       <p>Intenta adivinar un número del 1 al 10:</p>
       <button onclick="adivinarNumero()">Adivinar número</button>
+      <h3>Juego de Memoria</h3>
+      <p>Haga clic en los cuadrados en orden ascendente del número.</p>
+      <div id="memory-game"></div>
     </section>
     <footer>
       <p>&copy; 2023 Román Flores Rodríguez - Página de GitHub</p>
     </footer>
-  </body>
+    <script>
+      function memoryGame() {
+        const cardNumbers = [1, 2, 3, 4, 5, 6];
+        const shuffledCardNumbers = shuffleArray(cardNumbers.concat(cardNumbers));
+        let selectedCards = [];
+        let cardsFlipped = 0;
+        const gameContainer = document.getElementById("memory-game");
+    function shuffleArray(array) {
+      return array.sort(() => Math.random() - 0.5);
+    }
+
+    function flipCard(card) {
+      if (
+        selectedCards.length < 2 &&
+        !selectedCards.includes(card) &&
+        !card.classList.contains("flipped")
+      ) {
+        card.classList.add("flipped");
+        selectedCards.push(card);
+        if (selectedCards.length === 2) {
+          if (
+            selectedCards[0].dataset.number ===
+            selectedCards[1].dataset.number
+          ) {
+            cardsFlipped += 2;
+            selectedCards = [];
+            if (cardsFlipped === shuffledCardNumbers.length) {
+              setTimeout(() => {
+                alert("¡Felicidades, has ganado!");
+                gameContainer.innerHTML = "";
+                memoryGame();
+              }, 1000);
+            }
+          } else {
+            setTimeout(() => {
+              selectedCards.forEach((card) =>
+                card.classList.remove("flipped")
+              );
+              selectedCards = [];
+            }, 1000);
+          }
+        }
+      }
+    }
+
+    for (let i = 0; i < shuffledCardNumbers.length; i++) {
+      const card = document.createElement("div");
+      card.classList.add("card");
+      card.dataset.number = shuffledCardNumbers[i];
+      card.addEventListener("click", () => flipCard(card));
+      const inner = document.createElement("div");
+      inner.classList.add("inner");
+      const front = document.createElement("div");
+      front.classList.add("front");
+      const back = document.createElement("div");
+      back.classList.add("back");
+      back.innerText = shuffledCardNumbers[i];
+      inner.appendChild(front);
+      inner.appendChild(back);
+      card.appendChild(inner);
+      gameContainer.appendChild(card);
+    }
+  }
+
+  memoryGame();
+</script>
+</body>
 </html>
+
+
+
+
+
