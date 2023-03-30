@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Román Flores Rodríguez - Programador</title>
+    <title>Román Flores Rodríguez - Programador Fullstack</title>
     <style>
       /* Estilos globales */
       * {
@@ -24,35 +24,7 @@
         padding: 20px;
       }
 
-      /* Barra de navegación */
-      nav {
-        background-color: #ccc;
-        padding: 10px;
-      }
-
-      nav ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-      }
-
-      nav li {
-        float: left;
-      }
-
-      nav li a {
-        display: block;
-        color: #333;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-      }
-
-      nav li a:hover {
-        background-color: #ddd;
-      }
-
+      
       /* Contenido */
       section {
         padding: 20px;
@@ -69,6 +41,16 @@
       }
 
       p {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 20px;
+      }
+
+      ul {
+        margin-bottom: 20px;
+      }
+
+      li {
         font-size: 18px;
         line-height: 1.5;
       }
@@ -110,6 +92,33 @@
         padding: 20px;
         text-align: center;
       }
+
+      /* Sección de habilidades */
+      .skills {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 20px;
+      }
+
+      .skill {
+        width: 45%;
+        margin-bottom: 20px;
+      }
+
+      .skill h3 {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+
+      .skill ul {
+        list-style: none;
+      }
+
+      .skill li {
+        font-size: 18px;
+        line-height: 1.5;
+      }
     </style>
      <script>
       function adivinarNumero() {
@@ -127,99 +136,45 @@
     <header>
       <h1>Román Flores Rodríguez</h1>
     </header>
-    <nav>
-      <ul>
-        <li><a href="#">Inicio</a></li>
-        <li><a href="#">Proyectos</a></li>
-        <li><a href="#">Contacto</a></li>
-        <li><a href="#">Juegos</a></li>
-      </ul>
-    </nav>
+
     <section>
-      <h2>¡Bienvenido!</h2>
-      <p>Soy Román Flores Rodríguez, un programador experto en back end Java y Python y en front end en HTML y CSS. Además, tengo un buen control de bases de datos y estoy interesado en aprender nuevas tecnologías.</p>
-      <h3>Adivinar número</h3>
-      <p>Intenta adivinar un número del 1 al 10:</p>
-      <button onclick="adivinarNumero()">Adivinar número</button>
-      <h3>Juego de Memoria</h3>
-      <p>Haga clic en los cuadrados en orden ascendente del número.</p>
-      <div id="memory-game"></div>
-    </section>
-    <footer>
-      <p>&copy; 2023 Román Flores Rodríguez - Página de GitHub</p>
-    </footer>
-    <script>
-      function memoryGame() {
-  const cardNumbers = [1, 2, 3, 4, 5, 6];
-  const shuffledCardNumbers = shuffleArray(cardNumbers.concat(cardNumbers));
-  let selectedCards = [];
-  let cardsFlipped = 0;
-  const gameContainer = document.getElementById("memory-game");
-
-  function shuffleArray(array) {
-    return array.sort(() => Math.random() - 0.5);
-  }
-
-  function flipCard(card) {
-    if (
-      selectedCards.length < 2 &&
-      !selectedCards.includes(card) &&
-      !card.classList.contains("flipped")
-    ) {
-      card.classList.add("flipped");
-      selectedCards.push(card);
-      if (selectedCards.length === 2) {
-        if (
-          selectedCards[0].dataset.number ===
-          selectedCards[1].dataset.number
-        ) {
-          cardsFlipped += 2;
-          selectedCards = [];
-          if (cardsFlipped === shuffledCardNumbers.length) {
-            setTimeout(() => {
-              alert("¡Felicidades, has ganado!");
-              gameContainer.innerHTML = "";
-              memoryGame();
-            }, 1000);
+        <h2>¡Bienvenido!</h2>
+        <p>Soy Román Flores Rodríguez, un programador fullstack experto en Java, Python, HTML y CSS. Además, estoy aprendiendo nuevas tecnologías que utilizan inteligencia artificial y tengo experiencia en el manejo de cualquier tipo de base de datos.</p>
+        <h3>Adivinar número</h3>
+        <p>Intenta adivinar un número del 1 al 10:</p>
+        <button onclick="adivinarNumero()">Adivinar número</button>
+        <h3>Proyectos destacados</h3>
+        <div class="projects">
+          <div class="project">
+            <h4>Proyecto 1</h4>
+            <p>Descripción del proyecto 1</p>
+            <a href="#">Ver más</a>
+          </div>
+          <div class="project">
+            <h4>Proyecto 2</h4>
+            <p>Descripción del proyecto 2</p>
+            <a href="#">Ver más</a>
+          </div>
+          <div class="project">
+            <h4>Proyecto 3</h4>
+            <p>Descripción del proyecto 3</p>
+            <a href="#">Ver más</a>
+          </div>
+        </div>
+      </section>
+      <footer>
+        <p>&copy; 2023 Román Flores Rodríguez - Página de GitHub</p>
+      </footer>
+      <script>
+        function adivinarNumero() {
+          var numeroAleatorio = Math.floor(Math.random() * 10) + 1;
+          var numeroElegido = prompt("Adivina un número del 1 al 10:");
+          if (numeroElegido == numeroAleatorio) {
+            alert("¡Adivinaste!");
+          } else {
+            alert("Lo siento, el número era " + numeroAleatorio);
           }
-        } else {
-          setTimeout(() => {
-            selectedCards.forEach((card) =>
-              card.classList.remove("flipped")
-            );
-            selectedCards = [];
-          }, 1000);
         }
-      }
-    }
-  }
-
-  for (let i = 0; i < shuffledCardNumbers.length; i++) {
-    const card = document.createElement("div");
-    card.classList.add("card");
-    card.dataset.number = shuffledCardNumbers[i];
-    card.addEventListener("click", () => flipCard(card));
-    const inner = document.createElement("div");
-    inner.classList.add("inner");
-    const front = document.createElement("div");
-    front.classList.add("front");
-    const back = document.createElement("div");
-    back.classList.add("back");
-    back.innerText = shuffledCardNumbers[i];
-    inner.appendChild(front);
-    inner.appendChild(back);
-    card.appendChild(inner);
-    gameContainer.appendChild(card);
-  }
-}
-
-memoryGame();
-
-</script>
-</body>
-</html>
-
-
-
-
-
+      </script>
+    </body>
+  </html>
