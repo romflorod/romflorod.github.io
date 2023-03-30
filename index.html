@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Román Flores Rodríguez - Página de GitHub</title>
+    <script>
+      function adivinarNumero() {
+        var numeroAleatorio = Math.floor(Math.random() * 10) + 1;
+        var numeroElegido = prompt("Adivina un número del 1 al 10:");
+        if (numeroElegido == numeroAleatorio) {
+          alert("¡Adivinaste!");
+        } else {
+          alert("Lo siento, el número era " + numeroAleatorio);
+        }
+      }
+    </script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f2f2f2;
+      }
+      header {
+        background-color: #333;
+        color: #fff;
+        padding: 20px;
+      }
+      h1 {
+        margin: 0;
+      }
+      nav {
+        background-color: #ccc;
+        padding: 10px;
+      }
+      nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+      nav li {
+        float: left;
+      }
+      nav li a {
+        display: block;
+        color: #333;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+      nav li a:hover {
+        background-color: #ddd;
+      }
+      section {
+        padding: 20px;
+        margin: 0;
+      }
+      footer {
+        background-color: #333;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Román Flores Rodríguez - Programador</h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Proyectos</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </nav>
+    <section>
+      <h2>¡Bienvenido!</h2>
+      <p>Soy Román Flores Rodríguez, un programador experto en back end Java y Python y en front end en HTML y CSS. Además, tengo un buen control de bases de datos y estoy interesado en aprender nuevas tecnologías.</p>
+      <h3>Adivinar número</h3>
+      <p>Intenta adivinar un número del 1 al 10:</p>
+      <button onclick="adivinarNumero()">Adivinar número</button>
+    </section>
+    <footer>
+      <p>&copy; 2023 Román Flores Rodríguez - Página de GitHub</p>
+    </footer>
+  </body>
+</html>
