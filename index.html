@@ -4,57 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Román Flores Rodríguez - Programador Fullstack</title>
-        <style>
+    <style>
       /* Estilos globales */
       * {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
       }
-      
+    
       body {
         font-family: Arial, sans-serif;
         background-color: #f2f2f2;
       }
-
+    
       /* Encabezado */
       header {
         background-color: #333;
         color: #fff;
         padding: 20px;
       }
-
-      
+    
       /* Contenido */
       section {
         padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
-
+    
+      button {
+        padding: 10px;
+        font-size: 18px;
+        background-color: #ff6f61;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        justify-content: center;
+      }
+    
       h1 {
         margin: 0;
         font-size: 36px;
       }
-
+    
       h2 {
         font-size: 24px;
         margin-bottom: 20px;
       }
-
+    
       p {
         font-size: 18px;
         line-height: 1.5;
         margin-bottom: 20px;
       }
-
+    
       ul {
         margin-bottom: 20px;
       }
-
+    
       li {
         font-size: 18px;
         line-height: 1.5;
       }
-
+    
       /* Juegos */
       .game {
         display: flex;
@@ -62,29 +74,29 @@
         align-items: center;
         margin: 20px 0;
       }
-
+    
       .game h3 {
         font-size: 24px;
         margin-bottom: 10px;
       }
-
+    
       .game p {
         margin-bottom: 10px;
       }
-
+    
       .game button {
         padding: 10px;
         font-size: 18px;
-        background-color: #333;
+        background-color: #ff6f61;
         color: #fff;
         border: none;
         cursor: pointer;
       }
-
+    
       .game button:hover {
-        background-color: #555;
+        background-color: #e85a4f;
       }
-
+    
       /* Pie de página */
       footer {
         background-color: #333;
@@ -92,7 +104,7 @@
         padding: 20px;
         text-align: center;
       }
-
+    
       /* Sección de habilidades */
       .skills {
         display: flex;
@@ -100,31 +112,47 @@
         justify-content: space-between;
         margin-bottom: 20px;
       }
-
+    
       .skill {
         width: 45%;
         margin-bottom: 20px;
       }
-
+    
       .skill h3 {
         font-size: 24px;
         margin-bottom: 10px;
       }
-
+    
       .skill ul {
         list-style: none;
       }
-
+    
       .skill li {
         font-size: 18px;
         line-height: 1.5;
       }
+    
       /* Juego de la serpiente */
       #canvas {
         border: 1px solid #333;
       }
-
+    
+      /* Estilos para pantallas pequeñas */
+      @media (max-width: 768px) {
+        section {
+          padding: 10px;
+        }
+    
+        .game {
+          margin: 10px 0;
+        }
+    
+        .skill {
+          width: 100%;
+        }
+      }
     </style>
+    
     
   </head>
   <body>
