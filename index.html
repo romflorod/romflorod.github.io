@@ -199,22 +199,28 @@
         };
 
         function drawSnake() {
-          ctx.fillStyle = "#333";
-          snake.body.forEach(function(segment) {
-            ctx.fillRect(segment.x * gridSize, segment.y * gridSize, gridSize, gridSize);
-          });
-        }
+  ctx.fillStyle = "#333";
+  for (var i = 0; i < snakeSize; i++) {
+    var segment = snake.body[i];
+    ctx.fillRect(segment.x * gridSize, segment.y * gridSize, gridSize, gridSize);
+  }
+}
+        var snakeSize = 1;
 
         function moveSnake() {
           var head = {x: snake.body[0].x + snake.direction.x, y: snake.body[0].y + snake.direction.y};
-          snake.body.unshift(head);
           if (head.x == food.x && head.y == food.y) {
             food.x = Math.floor(Math.random() * gridWidth);
             food.y = Math.floor(Math.random() * gridHeight);
+            snake.body.unshift(head);
+            snakeSize++;
+
           } else {
             snake.body.pop();
+            snake.body.unshift(head);
           }
-        }
+}
+
 
         function drawFood() {
           ctx.fillStyle = "#f00";
