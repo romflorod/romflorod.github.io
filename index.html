@@ -135,6 +135,7 @@
     <section>
         <h2>¡Bienvenido!</h2>
         <p>Soy Román Flores Rodríguez, un programador fullstack experto en Java, Python, HTML, CSS y todo tipo de bases de datos (SQL y NoSQL). Si necesitas un programador con estas habilidades, no dudes en ponerte en contacto conmigo.</p>
+        <img src="1.jpeg" alt="Imagen personal" style="display: block; margin: 0 auto;"> 
         <button onclick="window.location.href='mailto:romanflodriguez13@gmail.com'">¡Contáctame!</button>
         <h3>Habilidades destacadas</h3>
         <ul>
@@ -199,12 +200,12 @@
         };
 
         function drawSnake() {
-  ctx.fillStyle = "#333";
-  for (var i = 0; i < snakeSize; i++) {
-    var segment = snake.body[i];
-    ctx.fillRect(segment.x * gridSize, segment.y * gridSize, gridSize, gridSize);
-  }
-}
+        ctx.fillStyle = "#333";
+        for (var i = 0; i < snakeSize; i++) {
+          var segment = snake.body[i];
+          ctx.fillRect(segment.x * gridSize, segment.y * gridSize, gridSize, gridSize);
+        }
+      }
         var snakeSize = 1;
 
         function moveSnake() {
