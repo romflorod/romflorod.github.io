@@ -120,17 +120,7 @@
         line-height: 1.5;
       }
     </style>
-     <script>
-      function adivinarNumero() {
-        var numeroAleatorio = Math.floor(Math.random() * 10) + 1;
-        var numeroElegido = prompt("Adivina un número del 1 al 10:");
-        if (numeroElegido == numeroAleatorio) {
-          alert("¡Adivinaste!");
-        } else {
-          alert("Lo siento, el número era " + numeroAleatorio);
-        }
-      }
-    </script>
+    
   </head>
   <body>
     <header>
@@ -151,6 +141,12 @@
             <li>Bases de datos SQL y NoSQL</li>
         </ul>
       </section>
+        <div class="game">
+          <h3>Adivinar número</h3>
+          <p>Intenta adivinar el número del 1 al 10:</p>
+          <button onclick="adivinarNumero()">Jugar</button>
+        </div>
+
       <footer>
         <p>&copy; 2023 Román Flores Rodríguez - Página de GitHub</p>
       </footer>
