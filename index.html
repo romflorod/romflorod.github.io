@@ -151,6 +151,72 @@
           width: 100%;
         }
       }
+      /*tic tac toe*/
+      .tic-tac-toe {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .board {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 10px;
+        width: 300px;
+        height: 300px;
+        border: 2px solid #333;
+        border-radius: 5px;
+        padding: 10px;
+      }
+
+      .square {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #fff;
+        font-size: 72px;
+        font-weight: bold;
+        color: #333;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+      }
+
+      .square:hover {
+        background-color: #eee;
+      }
+
+      .x {
+        color: #f00;
+      }
+
+      .o {
+        color: #00f;
+      }
+
+      .status {
+        margin-top: 20px;
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+      }
+
+      .restart-btn {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 18px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .restart-btn:hover {
+        background-color: #555;
+      }
+
     </style>
     
     
@@ -208,6 +274,22 @@
             <button type="submit" id="submit">Enviar</button>
           </form>
         </div>
+        <div class="tic-tac-toe">
+          <div class="board">
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+          </div>
+          <div class="status"></div>
+          <button class="restart-btn">Restart</button>
+        </div>
+        
 
 
       <footer>
@@ -376,6 +458,88 @@
         display();
         form.addEventListener('submit', handleSubmit);
     </script>
+    <script>
+      let squares = document.querySelectorAll('.square');
+      let status = document.querySelector('.status');
+      let restartBtn = document.querySelector('.restart-btn');
+      let currentPlayer = 'X';
+      let moves = 0;
+    
+      function handleSquareClick(e) {
+        if (e.target.textContent !== '') return;
+        e.target.textContent = currentPlayer;
+        e.target.classList.add(currentPlayer);
+        moves++;
+    
+        if (checkForWinner()) {
+          status.textContent = `¡${currentPlayer} ha ganado!`;
+          disableBoard();
+        } else if (moves === 9) {
+          status.textContent = `¡Empate!`;
+        } else {
+          currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+          status.textContent = `Turno de ${currentPlayer}`;
+        }
+      }
+    
+      function checkForWinner() {
+        let winner = false;
+    
+        // Horizontal
+        for (let i = 0; i < 9; i += 3) {
+          if (squares[i].textContent !== '' &&
+              squares[i].textContent === squares[i + 1].textContent &&
+              squares[i].textContent === squares[i + 2].textContent) {
+            winner = true;
+            break;
+          }
+        }
+    
+        // Vertical
+        for (let i = 0; i < 3; i++) {
+          if (squares[i].textContent !== '' &&
+              squares[i].textContent === squares[i + 3].textContent &&
+              squares[i].textContent === squares[i + 6].textContent) {
+            winner = true;
+            break;
+          }
+        }
+    
+        // Diagonal
+        if (squares[0].textContent !== '' &&
+            squares[0].textContent === squares[4].textContent &&
+            squares[0].textContent === squares[8].textContent) {
+          winner = true;
+        }
+    
+        if (squares[2].textContent !== '' &&
+            squares[2].textContent === squares[4].textContent &&
+            squares[2].textContent === squares[6].textContent) {
+          winner = true;
+        }
+    
+        return winner;
+      }
+    
+      function disableBoard() {
+        squares.forEach(square => square.removeEventListener('click', handleSquareClick));
+      }
+    
+      function handleRestartClick() {
+        squares.forEach(square => {
+          square.textContent = '';
+          square.classList.remove('X', 'O');
+        });
+        currentPlayer = 'X';
+        moves = 0;
+        status.textContent = `Turno de ${currentPlayer}`;
+        squares.forEach(square => square.addEventListener('click', handleSquareClick));
+      }
+    
+      squares.forEach(square => square.addEventListener('click', handleSquareClick));
+      restartBtn.addEventListener('click', handleRestartClick);
+    </script>
+    
 
     </body>
   </html>
