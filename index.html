@@ -185,32 +185,52 @@
         var ctx = canvas.getContext("2d");
 
         var gridSize = 20;
-        var gridWidth = canvas.width / gridSize;
-        var gridHeight = canvas.height / gridSize;
+        var gridWidth = Math.floor(canvas.width / gridSize);
+        var gridHeight = Math.floor(canvas.height / gridSize);
 
         var snake = {
           body: [{x: 4, y: 4}],
-          direction: {x: 1, y: 0}
+          direction: {x: 1, y: 0},
+          size: gridSize
         };
 
         var food = {
           x: Math.floor(Math.random() * gridWidth),
-          y: Math.floor(Math.random() * gridHeight)
+          y: Math.floor(Math.random() * gridHeight),
+          size: gridSize
         };
 
         function drawSnake() {
           ctx.fillStyle = "#333";
           snake.body.forEach(function(segment) {
-            ctx.fillRect(segment.x * gridSize, segment.y * gridSize, gridSize, gridSize);
+            ctx.fillRect(segment.x * snake.size, segment.y * snake.size, snake.size, snake.size);
           });
         }
 
         function moveSnake() {
           var head = {x: snake.body[0].x + snake.direction.x, y: snake.body[0].y + snake.direction.y};
+          
+          // check for collision with wall
+          if (head.x < 0 || head.x >= gridWidth || head.y < 0 || head.y >= gridHeight) {
+            alert("Game Over!");
+            location.reload();
+          }
+          
+          // check for collision with snake body
+          for (var i = 1; i < snake.body.length; i++) {
+            if (head.x == snake.body[i].x && head.y == snake.body[i].y) {
+              alert("Game Over!");
+              location.reload();
+            }
+          }
+          
           snake.body.unshift(head);
+          
+          // check for collision with food
           if (head.x == food.x && head.y == food.y) {
             food.x = Math.floor(Math.random() * gridWidth);
             food.y = Math.floor(Math.random() * gridHeight);
+            snake.size += gridSize;
           } else {
             snake.body.pop();
           }
@@ -218,7 +238,7 @@
 
         function drawFood() {
           ctx.fillStyle = "#f00";
-          ctx.fillRect(food.x * gridSize, food.y * gridSize, gridSize, gridSize);
+          ctx.fillRect(food.x * food.size, food.y * food.size, food.size, food.size);
         }
 
         function update() {
@@ -230,26 +250,37 @@
         document.addEventListener("keydown", function(event) {
           switch (event.keyCode) {
             case 37: // left arrow
-              snake.direction = {x: -1, y: 0};
+              if (snake.direction.x !== 1 || snake.body.length === 1) {
+                snake.direction = {x: -1, y: 0};
+              }
               break;
             case 38: // up arrow
-              snake.direction = {x: 0, y: -1};
+              if (snake.direction.y !== 1 || snake.body.length === 1) {
+                snake.direction = {x: 0, y: -1};
+              }
               break;
             case 39: // right arrow
-              snake.direction = {x: 1, y: 0};
+              if (snake.direction.x !== -1 || snake.body.length === 1) {
+                snake.direction = {x: 1, y: 0};
+              }
               break;
             case 40: // down arrow
-              snake.direction = {x: 0, y: 1};
+              if (snake.direction.y !== -1 || snake.body.length === 1) {
+                snake.direction = {x: 0, y: 1};
+              }
               break;
           }
         });
 
         setInterval(update, 100);
 
+
+
       </script>
       <script>
         // Palabras a adivinar
-        const words = ['programacion', 'javascript', 'html', 'css', 'python'];
+        const words = ['programacion', 'javascript', 'html', 'css', 'python','roman','flores','rodriguez','practicas','ordenador','github','agile','scrum',
+        'teletrabajo','django'];
 
         // Palabra a adivinar
         let word;
