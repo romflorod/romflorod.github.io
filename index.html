@@ -5,26 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Román Flores Rodríguez - Programador Fullstack</title>
     <style>
-     /* Estilos globales */
+      /* Estilos globales */
       * {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
       }
-
+    
       body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         background-color: #f8f8f8;
         margin: 0;
       }
-
+    
       /* Encabezado */
       header {
-        background-color: #000;
+        background-color: #333;
         color: #fff;
         padding: 20px;
       }
-
+    
       /* Contenido */
       section {
         padding: 20px;
@@ -32,7 +32,7 @@
         flex-direction: column;
         align-items: center;
       }
-
+    
       button {
         padding: 10px;
         font-size: 18px;
@@ -42,33 +42,39 @@
         cursor: pointer;
         justify-content: center;
         border-radius: 20px;
+        transition: background-color 0.3s ease-in-out;
+        box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
       }
-
+    
+      button:hover {
+        background-color: #e85a4f;
+      }
+    
       h1 {
         margin: 0;
         font-size: 36px;
       }
-
+    
       h2 {
         font-size: 24px;
         margin-bottom: 20px;
       }
-
+    
       p {
         font-size: 18px;
         line-height: 1.5;
         margin-bottom: 20px;
       }
-
+    
       ul {
         margin-bottom: 20px;
       }
-
+    
       li {
         font-size: 18px;
         line-height: 1.5;
       }
-
+    
       /* Juegos */
       .game {
         display: flex;
@@ -76,16 +82,16 @@
         align-items: center;
         margin: 20px 0;
       }
-
+    
       .game h3 {
         font-size: 24px;
         margin-bottom: 10px;
       }
-
+    
       .game p {
         margin-bottom: 10px;
       }
-
+    
       .game button {
         padding: 10px;
         font-size: 18px;
@@ -93,134 +99,176 @@
         color: #fff;
         border: none;
         cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+        box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
       }
-
+    
       .game button:hover {
         background-color: #e85a4f;
       }
-
+    
       /* Pie de página */
       footer {
-        background-color: #000;
+        background-color: #333;
         color: #fff;
         padding: 20px;
         text-align: center;
       }
+    
+     /* Sección de habilidades */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      gap: 20px;
+    }
 
-      /* Sección de habilidades */
-      .skills {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        margin-bottom: 20px;
-        gap: 20px;
-      }
+    .skill {
+      width: 45%;
+      margin-bottom: 20px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease-in-out;
+    }
 
-      .skill {
-        width: 45%;
-        margin-bottom: 20px;
-      }
+    .skill:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
 
-      .skill h3 {
-        font-size: 24px;
-        margin-bottom: 10px;
-      }
+    .skill:active {
+      background-color: #eee;
+    }
 
-      .skill ul {
-        list-style: none;
-      }
+    .skill h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
 
-      .skill li {
-        font-size: 18px;
-        line-height: 1.5;
-      }
+    .skill ul {
+      list-style: none;
+      margin-bottom: 10px;
+    }
 
-      /* Juego de la serpiente */
-      #canvas {
-        border: 1px solid #333;
-      }
+    .skill li {
+      font-size: 18px;
+      line-height: 1.5;
+      transition: all 0.3s ease-in-out;
+    }
 
-      /* Estilos para pantallas pequeñas */
-      @media (max-width: 768px) {
-        section {
-          padding: 10px;
-        }
+    .skill li:hover {
+      color: #ff6f61;
+      transform: scale(1.1);
+    }
 
-        .game {
-          margin: 10px 0;
-        }
+    /* Juego de la serpiente */
+    #canvas {
+      border: 1px solid #333;
+    }
 
-        .skill {
-          width: 100%;
-        }
-      }
-
-      /* tic tac toe */
-      .tic-tac-toe {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .board {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(3, 1fr);
-        gap: 10px;
-        width: 300px;
-        height: 300px;
-        border: 2px solid #333;
-        border-radius: 5px;
+    /* Estilos para pantallas pequeñas */
+    @media (max-width: 768px) {
+      section {
         padding: 10px;
       }
 
-      .square {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: #fff;
-        font-size: 72px;
-        font-weight: bold;
-        color: #333;
-        cursor: pointer;
-        transition: background-color 0.3s ease-in-out;
+      .game {
+        margin: 10px 0;
       }
 
-      .square:hover {
-        background-color: #eee;
+      .skill {
+        width: 100%;
       }
+    }
 
-      .x {
-        color: #f00;
-      }
+    /* Juego de tres en raya */
+    .tic-tac-toe {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
 
-      .o {
-        color: #00f;
-      }
+    .board {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 10px;
+      width: 300px;
+      height: 300px;
+      border: 2px solid #333;
+      border-radius: 5px;
+      padding: 10px;
+      transition: transform 0.3s ease-in-out;
+    }
 
-      .status {
-        margin-top: 20px;
-        font-size: 24px;
-        font-weight: bold;
-        text-align: center;
-      }
+    .board:hover {
+      transform: scale(1.05);
+    }
 
-      .restart-btn {
-        margin-top: 20px;
-        padding: 10px 20px;
-        font-size: 18px;
-        background-color: #333;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-      }
+    .square {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #fff;
+      font-size: 72px;
+      font-weight: bold;
+      color: #333;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
 
-      .restart-btn:hover {
-        background-color: #555;
-      }
+    .square:hover {
+      background-color: #eee;
+    }
 
+    .x {
+      color: #f00;
+    }
+
+    .o {
+      color: #00f;
+    }
+
+    .status {
+      margin-top: 20px;
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .status.show {
+      opacity: 1;
+    }
+
+    .restart-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .restart-btn.show {
+      opacity: 1;
+    }
+
+    .restart-btn:hover {
+      background-color: #555;
+    }
+
+    
 
     </style>
     
@@ -236,7 +284,9 @@
       <div style="width: 150px; height: 150px; margin: 0 auto; overflow: hidden; border-radius: 50%;">
           <img src="1.jpeg" alt="Imagen personal" style="width: 100%; height: auto;">
       </div>
-      <button style="display: block; margin: 0 auto;" onclick="window.location.href='mailto:romanflodriguez13@gmail.com'">¡Contáctame!</button>
+      <br>
+      <button style="display: block; margin: 10px auto;" onclick="window.location.href='mailto:romanflodriguez13@gmail.com'">¡Contáctame!</button>
+      <br>  
       <h3>Habilidades destacadas</h3>
       <ul>
           <li>Java</li>
@@ -248,6 +298,8 @@
           <li>Machine learning</li>
           <li>Deep learning</li>
       </ul>
+      <canvas id="habilidades"></canvas>
+
       </section>
       <section>
           <h2>Proyectos de interés</h2>
@@ -558,6 +610,43 @@
     
       squares.forEach(square => square.addEventListener('click', handleSquareClick));
       restartBtn.addEventListener('click', handleRestartClick);
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+  var habilidadesConfig = {
+    type: 'pie', // Tipo de gráfico
+    data: {
+        labels: ['Java', 'Python', 'HTML', 'CSS', 'JavaScript', 'Bases de datos SQL y NoSQL', 'Machine learning', 'Deep learning'], // Etiquetas para el eje X
+        datasets: [{
+            label: 'Habilidades',
+            data: [80, 75, 70, 65, 80, 70, 60, 50], // Valores para el eje Y
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(100, 99, 132, 0.2)'
+            ], // Color de fondo de cada sección del gráfico
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 99, 132, 1)'
+            ], // Color del borde de cada sección del gráfico
+            borderWidth: 1 // Ancho del borde de cada sección del gráfico
+        }]
+    },
+    options: {}
+};
+var habilidadesChart = new Chart(document.getElementById('habilidades'), habilidadesConfig);
+
     </script>
     
 
