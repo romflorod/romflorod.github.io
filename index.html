@@ -614,37 +614,31 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
   var habilidadesConfig = {
-    type: 'pie', // Tipo de gráfico
-    data: {
-        labels: ['Java', 'Python', 'HTML', 'CSS', 'JavaScript', 'Bases de datos SQL y NoSQL', 'Machine learning', 'Deep learning'], // Etiquetas para el eje X
-        datasets: [{
-            label: 'Habilidades',
-            data: [80, 75, 70, 65, 80, 70, 60, 50], // Valores para el eje Y
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(100, 99, 132, 0.2)'
-            ], // Color de fondo de cada sección del gráfico
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 99, 132, 1)'
-            ], // Color del borde de cada sección del gráfico
-            borderWidth: 1 // Ancho del borde de cada sección del gráfico
-        }]
-    },
-    options: {}
+  type: 'horizontalBar',
+  data: {
+    labels: ['Java', 'Python', 'HTML', 'CSS', 'JavaScript', 'Bases de datos SQL y NoSQL', 'Machine learning', 'Deep learning'],
+    datasets: [{
+      label: 'Habilidades',
+      data: [9, 10, 10, 8, 7, 10, 6, 6],
+      backgroundColor: 'rgba(54, 162, 235, 0.2)',
+      borderColor: 'rgba(54, 162, 235, 1)',
+      borderWidth: 1
+    }]
+  },
+  options: {
+    scales: {
+      xAxes: [{
+        ticks: {
+          beginAtZero: true,
+          min: 0,
+          max: 10,
+          stepSize: 1
+        }
+      }]
+    }
+  }
 };
+
 var habilidadesChart = new Chart(document.getElementById('habilidades'), habilidadesConfig);
 
     </script>
