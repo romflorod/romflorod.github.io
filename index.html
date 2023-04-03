@@ -164,51 +164,41 @@
       color: #ff6f61;
       transform: scale(1.1);
     }
-    #skills-list li {
-  list-style: none;
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  background-image: url('tools.png');
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: left center;
-  padding-left: 50px;
-}
-
-#skills-list img {
-  margin-right: 30px;
-}
-
-#skills-list div {
-  margin-left: auto;
-  justify-content: flex-end; /* Alineación a la derecha */
-  background-color: rgba(54, 162, 235, 0.2);
-  width: 120px;
-  height: 20px;
-  display: inline-block;
-  margin-right: 20px;
-}
-
-#skills-list div div {
-  margin-left: auto;
-  justify-content: flex-end; /* Alineación a la derecha */
-  background-color: rgba(54, 162, 235, 1);
-  height: 100%;
-}
-#skills-list div:nth-child(2) {
-  margin-right: 10px;
-}
-
-
-
-
-
-    /* Juego de la serpiente */
-    #canvas {
-      border: 1px solid #333;
-      
+        #skills-list li {
+      list-style: none;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      background-image: url('tools.png');
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: left center;
+      padding-left: 50px;
     }
+
+    #skills-list img {
+      margin-right: 30px;
+    }
+
+    #skills-list div {
+      margin-left: auto;
+      justify-content: flex-end; /* Alineación a la derecha */
+      background-color: rgba(54, 162, 235, 0.2);
+      width: 120px;
+      height: 20px;
+      display: inline-block;
+      margin-right: 20px;
+    }
+
+    #skills-list div div {
+      margin-left: auto;
+      justify-content: flex-end; /* Alineación a la derecha */
+      background-color: rgba(54, 162, 235, 1);
+      height: 100%;
+    }
+    #skills-list div:nth-child(2) {
+      margin-right: 10px;
+}
     
 
     /* Estilos para pantallas pequeñas */
@@ -226,84 +216,6 @@
       }
     }
 
-        /* Juego de tres en raya */
-      .tic-tac-toe {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .board {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(3, 1fr);
-      gap: 8px;
-      width: 288px;
-      height: 288px;
-      border: 2px solid #333;
-      border-radius: 5px;
-      padding: 10px;
-      transition: transform 0.3s ease-in-out;
-      position: relative;
-    }
-
-      .board:hover {
-        transform: scale(1.05);
-      }
-
-      .square {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: #fff;
-        font-size: 72px;
-        font-weight: bold;
-        color: #333;
-        cursor: pointer;
-        transition: background-color 0.3s ease-in-out;
-      }
-
-      .square:hover {
-        background-color: #eee;
-      }
-
-      .status {
-        position: absolute; /* añadido */
-        top: 50%; /* añadido */
-        transform: translateY(-50%); /* añadido */
-        margin-top: -15px; /* añadido */
-        font-size: 24px;
-        font-weight: bold;
-        text-align: center;
-        opacity: 0;
-        transition: opacity 0.3s ease-in-out;
-      }
-
-      .status.show {
-        opacity: 1;
-}
-
-  
-
-    .restart-btn {
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 18px;
-      background-color: #47bd6e;
-      color: #fff;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: opacity 0.3s ease-in-out;
-    }
-
-    .restart-btn.show {
-      opacity: 1;
-    }
-
-    .restart-btn:hover {
-      background-color: #555;
-    }
       
 
     </style>
@@ -393,27 +305,11 @@
   
        
         
-        <div class="tic-tac-toe">
-          <h3>Tic-Tac-Toe</h3>
-          <div class="board" style="width: 300px; height: 300px;">
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-          </div>
-          <div class="status"></div>
-          <button class="restart-btn" style="margin-top: 30px; font-size: 20px; border: 2px solid #333;">Restart</button>
-        </div>
-        <div class="game">
-          <h3>Accede a más juegos en HTML</h3>
+      <section>
+        <h3>Accede juegos hechos por mi en HTML</h3>
           <a href="juegos.html" target="_blank">Jugar</a>
         </div>
-     
+      </section>
       <footer>
         <p>&copy; 2023 Román Flores Rodríguez - Página de GitHub</p>
       </footer>
