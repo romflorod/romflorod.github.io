@@ -5,6 +5,309 @@
     <title>Juegos</title>
   </head>
   <body>
+    <style>
+        /* Estilos globales */
+        * {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+        }
+      
+        body {
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          background-color: #f8f8f8;
+          margin: 0;
+        }
+      
+        /* Encabezado */
+        header {
+          background-color: #333;
+          color: #fff;
+          padding: 20px;
+        }
+      
+        /* Contenido */
+        section {
+          padding: 20px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+      
+        button {
+          padding: 10px;
+          font-size: 18px;
+          background-color: #ff6f61;
+          color: #fff;
+          border: none;
+          cursor: pointer;
+          justify-content: center;
+          border-radius: 20px;
+          transition: background-color 0.3s ease-in-out;
+          box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
+        }
+      
+        button:hover {
+          background-color: #e85a4f;
+        }
+      
+        h1 {
+          margin: 0;
+          font-size: 36px;
+        }
+      
+        h2 {
+          font-size: 24px;
+          margin-bottom: 20px;
+        }
+      
+        p {
+          font-size: 18px;
+          line-height: 1.5;
+          margin-bottom: 20px;
+        }
+      
+        ul {
+          margin-bottom: 20px;  
+        }
+      
+        li {
+          font-size: 18px;
+          line-height: 1.5;
+        }
+      
+        /* Juegos */
+        .game {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin: 20px 0;
+        }
+      
+        .game h3 {
+          font-size: 24px;
+          margin-bottom: 10px;
+        }
+      
+        .game p {
+          margin-bottom: 10px;
+        }
+      
+        .game button {
+          padding: 10px;
+          font-size: 18px;
+          background-color: #ff6f61;
+          color: #fff;
+          border: none;
+          cursor: pointer;
+          transition: background-color 0.3s ease-in-out;
+          box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
+        }
+      
+        .game button:hover {
+          background-color: #e85a4f;
+        }
+      
+        /* Pie de página */
+        footer {
+          background-color: #333;
+          color: #fff;
+          padding: 20px;
+          text-align: center;
+        }
+      
+       /* Sección de habilidades */
+      .skills {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        gap: 20px;
+      }
+  
+      .skill {
+        width: 45%;
+        margin-bottom: 20px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease-in-out;
+      }
+  
+      .skill:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+  
+      .skill:active {
+        background-color: #eee;
+      }
+  
+      .skill h3 {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+  
+      .skill ul {
+        margin-bottom: 10px;
+      }
+  
+      .skill li {
+        font-size: 18px;
+        line-height: 1.5;
+        transition: all 0.3s ease-in-out;
+  
+      }
+  
+      .skill li:hover {
+        color: #ff6f61;
+        transform: scale(1.1);
+      }
+      #skills-list li {
+    list-style: none;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    background-image: url('tools.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: left center;
+    padding-left: 50px;
+  }
+  
+  #skills-list img {
+    margin-right: 30px;
+  }
+  
+  #skills-list div {
+    margin-left: auto;
+    justify-content: flex-end; /* Alineación a la derecha */
+    background-color: rgba(54, 162, 235, 0.2);
+    width: 120px;
+    height: 20px;
+    display: inline-block;
+    margin-right: 20px;
+  }
+  
+  #skills-list div div {
+    margin-left: auto;
+    justify-content: flex-end; /* Alineación a la derecha */
+    background-color: rgba(54, 162, 235, 1);
+    height: 100%;
+  }
+  #skills-list div:nth-child(2) {
+    margin-right: 10px;
+  }
+  
+  
+  
+  
+  
+      /* Juego de la serpiente */
+      #canvas {
+        border: 1px solid #333;
+      }
+  
+      /* Estilos para pantallas pequeñas */
+      @media (max-width: 768px) {
+        section {
+          padding: 10px;
+        }
+  
+        .game {
+          margin: 10px 0;
+        }
+  
+        .skill {
+          width: 100%;
+        }
+      }
+  
+      /* Juego de tres en raya */
+      .tic-tac-toe {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+  
+      .board {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 10px;
+        width: 300px;
+        height: 300px;
+        border: 2px solid #333;
+        border-radius: 5px;
+        padding: 10px;
+        transition: transform 0.3s ease-in-out;
+      }
+  
+      .board:hover {
+        transform: scale(1.05);
+      }
+  
+      .square {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #fff;
+        font-size: 72px;
+        font-weight: bold;
+        color: #333;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+      }
+  
+      .square:hover {
+        background-color: #eee;
+      }
+  
+      .x {
+        color: #f00;
+      }
+  
+      .o {
+        color: #00f;
+      }
+  
+      .status {
+      margin-top: 20px;
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+  
+      .status.show {
+        opacity: 1;
+      }
+  
+      .restart-btn {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 18px;
+        background-color: #47bd6e;
+        color: #fff;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: opacity 0.3s ease-in-out;
+      }
+  
+      .restart-btn.show {
+        opacity: 1;
+      }
+  
+      .restart-btn:hover {
+        background-color: #555;
+      }
+        
+  
+      </style>
     <h1>Juegos</h1>
     <p>¡Bienvenido a nuestra página de juegos! Aquí encontrarás una variedad de juegos divertidos para jugar.</p>
     <ul>
