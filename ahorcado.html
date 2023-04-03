@@ -81,15 +81,16 @@
     <h1>Juegos</h1>
     <button onclick="window.location.href = 'https://romflorod.github.io/juegos.html'">Ver más</button>
   </header>
-  <section>   
-        <div class="game">
-            <h3>Ahorcado</h3>
-            <p>Intenta adivinar la palabra oculta:</p>
-            <p id="display-word"></p>
-            <p id="display-guesses"></p>
-            <form id="form">
-            <input type="text" id="input" autocomplete="off" />
-            <button type="submit" id="submit">Enviar</button>
+  <section>
+    <div class="game">
+      <h3>Ahorcado</h3>
+      <img id="hangman-img" src="ahorcado1.png" alt="Imagen del ahorcado" />
+      <p>Intenta adivinar la palabra oculta:</p>
+      <p id="display-word"></p>
+      <p id="display-guesses"></p>
+      <form id="form">
+        <input type="text" id="input" autocomplete="off" />
+        <button type="submit" id="submit">Enviar</button>
             </form>
         </div>
         <script>
@@ -133,30 +134,32 @@
         }
 
         // Función para manejar el envío del formulario
-        function handleSubmit(e) {
-          e.preventDefault();
-          let guess = input.value.toLowerCase();
-          if (!guess.match(/^[a-z]$/)) {
-            alert('Por favor ingrese una letra válida.');
-          } else if (guessedLetters.includes(guess)) {
-            alert('Ya ha adivinado esa letra. Por favor ingrese otra.');
-          } else if (word.includes(guess)) {
-            guessedLetters.push(guess);
-            display();
-            if (word.split('').every(letter => guessedLetters.includes(letter))) {
-              alert(`¡Felicidades, adivinaste la palabra "${word}"!`);
-              reset();
-            }
-          } else {
-            guesses--;
-            display();
-            if (guesses === 0) {
-              alert(`Lo siento, no adivinaste la palabra "${word}".`);
-              reset();
-            }
-          }
-          input.value = '';
-        }
+function handleSubmit(e) {
+  e.preventDefault();
+  let guess = input.value.toLowerCase();
+  if (!guess.match(/^[a-z]$/)) {
+    alert('Por favor ingrese una letra válida.');
+  } else if (guessedLetters.includes(guess)) {
+    alert('Ya ha adivinado esa letra. Por favor ingrese otra.');
+  } else if (word.includes(guess)) {
+    guessedLetters.push(guess);
+    display();
+    if (word.split('').every(letter => guessedLetters.includes(letter))) {
+      alert(`¡Felicidades, adivinaste la palabra "${word}"!`);
+      reset();
+    }
+  } else {
+    guesses--;
+    display();
+    document.getElementById('hangman-img').src = `ahorcado${6-guesses}.png`;
+    if (guesses === 0) {
+      alert(`Lo siento, no adivinaste la palabra "${word}".`);
+      reset();
+    }
+  }
+  input.value = '';
+}
+
 
         // Función para reiniciar el juego
         function reset() {
@@ -171,3 +174,7 @@
         display();
         form.addEventListener('submit', handleSubmit);
     </script>
+  </section>
+  </body>
+  </html>
+     
