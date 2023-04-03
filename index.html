@@ -207,7 +207,9 @@
     /* Juego de la serpiente */
     #canvas {
       border: 1px solid #333;
+      
     }
+    
 
     /* Estilos para pantallas pequeñas */
     @media (max-width: 768px) {
@@ -224,67 +226,65 @@
       }
     }
 
-    /* Juego de tres en raya */
-    .tic-tac-toe {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
+        /* Juego de tres en raya */
+      .tic-tac-toe {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
 
-    .board {
+      .board {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-template-rows: repeat(3, 1fr);
-      gap: 10px;
-      width: 300px;
-      height: 300px;
+      gap: 8px;
+      width: 288px;
+      height: 288px;
       border: 2px solid #333;
       border-radius: 5px;
       padding: 10px;
       transition: transform 0.3s ease-in-out;
+      position: relative;
     }
 
-    .board:hover {
-      transform: scale(1.05);
-    }
+      .board:hover {
+        transform: scale(1.05);
+      }
 
-    .square {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #fff;
-      font-size: 72px;
-      font-weight: bold;
-      color: #333;
-      cursor: pointer;
-      transition: background-color 0.3s ease-in-out;
-    }
+      .square {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #fff;
+        font-size: 72px;
+        font-weight: bold;
+        color: #333;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+      }
 
-    .square:hover {
-      background-color: #eee;
-    }
+      .square:hover {
+        background-color: #eee;
+      }
 
-    .x {
-      color: #f00;
-    }
+      .status {
+        position: absolute; /* añadido */
+        top: 50%; /* añadido */
+        transform: translateY(-50%); /* añadido */
+        margin-top: -15px; /* añadido */
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+      }
 
-    .o {
-      color: #00f;
-    }
+      .status.show {
+        opacity: 1;
+}
 
-    .status {
-    margin-top: 20px;
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-  }
-
-    .status.show {
-      opacity: 1;
-    }
+  
 
     .restart-btn {
       margin-top: 20px;
