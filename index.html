@@ -360,10 +360,7 @@
           <p>Juega DOOM en línea:</p>
           <a href="doom.html" target="_blank">Jugar</a>
         </div>
-        
-        
-
-
+     
       <footer>
         <p>&copy; 2023 Román Flores Rodríguez - Página de GitHub</p>
       </footer>
@@ -611,10 +608,10 @@
       squares.forEach(square => square.addEventListener('click', handleSquareClick));
       restartBtn.addEventListener('click', handleRestartClick);
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-     var habilidadesConfig = {
-  type: 'horizontalBar',
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>    
+<script>
+  var habilidadesConfig = {
+  type: 'bar',
   data: {
     labels: ['Java', 'Python', 'HTML', 'CSS', 'JavaScript', 'Bases de datos SQL y NoSQL', 'Machine learning', 'Deep learning'],
     datasets: [{
@@ -633,15 +630,16 @@
           min: 0,
           max: 10,
           stepSize: 1
-        }
+        },
+        barPercentage: 0.4,
+        categoryPercentage: 0.5
       }]
     }
   }
 };
 
 var habilidadesChart = new Chart(document.getElementById('habilidades'), habilidadesConfig);
-
-    </script>
+</script>    
     
 
     </body>
