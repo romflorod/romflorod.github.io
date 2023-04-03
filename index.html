@@ -289,16 +289,50 @@
       <br>  
       <h3>Habilidades destacadas</h3>
       <ul>
-          <li>Java</li>
-          <li>Python</li>
-          <li>HTML</li>
-          <li>CSS</li>
-          <li>JavaScript</li>
-          <li>Bases de datos SQL y NoSQL</li>
-          <li>Machine learning</li>
-          <li>Deep learning</li>
-      </ul>
-      <canvas id="habilidades"></canvas>
+          <li>Java
+            <div style="background-color: rgba(54, 162, 235, 0.2); width: 100px; height: 20px; display: inline-block;">
+              <div style="background-color: rgba(54, 162, 235, 1); width: 90%; height: 100%;"></div>
+            </div>
+          </li>
+          <li>Python
+            <div style="background-color: rgba(54, 162, 235, 0.2); width: 100px; height: 20px; display: inline-block;">
+              <div style="background-color: rgba(54, 162, 235, 1); width: 100%; height: 100%;"></div>
+            </div>
+          </li>
+          <li>HTML
+            <div style="background-color: rgba(54, 162, 235, 0.2); width: 80px; height: 20px; display: inline-block;">
+              <div style="background-color: rgba(54, 162, 235, 1); width: 80%; height: 100%;"></div>
+            </div>
+          </li>
+          <li>CSS
+            <div style="background-color: rgba(54, 162, 235, 0.2); width: 80px; height: 20px; display: inline-block;">
+              <div style="background-color: rgba(54, 162, 235, 1); width: 70%; height: 100%;"></div>
+            </div>
+          </li>
+          <li>JavaScript
+            <div style="background-color: rgba(54, 162, 235, 0.2); width: 70px; height: 20px; display: inline-block;">
+              <div style="background-color: rgba(54, 162, 235, 1); width: 60%; height: 100%;"></div>
+            </div>
+          </li>
+          <li>Bases de datos SQL y NoSQL
+            <div style="background-color: rgba(54, 162, 235, 0.2); width: 100px; height: 20px; display: inline-block;">
+              <div style="background-color: rgba(54, 162, 235, 1); width: 100%; height: 100%;"></div>
+            </div>
+            </li>
+            <li>Machine learning
+            <div style="background-color: rgba(54, 162, 235, 0.2); width: 70px; height: 20px; display: inline-block;">
+            <div style="background-color: rgba(54, 162, 235, 1); width: 50%; height: 100%;"></div>
+            </div>
+            </li>
+            <li>Deep learning
+            <div style="background-color: rgba(54, 162, 235, 0.2); width: 60px; height: 20px; display: inline-block;">
+            <div style="background-color: rgba(54, 162, 235, 1); width: 40%; height: 100%;"></div>
+            </div>
+            </li>
+            <a href="habilidadespersonales.html">Vea gráfico responsivo de habilidades personales</a>
+
+              </ul>
+      </section>
 
       </section>
       <section>
@@ -608,38 +642,7 @@
       squares.forEach(square => square.addEventListener('click', handleSquareClick));
       restartBtn.addEventListener('click', handleRestartClick);
     </script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>    
-<script>
-  var habilidadesConfig = {
-  type: 'bar',
-  data: {
-    labels: ['Java', 'Python', 'HTML', 'CSS', 'JavaScript', 'Bases de datos SQL y NoSQL', 'Machine learning', 'Deep learning'],
-    datasets: [{
-      label: 'Habilidades',
-      data: [9, 10, 10, 8, 7, 10, 6, 6],
-      backgroundColor: 'rgba(54, 162, 235, 0.2)',
-      borderColor: 'rgba(54, 162, 235, 1)',
-      borderWidth: 1
-    }]
-  },
-  options: {
-    scales: {
-      xAxes: [{
-        ticks: {
-          beginAtZero: true,
-          min: 0,
-          max: 10,
-          stepSize: 1
-        },
-        barPercentage: 0.4,
-        categoryPercentage: 0.5
-      }]
-    }
-  }
-};
-
-var habilidadesChart = new Chart(document.getElementById('habilidades'), habilidadesConfig);
-</script>    
+    
     
 
     </body>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Habilidades</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+      canvas {
+        max-width: 100%;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="habilidades"></canvas>
+    <script>
+      var habilidadesConfig = {
+        type: 'bar',
+        data: {
+          labels: ['Java', 'Python', 'HTML', 'CSS', 'JavaScript', 'Bases de datos SQL y NoSQL', 'Machine learning', 'Deep learning'],
+          datasets: [{
+            label: 'Habilidades',
+            data: [9, 10, 10, 8, 7, 10, 6, 6],
+            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+            borderColor: 'rgba(54, 162, 235, 1)',
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            xAxes: [{
+              ticks: {
+                beginAtZero: true,
+                min: 0,
+                max: 10,
+                stepSize: 1
+              },
+              barPercentage: 0.4,
+              categoryPercentage: 0.5
+            }]
+          }
+        }
+      };
+      
+      var habilidadesChart = new Chart(document.getElementById('habilidades'), habilidadesConfig);
+    </script>
+  </body>
+</html>
