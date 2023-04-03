@@ -301,10 +301,6 @@
             <li><a href="https://github.com/romflorod">GitHub</a></li>
           </ul>
       </section>
-  
-  
-       
-        
       <section>
         <h3>Accede juegos hechos por mi en HTML</h3>
           <a href="juegos.html" target="_blank">Jugar</a>
@@ -313,91 +309,5 @@
       <footer>
         <p>&copy; 2023 Román Flores Rodríguez - Página de GitHub</p>
       </footer>
-      
-      
-    <script>
-      let squares = document.querySelectorAll('.square');
-      let status = document.querySelector('.status');
-      let restartBtn = document.querySelector('.restart-btn');
-      let currentPlayer = 'X';
-      let moves = 0;
-    
-      function handleSquareClick(e) {
-        if (e.target.textContent !== '') return;
-        e.target.textContent = currentPlayer;
-        e.target.classList.add(currentPlayer);
-        moves++;
-    
-        if (checkForWinner()) {
-          status.textContent = `¡${currentPlayer} ha ganado!`;
-          disableBoard();
-        } else if (moves === 9) {
-          status.textContent = `¡Empate!`;
-        } else {
-          currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-          status.textContent = `Turno de ${currentPlayer}`;
-        }
-      }
-    
-      function checkForWinner() {
-        let winner = false;
-    
-        // Horizontal
-        for (let i = 0; i < 9; i += 3) {
-          if (squares[i].textContent !== '' &&
-              squares[i].textContent === squares[i + 1].textContent &&
-              squares[i].textContent === squares[i + 2].textContent) {
-            winner = true;
-            break;
-          }
-        }
-    
-        // Vertical
-        for (let i = 0; i < 3; i++) {
-          if (squares[i].textContent !== '' &&
-              squares[i].textContent === squares[i + 3].textContent &&
-              squares[i].textContent === squares[i + 6].textContent) {
-            winner = true;
-            break;
-          }
-        }
-    
-        // Diagonal
-        if (squares[0].textContent !== '' &&
-            squares[0].textContent === squares[4].textContent &&
-            squares[0].textContent === squares[8].textContent) {
-          winner = true;
-        }
-    
-        if (squares[2].textContent !== '' &&
-            squares[2].textContent === squares[4].textContent &&
-            squares[2].textContent === squares[6].textContent) {
-          winner = true;
-        }
-    
-        return winner;
-      }
-    
-      function disableBoard() {
-        squares.forEach(square => square.removeEventListener('click', handleSquareClick));
-      }
-    
-      function handleRestartClick() {
-        squares.forEach(square => {
-          square.textContent = '';
-          square.classList.remove('X', 'O');
-        });
-        currentPlayer = 'X';
-        moves = 0;
-        status.textContent = `Turno de ${currentPlayer}`;
-        squares.forEach(square => square.addEventListener('click', handleSquareClick));
-      }
-    
-      squares.forEach(square => square.addEventListener('click', handleSquareClick));
-      restartBtn.addEventListener('click', handleRestartClick);
-    </script>
-    
-    
-
     </body>
   </html>
