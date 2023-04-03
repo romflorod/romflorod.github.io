@@ -67,7 +67,7 @@
       }
     
       ul {
-        margin-bottom: 20px;
+        margin-bottom: 20px;  
       }
     
       li {
@@ -150,7 +150,6 @@
     }
 
     .skill ul {
-      list-style: none;
       margin-bottom: 10px;
     }
 
@@ -158,12 +157,52 @@
       font-size: 18px;
       line-height: 1.5;
       transition: all 0.3s ease-in-out;
+
     }
 
     .skill li:hover {
       color: #ff6f61;
       transform: scale(1.1);
     }
+    #skills-list li {
+  list-style: none;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  background-image: url('tools.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: left center;
+  padding-left: 50px;
+}
+
+#skills-list img {
+  margin-right: 30px;
+}
+
+#skills-list div {
+  margin-left: auto;
+  justify-content: flex-end; /* Alineación a la derecha */
+  background-color: rgba(54, 162, 235, 0.2);
+  width: 120px;
+  height: 20px;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+#skills-list div div {
+  margin-left: auto;
+  justify-content: flex-end; /* Alineación a la derecha */
+  background-color: rgba(54, 162, 235, 1);
+  height: 100%;
+}
+#skills-list div:nth-child(2) {
+  margin-right: 10px;
+}
+
+
+
+
 
     /* Juego de la serpiente */
     #canvas {
@@ -288,15 +327,17 @@
       <button style="display: block; margin: 10px auto;" onclick="window.location.href='mailto:romanflodriguez13@gmail.com'">¡Contáctame!</button>
       <br>  
       <h3>Habilidades destacadas</h3>
-      <ul>
-          <li>Java
+      <ul id="skills-list">
+        
+
+        <li>Java
             <div style="background-color: rgba(54, 162, 235, 0.2); width: 100px; height: 20px; display: inline-block;">
               <div style="background-color: rgba(54, 162, 235, 1); width: 90%; height: 100%;"></div>
             </div>
           </li>
           <li>Python
             <div style="background-color: rgba(54, 162, 235, 0.2); width: 100px; height: 20px; display: inline-block;">
-              <div style="background-color: rgba(54, 162, 235, 1); width: 100%; height: 100%;"></div>
+              <div style="background-color: rgba(54, 162, 235, 1); width: 100%; height: 100%;"></div> 
             </div>
           </li>
           <li>HTML
@@ -314,7 +355,7 @@
               <div style="background-color: rgba(54, 162, 235, 1); width: 60%; height: 100%;"></div>
             </div>
           </li>
-          <li>Bases de datos SQL y NoSQL
+          <li>DDBB SQL & NoSQL
             <div style="background-color: rgba(54, 162, 235, 0.2); width: 100px; height: 20px; display: inline-block;">
               <div style="background-color: rgba(54, 162, 235, 1); width: 100%; height: 100%;"></div>
             </div>
