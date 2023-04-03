@@ -5,6 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Román Flores Rodríguez - Programador Fullstack</title>
     <style>
+          /* Enlaces */
+        a {
+        position: relative;
+        text-decoration: none;
+        color: #333;
+        font-size: 1.2rem;
+        padding: -259px;
+        background-color: #eee;
+        border: 1px solid #333;
+        color: #666;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        }
+
+        a::before {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0%;
+        height: 2px;
+        background-color: #333;
+        transition: width 0.3s ease-in-out;
+        }
+
+        a:hover::before {
+        width: 100%;
+        }
+
+      
       /* Estilos globales */
       * {
         box-sizing: border-box;
@@ -303,9 +333,10 @@
       </section>
       <section>
         <h3>Accede a juegos hechos por mí en HTML</h3>
-          <a href="juegos.html" target="_blank">Jugar</a>
-        </div>
+        <P></P>
+        <button onclick="window.open('juegos.html', '_blank')">Jugar</button>
       </section>
+      
       <footer>
         <p>&copy; 2023 Román Flores Rodríguez - Página de GitHub</p>
       </footer>

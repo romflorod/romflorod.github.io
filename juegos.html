@@ -4,6 +4,34 @@
     <meta charset="UTF-8">
     <title>Juegos</title>
     <style>
+      /* Enlaces */
+      a {
+      position: relative;
+      text-decoration: none;
+      color: #333;
+      font-size: 1.2rem;
+      padding: 1px;
+      background-color: #eee;
+      border: 1px solid #333;
+      color: #666;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      }
+
+      a::before {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background-color: #333;
+      transition: width 0.3s ease-in-out;
+      }
+
+      a:hover::before {
+      width: 100%;
+      }
       /* Estilos globales */
       * {
         box-sizing: border-box;
@@ -87,7 +115,7 @@
       <h1>Juegos</h1>
     </header>
     <section>
-      <p>¡Bienvenido a nuestra página de juegos! Aquí encontrarás una variedad de juegos divertidos para jugar.</p>
+      <p>¡Bienvenido a mí página de juegos! Aquí encontrarás una variedad de juegos divertidos para jugar.</p>
       <ul>
         <li><a href="tetris.html">Tetris</a></li>
         <li><a href="serpiente.html">Serpiente</a></li>
