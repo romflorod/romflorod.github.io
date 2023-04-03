@@ -89,76 +89,121 @@
     </div>
   </section>
   <script>
-    var canvas = document.getElementById("canvas");
-    var ctx = canvas.getContext("2d");
-
-    var gridSize = 20;
-    var gridWidth = canvas.width / gridSize;
-    var gridHeight = canvas.height / gridSize;
-
-    var snake = {
+  var canvas = document.getElementById("canvas");
+  var ctx = canvas.getContext("2d");
+  var score = 0;
+  var gridSize = 20;
+  var gridWidth = canvas.width / gridSize;
+  var gridHeight = canvas.height / gridSize;
+  
+  var snake = {
     body: [{x: 4, y: 4}],
     direction: {x: 1, y: 0}
-    };
-
-    var food = {
+  };
+  
+  var food = {
     x: Math.floor(Math.random() * gridWidth),
     y: Math.floor(Math.random() * gridHeight)
-    };
+  };
+  
+  var snakeSize = 1;
+  
+  function drawSnake() {
+  ctx.fillStyle = "#333";
+  for (var i = 0; i < snake.body.length; i++) {
+    var segment = snake.body[i];
+    ctx.fillRect(segment.x * gridSize, segment.y * gridSize, gridSize, gridSize);
+  }
+  ctx.fillStyle = "red";
+  ctx.font = "12px Arial";
+  ctx.clearRect(0, canvas.height - 20, canvas.width, 20); // Limpiar el área donde se dibuja el texto
+  ctx.fillText(score, 10, canvas.height - 10);
+}
 
-    var snakeSize = 1;
 
-    function drawSnake() {
-    ctx.fillStyle = "#333";
-    for (var i = 0; i < snake.body.length; i++) {
-        var segment = snake.body[i];
-        ctx.fillRect(segment.x * gridSize, segment.y * gridSize, gridSize, gridSize);
-    }
-    }
+  
+  function moveSnake() {
+  var head = {x: snake.body[0].x + snake.direction.x, y: snake.body[0].y + snake.direction.y};
 
-    function moveSnake() {
-    var head = {x: snake.body[0].x + snake.direction.x, y: snake.body[0].y + snake.direction.y};
-    if (head.x == food.x && head.y == food.y) {
-        food.x = Math.floor(Math.random() * gridWidth);
-        food.y = Math.floor(Math.random() * gridHeight);
-        snake.body.unshift(head);
-        snakeSize++;
-    } else {
-        snake.body.pop();
-        snake.body.unshift(head);
+  // verificar si la cabeza de la serpiente se ha chocado consigo misma
+  for (var i = 1; i < snake.body.length; i++) {
+    if (head.x === snake.body[i].x && head.y === snake.body[i].y) {
+      // reiniciar la partida
+      snake.body = [{x: 4, y: 4}];
+      snake.direction = {x: 1, y: 0};
+      snakeSize = 1;
+      food.x = Math.floor(Math.random() * gridWidth);
+      food.y = Math.floor(Math.random() * gridHeight);
+      // limpiar el canvas
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      return;
     }
-    }
+  }
 
-    function drawFood() {
+  if (head.x < 0 || head.x >= gridWidth || head.y < 0 || head.y >= gridHeight) {
+    // reiniciar la partida
+    snake.body = [{x: 4, y: 4}];
+    snake.direction = {x: 1, y: 0};
+    snakeSize = 1;
+    food.x = Math.floor(Math.random() * gridWidth);
+    food.y = Math.floor(Math.random() * gridHeight);
+    // limpiar el canvas
+    score=0
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  } else if (head.x === food.x && head.y === food.y) {
+    food.x = Math.floor(Math.random() * gridWidth);
+    food.y = Math.floor(Math.random() * gridHeight);
+    snake.body.unshift(head);
+    snakeSize++;
+    score++; // Agregar esta línea para incrementar el puntaje
+  } else {
+    var tail = snake.body.pop();
+    ctx.clearRect(tail.x * gridSize, tail.y * gridSize, gridSize, gridSize);
+    snake.body.unshift(head);
+  }
+}
+
+
+  function drawFood() {
     ctx.fillStyle = "#f00";
     ctx.fillRect(food.x * gridSize, food.y * gridSize, gridSize, gridSize);
-    }
-
-    function update() {
+  }
+  
+  function update() {
     moveSnake();
     drawSnake();
     drawFood();
-    }
-
-    document.addEventListener("keydown", function(event) {
-    switch (event.keyCode) {
-        case 37: // left arrow
+  }
+  
+  document.addEventListener("keydown", function(event) {
+  switch (event.keyCode) {
+    case 37: // left arrow
+      if (snake.direction.x !== 1) {
         snake.direction = {x: -1, y: 0};
-        break;
-        case 38: // up arrow
+      }
+      break;
+    case 38: // up arrow
+      if (snake.direction.y !== 1) {
         snake.direction = {x: 0, y: -1};
-        break;
-        case 39: // right arrow
+      }
+      break;
+    case 39: // right arrow
+      if (snake.direction.x !== -1) {
         snake.direction = {x: 1, y: 0};
-        break;
-        case 40: // down arrow
+      }
+      break;
+    case 40: // down arrow
+      if (snake.direction.y !== -1) {
         snake.direction = {x: 0, y: 1};
-        break;
-    }
-    });
+      }
+      break;
+  }
+});
 
-    setInterval(update, 100);
-
-    </script>
+  
+  setInterval(update, 100);
+  
+  
+      </script>
   </body>
 </html>
