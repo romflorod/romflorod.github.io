@@ -1,8 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
+  <title>Tetris</title>
   <style>
+    header {
+      background-color: #333;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+    }
+    
+    header h1 {
+      margin: 0;
+    }
+    
+    header button {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+    
+    section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: calc(100vh - 70px);
+    }
+    
+    .game {
+      background-color: #f7f7f7;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      width: 80%;
+      max-width: 600px;
+    }
+    
+    .game h3 {
+      margin-top: 0;
+    }
+    
   html, body {
     height: 100%;
     margin: 0;
@@ -20,7 +67,10 @@
   }
   </style>
 </head>
-<body>
+<body>  
+  <header>
+    <button onclick="window.location.href = 'https://romflorod.github.io/juegos.html'">Ver más</button>
+  </header>
 <canvas width="320" height="640" id="game"></canvas>
 <script>
 // https://tetris.fandom.com/wiki/Tetris_Guideline

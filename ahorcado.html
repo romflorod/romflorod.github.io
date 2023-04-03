@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Serpiente</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+    
+    header {
+      background-color: #333;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+    }
+    
+    header h1 {
+      margin: 0;
+    }
+    
+    header button {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+    
+    section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: calc(100vh - 70px);
+    }
+    
+    .game {
+      background-color: #f7f7f7;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      width: 80%;
+      max-width: 600px;
+    }
+    
+    .game h3 {
+      margin-top: 0;
+    }
+    
+    #canvas {
+      border: 1px solid #333;
+      margin: 10px 0;
+    }
+    
+    @media (max-width: 768px) {
+      section {
+        padding: 10px;
+      }
+    
+      .game {
+        margin: 10px 0;
+      }
+    
+      .skill {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Juegos</h1>
+    <button onclick="window.location.href = 'https://romflorod.github.io/juegos.html'">Ver más</button>
+  </header>
+  <section>   
+        <div class="game">
+            <h3>Ahorcado</h3>
+            <p>Intenta adivinar la palabra oculta:</p>
+            <p id="display-word"></p>
+            <p id="display-guesses"></p>
+            <form id="form">
+            <input type="text" id="input" autocomplete="off" />
+            <button type="submit" id="submit">Enviar</button>
+            </form>
+        </div>
+        <script>
+        // Palabras a adivinar
+        const words = ['claudia','programacion', 'javascript', 'html', 'css', 'python','roman','flores','rodriguez','practicas','ordenador','github','agile','scrum',
+        'teletrabajo','django'];
+
+        // Palabra a adivinar
+        let word;
+
+        // Número de intentos
+        let guesses = 6;
+
+        // Letras adivinadas
+        let guessedLetters = [];
+
+        // Selección de elementos HTML
+        const displayWord = document.getElementById('display-word');
+        const displayGuesses = document.getElementById('display-guesses');
+        const form = document.getElementById('form');
+        const input = document.getElementById('input');
+        const submit = document.getElementById('submit');
+
+        // Función para elegir una palabra al azar de la lista de palabras
+        function chooseWord() {
+          word = words[Math.floor(Math.random() * words.length)];
+        }
+
+        // Función para mostrar la palabra oculta y las letras adivinadas
+        function display() {
+          let displayString = '';
+          for (let letter of word) {
+            if (guessedLetters.includes(letter)) {
+              displayString += letter + ' ';
+            } else {
+              displayString += '_ ';
+            }
+          }
+          displayWord.textContent = displayString;
+          displayGuesses.textContent = `Número de intentos: ${guesses}`;
+        }
+
+        // Función para manejar el envío del formulario
+        function handleSubmit(e) {
+          e.preventDefault();
+          let guess = input.value.toLowerCase();
+          if (!guess.match(/^[a-z]$/)) {
+            alert('Por favor ingrese una letra válida.');
+          } else if (guessedLetters.includes(guess)) {
+            alert('Ya ha adivinado esa letra. Por favor ingrese otra.');
+          } else if (word.includes(guess)) {
+            guessedLetters.push(guess);
+            display();
+            if (word.split('').every(letter => guessedLetters.includes(letter))) {
+              alert(`¡Felicidades, adivinaste la palabra "${word}"!`);
+              reset();
+            }
+          } else {
+            guesses--;
+            display();
+            if (guesses === 0) {
+              alert(`Lo siento, no adivinaste la palabra "${word}".`);
+              reset();
+            }
+          }
+          input.value = '';
+        }
+
+        // Función para reiniciar el juego
+        function reset() {
+          chooseWord();
+          guessedLetters = [];
+          guesses = 6;
+          display();
+        }
+
+        // Configuración inicial del juego
+        chooseWord();
+        display();
+        form.addEventListener('submit', handleSubmit);
+    </script>
