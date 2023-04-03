@@ -274,13 +274,13 @@
     }
 
     .status {
-      margin-top: 20px;
-      font-size: 24px;
-      font-weight: bold;
-      text-align: center;
-      opacity: 0;
-      transition: opacity 0.3s ease-in-out;
-    }
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
 
     .status.show {
       opacity: 1;
@@ -290,12 +290,10 @@
       margin-top: 20px;
       padding: 10px 20px;
       font-size: 18px;
-      background-color: #333;
+      background-color: #47bd6e;
       color: #fff;
-      border: none;
       border-radius: 5px;
       cursor: pointer;
-      opacity: 0;
       transition: opacity 0.3s ease-in-out;
     }
 
@@ -306,8 +304,7 @@
     .restart-btn:hover {
       background-color: #555;
     }
-
-    
+      
 
     </style>
     
@@ -416,7 +413,7 @@
         </div>
         <div class="tic-tac-toe">
           <h3>Tic-Tac-Toe</h3>
-          <div class="board">
+          <div class="board" style="width: 300px; height: 300px;">
             <div class="square"></div>
             <div class="square"></div>
             <div class="square"></div>
@@ -428,10 +425,10 @@
             <div class="square"></div>
           </div>
           <div class="status"></div>
-          <button class="restart-btn">Restart</button>
+          <button class="restart-btn" style="margin-top: 30px; font-size: 20px; border: 2px solid #333;">Restart</button>
         </div>
         <div class="game">
-          <h3>Accede a mas juegos en html</h3>
+          <h3>Accede a más juegos en HTML</h3>
           <a href="juegos.html" target="_blank">Jugar</a>
         </div>
      
