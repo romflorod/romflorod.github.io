@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Habilidades</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
     <style>
@@ -14,10 +15,37 @@
         max-width: 100%;
         height: auto;
       }
+      .title {
+        text-align: center;
+        margin-top: 2em;
+        margin-bottom: 2em;
+        font-size: 2em;
+        font-weight: bold;
+        color: #5E5E5E;
+      }
+      .btn {
+        display: block;
+        margin: 0 auto;
+        margin-top: 2em;
+        padding: 1em 2em;
+        border-radius: 1em;
+        font-size: 1.2em;
+        font-weight: bold;
+        color: white;
+        background-color: #5E5E5E;
+        text-align: center;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+      }
+      .btn:hover {
+        background-color: #2C2C2C;
+      }
     </style>
   </head>
   <body>
+    <div class="title">Habilidades</div>
     <canvas id="habilidades"></canvas>
+    <a href="https://romflorod.github.io" class="btn">Volver al inicio</a>
     <script>
       var habilidadesConfig = {
         type: 'bar',
@@ -26,14 +54,14 @@
           datasets: [{
             label: 'Habilidades',
             data: [9, 10, 10, 8, 7, 10, 6, 6],
-            backgroundColor: 'rgba(54, 162, 235, 0.2)',
-            borderColor: 'rgba(54, 162, 235, 1)',
+            backgroundColor: ['#F44336', '#E91E63', '#9C27B0', '#673AB7', '#3F51B5', '#2196F3', '#009688', '#4CAF50'],
+            borderColor: ['#F44336', '#E91E63', '#9C27B0', '#673AB7', '#3F51B5', '#2196F3', '#009688', '#4CAF50'],
             borderWidth: 1
           }]
         },
         options: {
           scales: {
-            xAxes: [{
+            x: {
               ticks: {
                 beginAtZero: true,
                 min: 0,
@@ -42,12 +70,12 @@
               },
               barPercentage: 0.4,
               categoryPercentage: 0.5
-            }]
+            }
           }
         }
       };
-      
       var habilidadesChart = new Chart(document.getElementById('habilidades'), habilidadesConfig);
     </script>
   </body>
 </html>
+

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -194,7 +194,9 @@
       color: #ff6f61;
       transform: scale(1.1);
     }
-        #skills-list li {
+       
+/*indexingg*/
+      #skills-list li {
       list-style: none;
       margin-bottom: 20px;
       display: flex;
@@ -205,7 +207,6 @@
       background-position: left center;
       padding-left: 50px;
     }
-
     #skills-list img {
       margin-right: 30px;
     }
@@ -229,7 +230,29 @@
     #skills-list div:nth-child(2) {
       margin-right: 10px;
 }
-    
+  #edulinks li {
+      list-style: none;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      background-image: url('edu.png');
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: left center;
+      padding-left: 50px;
+    }
+    #sociallinks li {
+      list-style: none;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      background-image: url('sociales.png');
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: left center;
+      padding-left: 50px;
+    }
+
 
     /* Estilos para pantallas pequeñas */
     @media (max-width: 768px) {
@@ -318,15 +341,15 @@
       <section>
           <h2>Proyectos de interés</h2>
           <p>Aquí te presento algunos de mis proyectos más interesantes:</p>
-          <ul>
+          <ul id="edulinks">
               <li><a href="https://github.com/romflorod/tfg-2023">TFG 2023</a></li>
               <li><a href="https://github.com/ISPP-G7/bart">BART</a></li>
           </ul>
       </section>
       <section>
             <h2>Redes sociales profesionales</h2>
-          <ul>
-            <li><a href="https://www.linkedin.com/in/roman-flores-6856ba268">LinkedIn</a></li>
+            <ul id="sociallinks">
+              <li><a href="https://www.linkedin.com/in/roman-flores-6856ba268">LinkedIn</a></li>
             <li><a href="https://twitter.com/romanflodriguez">Twitter</a></li>
             <li><a href="https://github.com/romflorod">GitHub</a></li>
           </ul>
