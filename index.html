@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Román Flores Rodríguez - Programador Fullstack</title>
+    <img class="fondo2" src="fondoindex.svg" alt="">
+
     <style>
           /* Enlaces */
         a {
@@ -49,10 +51,20 @@
         background-color: #fff;
         color: #333;        
         margin: 0;
-        background-image: url('fondogif.gif');
-        animation: animacion-fondo 10s ease-in-out infinite;
-        background-size: cover;
+       
       }
+      .fondo{
+      position:absolute;
+      width: 120%;
+      z-index: -4;
+      background-size: cover;
+    }
+      .fondo2{
+        position:absolute;
+        width: 110%;
+        z-index: -4;
+      }
+
       
     
       /* Encabezado */
@@ -309,7 +321,7 @@
         to {
           opacity: 1;
         }
-      }
+        }
     
       
 
@@ -318,6 +330,7 @@
     
   </head>
   <body>
+    <img class="fondo" src="fondoindex.svg" alt="">
     <header>
       <h1>Román Flores Rodríguez</h1>
     </header>
