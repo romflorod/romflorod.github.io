@@ -41,8 +41,11 @@
   
       body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #f8f8f8;
+        background-color: #abe0e9;
         margin: 0;
+        background-image: url('juegosgif.gif');
+        animation: animacion-fondo 10s ease-in-out infinite;
+        background-size: cover;
       }
   
       /* Encabezado */
@@ -107,7 +110,19 @@
         font-size: 18px;
         line-height: 1.5;
         margin-bottom: 10px;
-      }            
+      }   
+     #gamelist li {
+  list-style: none;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  background-image: url('juegos.png');
+  background-repeat: no-repeat;
+  background-size: 100px 100px;
+  background-position: left center;
+  padding-left: 100px;
+}
+     
     </style>
   </head>
   <body>
@@ -116,7 +131,7 @@
     </header>
     <section>
       <p>¡Bienvenido a mí página de juegos! Aquí encontrarás una variedad de juegos divertidos para jugar.</p>
-      <ul>
+      <ul id="gamelist">
         <li><a href="tetris.html">Tetris</a></li>
         <li><a href="serpiente.html">Serpiente</a></li>
         <li><a href="adivinarnumero.html">Adivinar un numero</a></li>
