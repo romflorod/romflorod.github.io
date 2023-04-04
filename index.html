@@ -185,12 +185,17 @@
       font-size: 24px;
       margin-bottom: 10px;
     }
+    .skills .skill li {
+      max-height: 25px;
+      }
+
 
     .skill ul {
       margin-bottom: 10px;
     }
 
     .skill li {
+      max-height: 25px;
       font-size: 18px;
       line-height: 1.5;
       transition: all 0.3s ease-in-out;
@@ -201,6 +206,23 @@
       color: #ff6f61;
       transform: scale(1.1);
     }
+    .skill li span {
+    display: inline-block;
+    width: 100px;
+    height: 25px;
+    background-color: #ccc;
+    border-radius: 10px;
+    }
+    .skill li span.html {
+      width: 90%;
+    }
+    .skill li span.css {
+      width: 80%;
+    }
+    .skill li span.js {
+      width: 70%;
+    }
+
        
 /*indexingg*/
       #skills-list li {
@@ -275,7 +297,20 @@
         width: 100%;
       }
     }
+    /*animaciones*/
+    .animate {
+      animation: fade-in 1s ease-in;
+      }
 
+      @keyframes fade-in {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+    
       
 
     </style>
@@ -288,7 +323,7 @@
     </header>
     <section>
       <h2>¡Bienvenido!</h2>
-      <p>Soy Román Flores Rodríguez, un programador fullstack experto en Java, Python, HTML, CSS y todo tipo de bases de datos (SQL y NoSQL). También tengo experiencia en inteligencia artificial, con habilidades en machine learning y deep learning. Actualmente estoy en mi último año de ingeniería de software y llevo programando más de 8 años. Si necesitas un programador con estas habilidades, no dudes en ponerte en contacto conmigo.</p>
+      <p class="animate">¡Hola! Soy un programador fullstack con más de 8 años de experiencia en el desarrollo de aplicaciones. Tengo habilidades en lenguajes como Java y Python, así como experiencia en el desarrollo web con HTML y CSS. Además, estoy familiarizado con bases de datos tanto SQL como NoSQL y también tengo experiencia en inteligencia artificial, específicamente en machine learning y deep learning. Actualmente estoy en mi último año de ingeniería de software y siempre estoy buscando nuevos desafíos para continuar mejorando mi habilidades como programador. Si necesitas un desarrollador con experiencia en estas áreas, no dudes en contactarme. ¡Estoy emocionado de trabajar contigo!</p>
       <div style="width: 150px; height: 150px; margin: 0 auto; overflow: hidden; border-radius: 50%;">
           <img src="1.jpeg" alt="Imagen personal" style="width: 100%; height: auto;">
       </div>
@@ -310,17 +345,17 @@
             </div>
           </li>
           <li>HTML
-            <div style="background-color: rgba(54, 162, 235, 0.2); width: 80px; height: 20px; display: inline-block;">
+            <div style="background-color: rgba(54, 162, 235, 0.2); width: 100px; height: 20px; display: inline-block;">
               <div style="background-color: rgba(54, 162, 235, 1); width: 80%; height: 100%;"></div>
             </div>
           </li>
           <li>CSS
-            <div style="background-color: rgba(54, 162, 235, 0.2); width: 80px; height: 20px; display: inline-block;">
+            <div style="background-color: rgba(54, 162, 235, 0.2); width: 100px; height: 20px; display: inline-block;">
               <div style="background-color: rgba(54, 162, 235, 1); width: 70%; height: 100%;"></div>
             </div>
           </li>
           <li>JavaScript
-            <div style="background-color: rgba(54, 162, 235, 0.2); width: 70px; height: 20px; display: inline-block;">
+            <div style="background-color: rgba(54, 162, 235, 0.2); width: 100px; height: 20px; display: inline-block;">
               <div style="background-color: rgba(54, 162, 235, 1); width: 60%; height: 100%;"></div>
             </div>
           </li>
@@ -330,12 +365,12 @@
             </div>
             </li>
             <li>Machine learning
-            <div style="background-color: rgba(54, 162, 235, 0.2); width: 70px; height: 20px; display: inline-block;">
+            <div style="background-color: rgba(54, 162, 235, 0.2); width: 100px; height: 20px; display: inline-block;">
             <div style="background-color: rgba(54, 162, 235, 1); width: 50%; height: 100%;"></div>
             </div>
             </li>
             <li>Deep learning
-            <div style="background-color: rgba(54, 162, 235, 0.2); width: 60px; height: 20px; display: inline-block;">
+            <div style="background-color: rgba(54, 162, 235, 0.2); width: 100px; height: 20px; display: inline-block;">
             <div style="background-color: rgba(54, 162, 235, 1); width: 40%; height: 100%;"></div>
             </div>
             </li>
