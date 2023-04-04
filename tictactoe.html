@@ -78,9 +78,11 @@
         transition: background-color 0.3s ease-in-out;
         }
 
-        .square:hover {
-        background-color: #eee;
+        .status.show {
+        opacity: 1;
+        pointer-events: all;
         }
+
 
         .status {
         position: absolute; /* añadido */
@@ -158,18 +160,20 @@
             e.target.textContent = currentPlayer;
             e.target.classList.add(currentPlayer);
             moves++;
-        
+
             if (checkForWinner()) {
                 status.textContent = `¡${currentPlayer} ha ganado!`;
+                status.classList.add('show'); // Muestra el elemento status
                 disableBoard();
             } else if (moves === 9) {
                 status.textContent = `¡Empate!`;
+                status.classList.add('show'); // Muestra el elemento status
             } else {
                 currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
                 status.textContent = `Turno de ${currentPlayer}`;
             }
             }
-        
+
             function checkForWinner() {
             let winner = false;
         
