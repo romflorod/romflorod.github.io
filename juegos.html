@@ -41,9 +41,9 @@
   
       body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #abe0e9;
+        background-color: #ffffff;
         margin: 0;
-        background-image: url('juegosgif.gif');
+        background-image: url('fondojuegos.gif');
         animation: animacion-fondo 10s ease-in-out infinite;
         background-size: cover;
       }
@@ -64,22 +64,22 @@
       }
   
       button {
-        padding: 10px;
-        font-size: 18px;
-        background-color: #ff6f61;
-        color: #fff;
-        border: none;
-        cursor: pointer;
-        justify-content: center;
-        border-radius: 20px;
-        transition: background-color 0.3s ease-in-out;
-        box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
-        margin-top: 20px;
-      }
-  
-      button:hover {
-        background-color: #e85a4f;
-      }
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #ff6f61;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 20px;
+      box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
+      transition: background-color 0.3s ease-in-out;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #e85a4f;
+    }
+
   
       h1 {
         margin: 0;
@@ -111,17 +111,47 @@
         line-height: 1.5;
         margin-bottom: 10px;
       }   
-     #gamelist li {
+      #gamelist li {
   list-style: none;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   display: flex;
   align-items: center;
   background-image: url('juegos.png');
   background-repeat: no-repeat;
-  background-size: 100px 100px;
+  background-size: 50px 50px;
   background-position: left center;
-  padding-left: 100px;
+  padding-left: 90px; /* eliminar el espacio entre el valor y la unidad de medida */
 }
+
+#gamelist a {
+  position: relative;
+  text-decoration: none;
+  color: #333;
+  font-size: 1.2rem;
+  padding: 1px;
+  background-color: #eee;
+  border: 1px solid #333;
+  color: #666;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+#gamelist a::before {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #333;
+  transition: width 0.3s ease-in-out;
+}
+
+#gamelist a:hover::before {
+  width: 100%;
+}
+
+
      
     </style>
   </head>

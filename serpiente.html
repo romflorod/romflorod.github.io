@@ -109,15 +109,15 @@
   var snakeSize = 1;
   
   function drawSnake() {
+  ctx.clearRect(0, canvas.height - 20, canvas.width, 20); // Limpiar el área donde se dibuja el texto
+  ctx.fillStyle = "red";
+  ctx.font = "12px Arial";
+  ctx.fillText(score, 10, canvas.height - 10);
   ctx.fillStyle = "#333";
   for (var i = 0; i < snake.body.length; i++) {
     var segment = snake.body[i];
     ctx.fillRect(segment.x * gridSize, segment.y * gridSize, gridSize, gridSize);
   }
-  ctx.fillStyle = "red";
-  ctx.font = "12px Arial";
-  ctx.clearRect(0, canvas.height - 20, canvas.width, 20); // Limpiar el área donde se dibuja el texto
-  ctx.fillText(score, 10, canvas.height - 10);
 }
 
 
