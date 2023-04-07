@@ -341,15 +341,18 @@
       <div style="width: 150px; height: 150px; margin: 0 auto; overflow: hidden; border-radius: 50%;">
           <img src="1.jpeg" alt="Imagen personal" style="width: 100%; height: auto;">
       </div>
-      <?php
-        // Obtener la dirección IP del usuario
-        $ip = $_SERVER['REMOTE_ADDR'];
-        ?>
-
-        <p>Su dirección IP es: <?php echo $ip; ?></p>
-
       <br>
       <button style="display: block; margin: 10px auto;" onclick="window.location.href='mailto:romanflodriguez13@gmail.com'">¡Contáctame!</button>
+      <br>
+      <br>
+      <br>
+      <p id="ip"></p>
+
+      <script>
+          fetch('https://api.ipify.org?format=json')
+              .then(response => response.json())
+              .then(data => document.getElementById('ip').innerHTML = `Su dirección IP es: ${data.ip}`);
+      </script>
       <br>  
       <h3>Habilidades destacadas</h3>
       <ul id="skills-list">
