@@ -358,47 +358,106 @@
       <h3>Habilidades destacadas</h3>
       <ul id="skills-list">
         <li></li>
-
         <li>Java
-            <div style="background-color: rgba(54, 162, 235, 0.2); width: 100px; height: 20px; display: inline-block;">
-              <div style="background-color: rgba(54, 162, 235, 1); width: 90%; height: 100%;"></div>
-            </div>
-          </li>
-          <li>Python
-            <div style="background-color: rgba(54, 162, 235, 0.2); width: 100px; height: 20px; display: inline-block;">
-              <div style="background-color: rgba(54, 162, 235, 1); width: 100%; height: 100%;"></div> 
-            </div>
-          </li>
-          <li>HTML
-            <div style="background-color: rgba(54, 162, 235, 0.2); width: 100px; height: 20px; display: inline-block;">
-              <div style="background-color: rgba(54, 162, 235, 1); width: 80%; height: 100%;"></div>
-            </div>
-          </li>
-          <li>CSS
-            <div style="background-color: rgba(54, 162, 235, 0.2); width: 100px; height: 20px; display: inline-block;">
-              <div style="background-color: rgba(54, 162, 235, 1); width: 70%; height: 100%;"></div>
-            </div>
-          </li>
-          <li>JavaScript
-            <div style="background-color: rgba(54, 162, 235, 0.2); width: 100px; height: 20px; display: inline-block;">
-              <div style="background-color: rgba(54, 162, 235, 1); width: 60%; height: 100%;"></div>
-            </div>
-          </li>
-          <li>DDBB SQL & NoSQL
-            <div style="background-color: rgba(54, 162, 235, 0.2); width: 100px; height: 20px; display: inline-block;">
-              <div style="background-color: rgba(54, 162, 235, 1); width: 100%; height: 100%;"></div>
-            </div>
-            </li>
-            <li>Machine learning
-            <div style="background-color: rgba(54, 162, 235, 0.2); width: 100px; height: 20px; display: inline-block;">
-            <div style="background-color: rgba(54, 162, 235, 1); width: 50%; height: 100%;"></div>
-            </div>
-            </li>
-            <li>Deep learning
-            <div style="background-color: rgba(54, 162, 235, 0.2); width: 100px; height: 20px; display: inline-block;">
-            <div style="background-color: rgba(54, 162, 235, 1); width: 40%; height: 100%;"></div>
-            </div>
-            </li>
+          <div style="background-color: rgba(54, 162, 235, 0.2); width: 100px; height: 20px; display: inline-block;">
+            <div class="java-bar" style="background-color: rgba(54, 162, 235, 1); width: 0%; height: 100%;"></div>
+          </div>
+        </li>
+        <li>Python
+          <div style="background-color: rgba(54, 162, 235, 0.2); width: 100px; height: 20px; display: inline-block;">
+            <div class="python-bar" style="background-color: rgba(54, 162, 235, 1); width: 0%; height: 100%;"></div> 
+          </div>
+        </li>
+        <li>HTML
+          <div style="background-color: rgba(54, 162, 235, 0.2); width: 100px; height: 20px; display: inline-block;">
+            <div class="html-bar" style="background-color: rgba(54, 162, 235, 1); width: 0%; height: 100%;"></div>
+          </div>
+        </li>
+        <li>CSS
+          <div style="background-color: rgba(54, 162, 235, 0.2); width: 100px; height: 20px; display: inline-block;">
+            <div class="css-bar" style="background-color: rgba(54, 162, 235, 1); width: 0%; height: 100%;"></div>
+          </div>
+        </li>
+        <li>JavaScript
+          <div style="background-color: rgba(54, 162, 235, 0.2); width: 100px; height: 20px; display: inline-block;">
+            <div class="javascript-bar" style="background-color: rgba(54, 162, 235, 1); width: 0%; height: 100%;"></div>
+          </div>
+        </li>
+        <li>DDBB SQL & NoSQL
+          <div style="background-color: rgba(54, 162, 235, 0.2); width: 100px; height: 20px; display: inline-block;">
+            <div class="ddbb-bar" style="background-color: rgba(54, 162, 235, 1); width: 0%; height: 100%;"></div>
+          </div>
+        </li>
+        <li>Machine learning
+          <div style="background-color: rgba(54, 162, 235, 0.2); width: 100px; height: 20px; display: inline-block;">
+            <div class="machine-learning-bar" style="background-color: rgba(54, 162, 235, 1); width: 0%; height: 100%;"></div>
+          </div>
+        </li>
+        <li>Deep learning
+          <div style="background-color: rgba(54, 162, 235, 0.2); width: 100px; height: 20px; display: inline-block;">
+            <div class="deep-learning-bar" style="background-color: rgba(54, 162, 235, 1); width: 0%; height: 100%;"></div>
+          </div>
+        </li>
+        <script>
+          // Obtener todas las barras
+        const javaBar = document.querySelector('.java-bar');
+        const pythonBar = document.querySelector('.python-bar');
+        const htmlBar = document.querySelector('.html-bar');
+        const cssBar = document.querySelector('.css-bar');
+        const javascriptBar = document.querySelector('.javascript-bar');
+        const ddbbBar = document.querySelector('.ddbb-bar');
+        const machineLearningBar = document.querySelector('.machine-learning-bar');
+        const deepLearningBar = document.querySelector('.deep-learning-bar');
+
+        // Establecer la duración de la animación en milisegundos
+        const duration = 2000;
+
+        // Establecer el valor final de cada barra
+        const javaValue = 100;
+        const pythonValue = 100;
+        const htmlValue = 100;
+        const cssValue = 75;
+        const javascriptValue = 80;
+        const ddbbValue = 100;
+        const machineLearningValue = 70;
+        const deepLearningValue = 60;
+
+        // Función para animar la barra
+        function animateBar(bar, finalValue) {
+          // Calcular el incremento para cada iteración
+          const increment = finalValue / (duration / 10);
+
+          // Establecer el valor inicial en cero
+          let currentValue = 0;
+
+          // Crear un intervalo que se ejecuta cada 10 milisegundos
+          const interval = setInterval(() => {
+            // Incrementar el valor actual
+            currentValue += increment;
+
+            // Verificar si se ha alcanzado el valor final
+            if (currentValue >= finalValue) {
+              // Establecer el valor final y detener el intervalo
+              bar.style.width = `${finalValue}%`;
+              clearInterval(interval);
+            } else {
+              // Actualizar el ancho de la barra con el valor actual
+              bar.style.width = `${currentValue}%`;
+            }
+          }, 10);
+        }
+
+        // Animar cada barra con su valor final correspondiente
+        animateBar(javaBar, javaValue);
+        animateBar(pythonBar, pythonValue);
+        animateBar(htmlBar, htmlValue);
+        animateBar(cssBar, cssValue);
+        animateBar(javascriptBar, javascriptValue);
+        animateBar(ddbbBar, ddbbValue);
+        animateBar(machineLearningBar, machineLearningValue);
+        animateBar(deepLearningBar, deepLearningValue);
+
+        </script>
             <a href="habilidadespersonales.html">Vea gráfico responsivo de habilidades personales</a>
 
         </ul>
