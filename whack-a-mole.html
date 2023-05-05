@@ -134,6 +134,42 @@
 		  transform: scale(1.1);
 		}
 	  }
+	  button {
+		padding: 10px 20px;
+		border-radius: 5px;
+		font-size: 16px;
+		font-weight: bold;
+		color: #fff;
+		border: none;
+		cursor: pointer;
+		transition: background-color 0.3s ease;
+	  }
+	  
+	  button:hover {
+		background-color: #3e8e41;
+	  }
+	  
+	  button:focus {
+		outline: none;
+	  }
+	  
+	  button.easy {
+		background-color: #4CAF50;
+	  }
+	  
+	  button.medium {
+		background-color: #FFC107;
+	  }
+	  
+	  button.hard {
+		background-color: #f44336;
+	  }
+	  
+	  button.reset {
+		background-color: #ccc;
+		color: #000;
+	  }
+	  
 	  
 	
 	</style>
@@ -147,6 +183,14 @@
 
 	<h3>Whack-a-Mole</h3>
 	<p>CLICK RESETTI (10)</p>
+	<div>
+		<button onclick="setSpeed('easy')" style="background-color: #28a745;">Fácil</button>
+		<button onclick="setSpeed('medium')" style="background-color: #ffc107;">Medio</button>
+		<button onclick="setSpeed('hard')" style="background-color: #dc3545;">Experto</button>
+		
+
+	  </div>
+	  
 	<br>
 	<hr>
 
@@ -201,7 +245,10 @@
 			<div class="mole"></div>
 		</div>
 	</div>
+	
 	<div id="score">Score: 0</div>
+	<button onclick="resetGame()" style="background-color: #6c757d;">Reset</button>
+
 	</section>
 
 	<script>
@@ -227,6 +274,19 @@
 				}
 			}, 1000);
 		}
+		function setSpeed(speed) {
+  if (speed === 'easy') {
+	score = 0;
+	document.getElementById("score").innerHTML = score;    moleSpeed = 1500; // Cambiar a la velocidad fácil
+  } else if (speed === 'medium') {
+	score = 0;
+	document.getElementById("score").innerHTML = score;    moleSpeed = 1000; // Cambiar a la velocidad media
+  } else if (speed === 'hard') {
+	score = reset;
+	document.getElementById("score").innerHTML = score;
+    moleSpeed = 500; // Cambiar a la velocidad difícil
+  }
+}
 
 		function whack(hole) {
 			if (hole.querySelector('.mole').style.visibility === 'visible') {
@@ -253,6 +313,19 @@
 			  // Actualizar el puntaje
 			  document.querySelector('#score').textContent = `Score: ${score}`;
 			}
+		  }
+		  function resetGame() {
+			// Reiniciar el marcador a cero
+			score = 0;
+			document.getElementById("score").innerHTML = score;
+		  
+			// Ocultar todos los topos
+			var moles = document.getElementsByClassName("mole");
+			for (var i = 0; i < moles.length; i++) {
+			  moles[i].style.visibility = "hidden";
+			}
+		  
+		
 		  }
 		  
 		popUp();
