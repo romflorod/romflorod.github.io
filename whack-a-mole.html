@@ -3,38 +3,155 @@
 <head>
 	<title>Whack-a-Mole</title>
 	<style>
-		#game-board {
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: center;
-		}
+		body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+    
+    header {
+      background-color: #333;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+    }
+    
+    header h1 {
+      margin: 0;
+    }
+    
+    header button {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+    
+    section {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: calc(100vh - 70px);
+    }
+    
+    .game {
+      background-color: #f7f7f7;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      width: 80%;
+      max-width: 600px;
+    }
+    
+    .game h3 {
+      margin-top: 0;
+    }
+    
+    #canvas {
+      border: 1px solid #333;
+      margin: 10px 0;
+    }
+    
+    @media (max-width: 768px) {
+      section {
+        padding: 10px;
+      }
+    
+      .game {
+        margin: 10px 0;
+      }
+    
+      .skill {
+        width: 100%;
+      }
+    }
+		
+    #game-board {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+      grid-gap: 10px;
+      justify-items: center;
+      align-items: center;
+    }
 
-		.hole {
-			background-image: url('hole.png');
-			background-size: contain;
-			background-repeat: no-repeat;
-			width: 100px;
-			height: 100px;
-			margin: 10px;
-			position: relative;
-		}
+    .hole {
+      background-image: url('hole.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 100px;
+      height: 100px;
+      position: relative;
+    }
 
-		.mole {
-			background-image: url('topo.png');
-			background-size: contain;
-			background-repeat: no-repeat;
-			width: 100px;
-			height: 100px;
-			position: absolute;
-			top: 0;
-			left: 0;
-			visibility: hidden;
+    .mole {
+      background-image: url('topo.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      visibility: hidden;
+    }
+
+    ::selection {
+      background-color: #4CAF50;
+      color: white;
+    }
+	h3 {
+		font-size: 36px;
+		margin-bottom: 20px;
+	  }
+	  
+	  p {
+		font-size: 24px;
+		margin-bottom: 10px;
+	  }
+	  
+	  #score {
+		font-size: 48px;
+		color: #4CAF50;
+		margin-bottom: 20px;
+		animation: score-pulse 0.5s ease-in-out infinite alternate;
+	  }
+	  
+	  @keyframes score-pulse {
+		from {
+		  transform: scale(1);
 		}
+		to {
+		  transform: scale(1.1);
+		}
+	  }
+	  
+	
 	</style>
 </head>
 <body>
-	<h1>Whack-a-Mole</h1>
+ <header>
+    <h1>Juegos</h1>
+    <button onclick="window.location.href = 'https://romflorod.github.io/juegos.html'">Ver más</button>
+  </header>
+    <section>
+
+	<h3>Whack-a-Mole</h3>
+	<p>CLICK RESETTI (10)</p>
+	<br>
+	<hr>
+
 	<div id="game-board">
+		
 		<div class="hole" onclick="whack(this)">
 			<div class="mole"></div>
 		</div>
@@ -59,11 +176,34 @@
 		<div class="hole" onclick="whack(this)">
 			<div class="mole"></div>
 		</div>
-		<div class="hole" onclick="whack(this)">
+        <div class="hole" onclick="whack(this)">
+			<div class="mole"></div>
+		</div>
+        <div class="hole" onclick="whack(this)">
+			<div class="mole"></div>
+		</div>
+        <div class="hole" onclick="whack(this)">
+			<div class="mole"></div>
+		</div>
+        <div class="hole" onclick="whack(this)">
+			<div class="mole"></div>
+		</div>
+        <div class="hole" onclick="whack(this)">
+			<div class="mole"></div>
+		</div>
+        <div class="hole" onclick="whack(this)">
+			<div class="mole"></div>
+		</div>
+        <div class="hole" onclick="whack(this)">
+			<div class="mole"></div>
+		</div>
+        <div class="hole" onclick="whack(this)">
 			<div class="mole"></div>
 		</div>
 	</div>
 	<div id="score">Score: 0</div>
+	</section>
+
 	<script>
 		let score = 0;
 		let moles = document.querySelectorAll('.mole');
@@ -90,12 +230,31 @@
 
 		function whack(hole) {
 			if (hole.querySelector('.mole').style.visibility === 'visible') {
-				hole.querySelector('.mole').style.visibility = 'hidden';
-				score++;
-				document.querySelector('#score').textContent = `Score: ${score}`;
+			  hole.querySelector('.mole').style.visibility = 'hidden';
+			  score++;
+			  // Mostrar la imagen
+			  const img = document.createElement('img');
+			  img.src = 'topoouch.png';
+			  img.style.position = 'absolute';
+			  img.style.left = hole.offsetLeft + 'px';
+			  img.style.top = hole.offsetTop + 'px';
+			  img.style.width = '50px';
+			  img.style.height = '50px';
+			  img.style.transform = 'translate(-50%, -50%) scale(0.5)';
+			  img.style.transition = 'transform 1s ease-out';
+			  document.body.appendChild(img);
+			  // Ocultar la imagen después de un segundo
+			  setTimeout(() => {
+				img.style.transform = 'translate(-50%, -50%) scale(0)';
+				setTimeout(() => {
+				  img.parentNode.removeChild(img);
+				}, 1000);
+			  }, 1000);
+			  // Actualizar el puntaje
+			  document.querySelector('#score').textContent = `Score: ${score}`;
 			}
-		}
-
+		  }
+		  
 		popUp();
 	</script>
 </body>
