@@ -51,12 +51,12 @@
       var habilidadesConfig = {
         type: 'bar',
         data: {
-          labels: ['Java', 'Python', 'HTML', 'CSS', 'JavaScript', 'Bases de datos SQL y NoSQL', 'Machine learning', 'Deep learning'],
+          labels: ['Java', 'Python', 'HTML', 'CSS', 'JavaScript', 'Bases de datos SQL y NoSQL', 'Machine learning', 'Deep learning', 'Data warehouse', 'Big data'],
           datasets: [{
             label: 'Habilidades',
-            data: [10, 10, 10, 8, 8, 10, 7, 6],
-            backgroundColor: ['#F44336', '#E91E63', '#9C27B0', '#673AB7', '#3F51B5', '#2196F3', '#009688', '#4CAF50'],
-            borderColor: ['#F44336', '#E91E63', '#9C27B0', '#673AB7', '#3F51B5', '#2196F3', '#009688', '#4CAF50'],
+            data: [10, 10, 10, 8, 8, 10, 7, 6, 10, 7],
+            backgroundColor: ['#F44336', '#E91E63', '#9C27B0', '#673AB7', '#3F51B5', '#2196F3', '#009688', '#4CAF50', '#FFC107', '#FF5722'],
+            borderColor: ['#F44336', '#E91E63', '#9C27B0', '#673AB7', '#3F51B5', '#2196F3', '#009688', '#4CAF50', '#FFC107', '#FF5722'],
             borderWidth: 1
           }]
         },
@@ -77,6 +77,7 @@
       };
       var habilidadesChart = new Chart(document.getElementById('habilidades'), habilidadesConfig);
     </script>
+    
   </body>
 </html>
 

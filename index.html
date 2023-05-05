@@ -405,6 +405,16 @@
             <div class="deep-learning-bar" style="background-color: rgba(54, 162, 235, 1); width: 0%; height: 100%;"></div>
           </div>
         </li>
+        <li>Data warehouse
+          <div style="background-color: rgba(54, 162, 235, 0.2); width: 100px; height: 20px; display: inline-block;">
+            <div class="data-warehouse-bar" style="background-color: rgba(54, 162, 235, 1); width: 0%; height: 100%;"></div>
+          </div>
+        </li>
+        <li>Big data
+          <div style="background-color: rgba(54, 162, 235, 0.2); width: 100px; height: 20px; display: inline-block;">
+            <div class="big-data-bar" style="background-color: rgba(54, 162, 235, 1); width: 0%; height: 100%;"></div>
+          </div>
+        </li>
         <script>
           // Obtener todas las barras
         const javaBar = document.querySelector('.java-bar');
@@ -415,6 +425,8 @@
         const ddbbBar = document.querySelector('.ddbb-bar');
         const machineLearningBar = document.querySelector('.machine-learning-bar');
         const deepLearningBar = document.querySelector('.deep-learning-bar');
+        const dataWarehouseBar = document.querySelector('.data-warehouse-bar');
+        const bigDataBar = document.querySelector('.big-data-bar');
 
         // Establecer la duración de la animación en milisegundos
         const duration = 2000;
@@ -428,6 +440,8 @@
         const ddbbValue = 100;
         const machineLearningValue = 70;
         const deepLearningValue = 60;
+        const dataWarehouseValue = 100;
+        const bigdataValue = 70;
 
         // Función para animar la barra
         function animateBar(bar, finalValue) {
@@ -463,6 +477,8 @@
         animateBar(ddbbBar, ddbbValue);
         animateBar(machineLearningBar, machineLearningValue);
         animateBar(deepLearningBar, deepLearningValue);
+        animateBar(dataWarehouseBar, dataWarehouseValue);
+        animateBar(bigDataBar, bigdataValue);
 
         </script>
             <a href="habilidadespersonales.html">Vea gráfico responsivo de habilidades personales</a>
