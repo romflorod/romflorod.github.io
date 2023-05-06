@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <head>
 	<title>Whack-a-Mole</title>
@@ -93,17 +93,51 @@
       position: relative;
     }
 
-    .mole {
-      background-image: url('topo.png');
-      background-size: contain;
-      background-repeat: no-repeat;
-      width: 100px;
-      height: 100px;
-      position: absolute;
-      top: 0;
-      left: 0;
-      visibility: hidden;
-    }
+	.mole {
+		background-image: url('topo.png');
+		background-size: contain;
+		background-repeat: no-repeat;
+		width: 100px;
+		height: 100px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		visibility: hidden;
+		animation-name: mole-appear;
+		animation-duration: 0.3s;
+	  }
+	  
+	  @keyframes mole-appear {
+		0% {
+		  opacity: 0;
+		  transform: scale(0);
+		}
+		50% {
+		  opacity: 1;
+		}
+		100% {
+		  transform: scale(1);
+		}
+	  }
+	  
+	  .mole.hide {
+		animation-name: mole-disappear;
+		animation-duration: 0.3s;
+	  }
+	  
+	  @keyframes mole-disappear {
+		0% {
+		  transform: scale(1);
+		}
+		50% {
+		  opacity: 1;
+		}
+		100% {
+		  opacity: 0;
+		  transform: scale(0);
+		}
+	  }
+	  
 
     ::selection {
       background-color: #4CAF50;
