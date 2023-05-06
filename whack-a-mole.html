@@ -325,8 +325,12 @@
 			  moles[i].style.visibility = "hidden";
 			}
 		  
-		
+			// Esperar un segundo antes de mostrar los topos de nuevo
+			setTimeout(function() {
+			  popUp();
+			}, 1000);
 		  }
+		  
 		  
 		popUp();
 	</script>
