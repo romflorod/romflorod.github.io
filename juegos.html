@@ -93,16 +93,49 @@
   
       h1 {
         margin: 0;
-        font-size: 36px;
+        font-size: 48px;
+        font-weight: bold;
         text-align: center;
-        margin-bottom: 20px;
-        margin-top: 20px;
+        text-transform: uppercase;
+        letter-spacing: 8px;
+        color: #ffffff;
+        text-shadow: 2px 2px 2px #000000;
       }
-  
+      
+    
       h2 {
-        font-size: 24px;
+        font-size: 60px;
+        font-weight: bold;
+        color: #333;
         margin-bottom: 20px;
+        text-shadow: 3px 3px 3px #ccc;
+        animation: title-anim 2s ease-in-out infinite alternate;
       }
+      
+      @keyframes title-anim {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px) rotate(2deg);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+      
+      h3 {
+        font-size: 48px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 10px;
+        border-bottom: 2px solid #ccc;
+        padding-bottom: 5px;
+        text-shadow: 2px 2px 2px #ccc;
+        letter-spacing: 2px;
+        animation: title-anim 2s ease-in-out infinite alternate;
+      }
+      
   
       p {
         font-size: 18px;
@@ -170,7 +203,12 @@
       <h1>Juegos</h1>
     </header>
     <section>
-      <p>¡Bienvenido a mí página de juegos! Aquí encontrarás una variedad de juegos divertidos para jugar.</p>
+      <br>
+      <br>
+      <h3>¡Bienvenido a mí página de juegos! Aquí encontrarás una variedad de juegos divertidos para jugar.</h3>
+      <br>
+      <br>
+
       <ul id="gamelist">
         <li><a href="tetris.html">Tetris</a></li>
         <li><a href="serpiente.html">Serpiente</a></li>

@@ -118,14 +118,62 @@
     
       h1 {
         margin: 0;
-        font-size: 36px;
+        font-size: 48px;
+        font-weight: bold;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 8px;
+        color: #ffffff;
+        text-shadow: 2px 2px 2px #000000;
       }
+      
     
       h2 {
-        font-size: 24px;
+        font-size: 60px;
+        font-weight: bold;
+        color: #333;
         margin-bottom: 20px;
+        text-shadow: 3px 3px 3px #ccc;
+        animation: title-anim 2s ease-in-out infinite alternate;
       }
-    
+      
+      @keyframes title-anim {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px) rotate(2deg);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+      
+      h3 {
+        font-size: 48px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 10px;
+        border-bottom: 2px solid #ccc;
+        padding-bottom: 5px;
+        text-shadow: 2px 2px 2px #ccc;
+        letter-spacing: 2px;
+        animation: title-anim 2s ease-in-out infinite alternate;
+      }
+      
+      @keyframes title-anim {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+      
+      
      
     
       ul {
@@ -262,6 +310,15 @@
   padding: 20px;
   border-radius: 10px;
 }
+#skills-list {
+  background-color: #f7f7f7;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  display: inline-block;
+  box-shadow: 0px 0px 10px #ccc;
+}
+
 #skills-list li {
   list-style: none;
   margin-bottom: 20px;
@@ -416,6 +473,8 @@
     </header>
     <section>
       <h2>¡Bienvenido!</h2>
+
+      <hr>
       <div class="programador">
         <p class="animate">
           ¡Hola! Soy un desarrollador fullstack con amplia experiencia en el desarrollo de aplicaciones de alta calidad. Mis habilidades incluyen el dominio de lenguajes de programación como Java y Python, así como una amplia experiencia en desarrollo web utilizando HTML, CSS y JavaScript. Además, tengo una sólida comprensión de bases de datos tanto SQL como NoSQL, así como de Big Data y Data Warehouse. Mi experiencia en inteligencia artificial incluye tanto Machine Learning como Deep Learning, lo que me permite desarrollar soluciones avanzadas para problemas complejos. Estoy en constante búsqueda de nuevos desafíos para seguir mejorando mis habilidades y lograr los mejores resultados para mis clientes. Si estás buscando un desarrollador capacitado en estas áreas, no dudes en contactarme. ¡Estoy emocionado de trabajar contigo en tu próximo proyecto!        </p>
@@ -566,7 +625,7 @@
 
       </section>
       <section>
-          <h2>Proyectos de interés</h2>
+          <h3>Proyectos de interés</h3>
           <p>Aquí te presento algunos de mis proyectos más interesantes:</p>
           <ul id="edulinks">
               <li><a href="https://github.com/romflorod/tfg-2023">TFG 2023</a></li>
@@ -574,7 +633,7 @@
           </ul>
       </section>
       <section>
-            <h2>Redes sociales profesionales</h2>
+            <h3>Redes sociales profesionales</h3>
             <ul id="sociallinks">
               <li><a href="https://www.linkedin.com/in/roman-flores-6856ba268">LinkedIn</a></li>
             <li><a href="https://twitter.com/romanflodriguez">Twitter</a></li>
