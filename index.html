@@ -217,6 +217,11 @@
 
     .skill ul {
       margin-bottom: 10px;
+      border: 2px solid #ccc;
+    background-color: #f7f7f7;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
     }
 
     .skill li {
@@ -250,41 +255,69 @@
 
        
 /*indexingg*/
-      #skills-list li {
-      list-style: none;
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      background-image: url('tools.png');
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: left center;
-      padding-left: 50px;
-    }
-    #skills-list img {
-      margin-right: 30px;
-    }
+#skills-container {
+  border: 2px solid #ccc;
+  background-color: #f7f7f7;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 10px;
+}
+#skills-list li {
+  list-style: none;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  background-image: url('tools.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: left center;
+  padding-left: 50px;
+  position: relative;
+}
 
-    #skills-list div {
-      margin-left: auto;
-      justify-content: flex-end; /* Alineación a la derecha */
-      background-color: rgba(54, 162, 235, 0.2);
-      width: 120px;
-      height: 20px;
-      display: inline-block;
-      margin-right: 20px;
-    }
+#skills-list li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 0, 0, 0.3);
+  z-index: -1;
+  border-radius: 5px;
+  transform: scale(0);
+  transition: all 0.3s ease;
+}
 
-    #skills-list div div {
-      margin-left: auto;
-      justify-content: flex-end; /* Alineación a la derecha */
-      background-color: rgba(54, 162, 235, 1);
-      height: 400px;
-    }
-    #skills-list div:nth-child(2) {
-      margin-right: 10px;
-    }
-      
+#skills-list li:hover::before {
+  transform: scale(1);
+}
+
+#skills-list img {
+  margin-right: 30px;
+}
+
+#skills-list div {
+  margin-left: auto;
+  justify-content: flex-end; /* Alineación a la derecha */
+  background-color: rgba(54, 162, 235, 0.2);
+  width: 120px;
+  height: 20px;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+#skills-list div div {
+  margin-left: auto;
+  justify-content: flex-end; /* Alineación a la derecha */
+  background-color: rgba(54, 162, 235, 1);
+  height: 400px;
+}
+
+#skills-list div:nth-child(2) {
+  margin-right: 10px;
+}
+
   #edulinks li {
       list-style: none;
       margin-bottom: 20px;
@@ -331,7 +364,15 @@
   }
   
   .animate {
-    animation: fade-in 1s ease-in;
+    border: 2px solid #000;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
   }
   
   @keyframes fade-in {
@@ -342,7 +383,29 @@
       opacity: 1;
     }
   }
-
+  #ip-container {
+    border: 2px solid red;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #ffe6e6;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    animation: shake 0.5s;
+    animation-iteration-count: infinite;
+  }
+  
+  @keyframes shake {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(-5px, 5px); }
+    50% { transform: translate(0, 0); }
+    75% { transform: translate(5px, -5px); }
+    100% { transform: translate(0, 0); }
+  }
+  
+  
+  
     </style>
     
     
@@ -353,19 +416,21 @@
     </header>
     <section>
       <h2>¡Bienvenido!</h2>
-      <p class="animate">
-        ¡Hola! Soy un programador fullstack con más de 8 años de experiencia en el desarrollo de aplicaciones. Tengo habilidades en lenguajes como Java y Python, así como experiencia en el desarrollo web con HTML y CSS. Además, estoy familiarizado con bases de datos tanto SQL como NoSQL y también tengo experiencia en inteligencia artificial, específicamente en machine learning y deep learning. Actualmente estoy en mi último año de ingeniería de software y siempre estoy buscando nuevos desafíos para continuar mejorando mis habilidades como programador. Si necesitas un desarrollador con experiencia en estas áreas, no dudes en contactarme. ¡Estoy emocionado de trabajar contigo!
-      </p>
+      <div class="programador">
+        <p class="animate">
+          ¡Hola! Soy un desarrollador fullstack con amplia experiencia en el desarrollo de aplicaciones de alta calidad. Mis habilidades incluyen el dominio de lenguajes de programación como Java y Python, así como una amplia experiencia en desarrollo web utilizando HTML, CSS y JavaScript. Además, tengo una sólida comprensión de bases de datos tanto SQL como NoSQL, así como de Big Data y Data Warehouse. Mi experiencia en inteligencia artificial incluye tanto Machine Learning como Deep Learning, lo que me permite desarrollar soluciones avanzadas para problemas complejos. Estoy en constante búsqueda de nuevos desafíos para seguir mejorando mis habilidades y lograr los mejores resultados para mis clientes. Si estás buscando un desarrollador capacitado en estas áreas, no dudes en contactarme. ¡Estoy emocionado de trabajar contigo en tu próximo proyecto!        </p>
+      </div>
+      
             <div style="width: 150px; height: 150px; margin: 0 auto; overflow: hidden; border-radius: 50%;">
           <img src="1.jpeg" alt="Imagen personal" style="width: 100%; height: auto;">
       </div>
       <br>
       <button style="display: block; margin: 10px auto;" onclick="window.location.href='mailto:romanflodriguez13@gmail.com'">¡Contáctame!</button>
+      
       <br>
-      <br>
-      <br>
-      <p id="ip"></p>
-
+      <div id="ip-container">
+        <p id="ip"></p>
+      </div>
       <script>
           fetch('https://api.ipify.org?format=json')
               .then(response => response.json())
@@ -373,6 +438,7 @@
       </script>
       <br>  
       <h3>Habilidades destacadas</h3>
+      <div class="skills-container">
       <ul id="skills-list">
         <li></li>
         <li>Java
@@ -425,6 +491,7 @@
             <div class="big-data-bar" style="background-color: rgba(54, 162, 235, 1); width: 0%; height: 100%;"></div>
           </div>
         </li>
+     
         <script>
           // Obtener todas las barras
         const javaBar = document.querySelector('.java-bar');
@@ -494,6 +561,7 @@
             <a href="habilidadespersonales.html">Vea gráfico responsivo de habilidades personales</a>
 
         </ul>
+      </div>
       </section>
 
       </section>
