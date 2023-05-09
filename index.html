@@ -303,6 +303,7 @@
 
        
 /*indexingg*/
+/* Estilos base */
 #skills-container {
   border: 2px solid #ccc;
   background-color: #f7f7f7;
@@ -310,6 +311,7 @@
   padding: 20px;
   border-radius: 10px;
 }
+
 #skills-list {
   background-color: #f7f7f7;
   border: 2px solid #ccc;
@@ -318,6 +320,15 @@
   display: inline-block;
   box-shadow: 0px 0px 10px #ccc;
 }
+
+/* Estilos para pantallas pequeñas */
+@media only screen and (max-width: 600px) {
+  #skills-list {
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
 
 #skills-list li {
   list-style: none;
