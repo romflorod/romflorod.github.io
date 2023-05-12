@@ -121,15 +121,17 @@
 		<input type="text" id="palabra" name="palabra">
 		<button type="button" id="boton" onclick="mostrarPalabra()">Mostrar</button>
 	</form>
-	<div>
-		<button type="button" id="boton-reset" onclick="resetForm()">Resetear</button>
-
-	</div>
+	
 
 	<div class="led-container" id="led-container">
 		<div class="led-text" id="led-text"></div>
 	</div>
+	<br>
+	<br>
+	<div>
+		<button type="button" id="boton-reset" onclick="resetForm()">Resetear</button>
 
+	</div>
 	<script>
 		function mostrarPalabra() {
 			var palabra = document.getElementById("palabra").value;
