@@ -20,11 +20,6 @@
 
 		form {
 			margin: 20px;
-			display: block;
-		}
-		
-		form.oculto {
-			display: none;
 		}
 
 		label {
@@ -48,27 +43,30 @@
 			border-radius: 5px;
 			color: #0f0;
 			cursor: pointer;
-			max-width: 200px;
 			width: 100%;
-			height: auto;
 			margin-top: 10px;
 		}
-		
+		.oculto {
+			display: none;
+		  }
 
-		.led-container {
+		.led-container {			
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			height: 50vh;
+			height: calc(100vh - 150px); /* ajusta la altura del contenedor */
 			overflow: hidden;
 			background-color: #111;
 			padding: 10px;
 			border-radius: 5px;
 			margin: 20px;
+			background-color: #000;
+			border: 10px solid #0f0;
+			box-shadow: 0px 0px 10px #0f0;
 		}
 
 		.led-text {
-			font-size: 8vw;
+			font-size: calc(20vw + 20vh); /* ajusta el tamaño del texto */
 			font-family: '8BIT WONDER';
 			text-transform: uppercase;
 			letter-spacing: 0.2em;
@@ -78,10 +76,16 @@
 			box-sizing: border-box;
 			image-rendering: pixelated;
 			text-shadow:
-			1px 1px #000,
-			-1px 1px #000,
-			1px -1px #000,
-			-1px -1px #000;
+				2px 2px #000,
+				-2px 2px #000,
+				2px -2px #000,
+				-2px -2px #000;
+		}
+		@media screen and (min-width: 768px) {
+			.led-text {
+				font-size: 300px;
+				letter-spacing: 0.5em;
+			}
 		}
 
 		@media screen and (min-width: 768px) {
@@ -115,8 +119,12 @@
 	<form>
 		<label for="palabra">Ingresa una palabra:</label>
 		<input type="text" id="palabra" name="palabra">
-		<button type="button" onclick="mostrarPalabra()">Mostrar</button>
+		<button type="button" id="boton" onclick="mostrarPalabra()">Mostrar</button>
 	</form>
+	<div>
+		<button type="button" id="boton-reset" onclick="resetForm()">Resetear</button>
+
+	</div>
 
 	<div class="led-container" id="led-container">
 		<div class="led-text" id="led-text"></div>
@@ -127,13 +135,18 @@
 			var palabra = document.getElementById("palabra").value;
 			document.getElementById("led-text").innerHTML = palabra;
 			document.getElementById("led-container").classList.add("scroll");
+			document.getElementById("boton").classList.add("oculto");
+			document.getElementsByTagName("form")[0].classList.add("oculto");
+		  }
+		  function resetForm() {
 			document.getElementById("palabra").value = "";
-			document.getElementById("led-container").addEventListener("animationend", function() {
-				document.getElementById("led-container").classList.remove("scroll");
-				document.getElementById("form").classList.add("oculto");
-			});
+			document.getElementById("led-text").innerHTML = "";
+			document.getElementById("led-container").classList.remove("scroll");
+			document.getElementById("boton").classList.remove("oculto");
+			document.getElementsByTagName("form")[0].classList.remove("oculto");
 		}
 		
+		  
 	</script>
 </body>
 </html>
