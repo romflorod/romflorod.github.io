@@ -71,7 +71,7 @@
 		}
 
 		.led-text {
-			font-size: calc(20vw + 20vh); /* ajusta el tamaño del texto */
+			font-size: calc(20vw + 20vh);
 			font-family: '8BIT WONDER';
 			text-transform: uppercase;
 			letter-spacing: 0.2em;
@@ -80,11 +80,14 @@
 			padding-left: 100%;
 			image-rendering: pixelated;
 			text-shadow:
-				2px 2px #000,
-				-2px 2px #000,
-				2px -2px #000,
-				-2px -2px #000;
-		}
+			  2px 2px #000,
+			  -2px 2px #000,
+			  2px -2px #000,
+			  -2px -2px #000;
+			white-space: nowrap;
+
+		  }
+		  
 		@media screen and (min-width: 768px) {
 			.led-text {
 				font-size: calc(20vw + 20vh);
@@ -95,17 +98,20 @@
 		@media screen and (min-width: 768px) {
 			body {
 				font-size: 24px;
+				white-space: nowrap;
 			}
 
 			input[type="text"],
 			button[type="button"] {
 				font-size: 24px;
 				padding: 20px;
+				white-space: nowrap;
 			}
 
 			.led-text {
 				font-size: calc(15vw + 15vh);
 				letter-spacing: 0.5em;
+				white-space: nowrap;
 			}
 		}
 
