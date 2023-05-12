@@ -20,6 +20,11 @@
 
 		form {
 			margin: 20px;
+			display: block;
+		}
+		
+		form.oculto {
+			display: none;
 		}
 
 		label {
@@ -43,9 +48,12 @@
 			border-radius: 5px;
 			color: #0f0;
 			cursor: pointer;
+			max-width: 200px;
 			width: 100%;
+			height: auto;
 			margin-top: 10px;
 		}
+		
 
 		.led-container {
 			display: flex;
@@ -119,7 +127,13 @@
 			var palabra = document.getElementById("palabra").value;
 			document.getElementById("led-text").innerHTML = palabra;
 			document.getElementById("led-container").classList.add("scroll");
+			document.getElementById("palabra").value = "";
+			document.getElementById("led-container").addEventListener("animationend", function() {
+				document.getElementById("led-container").classList.remove("scroll");
+				document.getElementById("form").classList.add("oculto");
+			});
 		}
+		
 	</script>
 </body>
 </html>
