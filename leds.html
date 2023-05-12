@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>LED Scroller</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.cdnfonts.com/css/8bit-wonder" rel="stylesheet">
+	<style>
+		* {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			background-color: #000;
+			color: #0f0;
+			font-family: monospace;
+			font-size: 16px;
+		}
+
+		form {
+			margin: 20px;
+		}
+
+		label {
+			display: block;
+			margin-bottom: 10px;
+		}
+
+		input[type="text"] {
+			font-size: 16px;
+			padding: 10px;
+			border: none;
+			border-radius: 5px;
+			width: 100%;
+		}
+
+		button[type="button"] {
+			font-size: 16px;
+			padding: 10px;
+			background-color: #333;
+			border: none;
+			border-radius: 5px;
+			color: #0f0;
+			cursor: pointer;
+			width: 100%;
+			margin-top: 10px;
+		}
+
+		.led-container {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 50vh;
+			overflow: hidden;
+			background-color: #111;
+			padding: 10px;
+			border-radius: 5px;
+			margin: 20px;
+		}
+
+		.led-text {
+			font-size: 8vw;
+			font-family: '8BIT WONDER';
+			text-transform: uppercase;
+			letter-spacing: 0.2em;
+			animation: scroll-left 5s linear infinite;
+			display: inline-block;
+			padding-left: 100%;
+			box-sizing: border-box;
+			image-rendering: pixelated;
+			text-shadow:
+			1px 1px #000,
+			-1px 1px #000,
+			1px -1px #000,
+			-1px -1px #000;
+		}
+
+		@media screen and (min-width: 768px) {
+			body {
+				font-size: 24px;
+			}
+
+			input[type="text"],
+			button[type="button"] {
+				font-size: 24px;
+				padding: 20px;
+			}
+
+			.led-text {
+				font-size: 300px;
+				letter-spacing: 0.5em;
+			}
+		}
+
+		@keyframes scroll-left {
+			0% {
+				transform: translateX(100%);
+			}
+			100% {
+				transform: translateX(-100%);
+			}
+		}
+	</style>
+</head>
+<body>
+	<form>
+		<label for="palabra">Ingresa una palabra:</label>
+		<input type="text" id="palabra" name="palabra">
+		<button type="button" onclick="mostrarPalabra()">Mostrar</button>
+	</form>
+
+	<div class="led-container" id="led-container">
+		<div class="led-text" id="led-text"></div>
+	</div>
+
+	<script>
+		function mostrarPalabra() {
+			var palabra = document.getElementById("palabra").value;
+			document.getElementById("led-text").innerHTML = palabra;
+			document.getElementById("led-container").classList.add("scroll");
+		}
+	</script>
+</body>
+</html>
+
