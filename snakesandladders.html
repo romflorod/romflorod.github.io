@@ -1,596 +1,227 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
-
-  <meta charset="utf-8">
-
-  <link rel="icon" type="image/png" href="favicon.png">
-
-  <title>Serpientes y Escaleras</title>
-
+  <title>Snakes and Ladders</title>
   <style>
-
     body {
-
       font-family: Arial, sans-serif;
-
-      margin: 0;
-
-    }
-
-    
-
-    header {
-
-      background-color: #333;
-
-      color: white;
-
-      display: flex;
-
-      justify-content: space-between;
-
-      padding: 20px;
-
-    }
-
-    
-
-    header h1 {
-
-      margin: 0;
-
-    }
-
-    
-
-    header button {
-
-      background-color: #4CAF50;
-
-      border: none;
-
-      color: white;
-
-      padding: 10px;
-
       text-align: center;
-
-      text-decoration: none;
-
-      display: inline-block;
-
-      font-size: 16px;
-
-      margin: 4px 2px;
-
-      cursor: pointer;
-
     }
 
-    
-
-    section {
-
-      display: flex;
-
-      justify-content: center;
-
-      align-items: center;
-
-      height: calc(100vh - 70px);
-
+    h1 {
+      color: #333;
     }
-
-    
-
-    .game {
-
-      background-color: #f7f7f7;
-
-      border-radius: 10px;
-
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-
-      display: flex;
-
-      flex-direction: column;
-
-      padding: 20px;
-
-      width: 80%;
-
-      max-width: 600px;
-
-    }
-
-    
-
-    .game h3 {
-
-      margin-top: 0;
-
-    }
-
-    
 
     .board {
-
-      display: grid;
-
-      grid-template-columns: repeat(10, 1fr);
-
-      grid-template-rows: repeat(10, 1fr);
-
-      gap: 10px;
-
-      margin-top: 20px;
-
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 600px;
+      margin: 0 auto;
+      border: 2px solid #333;
+      padding: 10px;
     }
-
-    
 
     .cell {
-
-      border: 1px solid #333;
-
+      width: calc(100% / 10);
+      height: 60px;
+      border: 1px solid #999;
       display: flex;
-
-      justify-content: center;
-
       align-items: center;
-
-      font-size: 18px;
-
-      font-weight: bold;
-
-    }
-
-    
-
-    .ladder {
-
-      background-color: #6ab04c;
-
-      color: #fff;
-
-    }
-
-    
-
-    .snake {
-
-      background-color: #d63f3f;
-
-      color: #fff;
-
-    }
-
-    
-
-    .player {
-
-      width: 20px;
-
-      height: 20px;
-
-      background-color: #333;
-
-      border-radius: 50%;
-
-    }
-
-    
-
-    button {
-
-      padding: 10px;
-
-      font-size: 18px;
-
-      background-color: #ff6f61;
-
-      color: #fff;
-
-      border: none;
-
-      cursor: pointer;
-
       justify-content: center;
-
-      border-radius: 20px;
-
-      transition: background-color 0.3s ease-in-out;
-
-      box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
-
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+      position: relative;
     }
 
-    
-
-    button:hover {
-
-      background-color: #e85a4f;
-
+    .player1 {
+      background-color: #ff4d4d;
     }
 
-    
-
-    @media (max-width: 768px) {
-
-      section {
-
-        padding: 10px;
-
-      }
-
-    
-
-      .game {
-
-        margin: 10px 0;
-
-      }
-
+    .player2 {
+      background-color: #007bff;
     }
 
+    .ladder-start {
+      border-bottom: 4px solid #32cd32;
+    }
+
+    .ladder-end {
+      border-top: 4px solid #32cd32;
+    }
+
+    .snake-start {
+      border-top: 4px solid #ff4d4d;
+    }
+
+    .snake-end {
+      border-bottom: 4px solid #ff4d4d;
+    }
+
+    .dice {
+      margin-top: 20px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    
+    .button {
+      margin-top: 20px;
+    }
+
+    .player-label {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      font-size: 12px;
+      padding: 2px 4px;
+      color: #fff;
+    }
   </style>
-
 </head>
-
 <body>
-
-  <header>
-
-    <h1>Juegos</h1>
-
-    <button onclick="window.location.href = 'https://romflorod.github.io/juegos.html'">Ver más</button>
-
-  </header>
-
-  <section>
-
-    <div class="game">
-
-      <h3>Serpientes y Escaleras</h3>
-
-      <div class="board">
-
-        <div class="cell">100</div>
-
-        <div class="cell">99</div>
-
-        <div class="cell ladder">98</div>
-
-        <div class="cell">97</div>
-
-        <div class="cell">96</div>
-
-        <div class="cell snake">95</div>
-
-        <div class="cell">94</div>
-
-        <div class="cell">93</div>
-
-        <div class="cell">92</div>
-
-        <div class="cell">91</div>
-
-        <div class="cell">81</div>
-
-        <div class="cell">82</div>
-
-        <div class="cell snake">83</div>
-
-        <div class="cell">84</div>
-
-        <div class="cell">85</div>
-
-        <div class="cell">86</div>
-
-        <div class="cell">87</div>
-
-        <div class="cell ladder">88</div>
-
-        <div class="cell">89</div>
-
-        <div class="cell">90</div>
-
-        <div class="cell">80</div>
-
-        <div class="cell">79</div>
-
-        <div class="cell">78</div>
-
-        <div class="cell">77</div>
-
-        <div class="cell snake">76</div>
-
-        <div class="cell">75</div>
-
-        <div class="cell">74</div>
-
-        <div class="cell">73</div>
-
-        <div class="cell">72</div>
-
-        <div class="cell">71</div>
-
-        <div class="cell">61</div>
-
-        <div class="cell">62</div>
-
-        <div class="cell">63</div>
-
-        <div class="cell ladder">64</div>
-
-        <div class="cell">65</div>
-
-        <div class="cell">66</div>
-
-        <div class="cell snake">67</div>
-
-        <div class="cell">68</div>
-
-        <div class="cell">69</div>
-
-        <div class="cell">70</div>
-
-        <div class="cell">60</div>
-
-        <div class="cell">59</div>
-
-        <div class="cell">58</div>
-
-        <div class="cell">57</div>
-
-        <div class="cell">56</div>
-
-        <div class="cell">55</div>
-
-        <div class="cell snake">54</div>
-
-        <div class="cell">53</div>
-
-        <div class="cell">52</div>
-
-        <div class="cell">51</div>
-
-        <div class="cell">41</div>
-
-        <div class="cell">42</div>
-
-        <div class="cell">43</div>
-
-        <div class="cell">44</div>
-
-        <div class="cell snake">45</div>
-
-        <div class="cell">46</div>
-
-        <div class="cell">47</div>
-
-        <div class="cell">48</div>
-
-        <div class="cell">49</div>
-
-        <div class="cell">50</div>
-
-        <div class="cell">40</div>
-
-        <div class="cell ladder">39</div>
-
-        <div class="cell">38</div>
-
-        <div class="cell">37</div>
-
-        <div class="cell">36</div>
-
-        <div class="cell">35</div>
-
-        <div class="cell">34</div>
-
-        <div class="cell snake">33</div>
-
-        <div class="cell">32</div>
-
-        <div class="cell">31</div>
-
-        <div class="cell">21</div>
-
-        <div class="cell">22</div>
-
-        <div class="cell snake">23</div>
-
-        <div class="cell">24</div>
-
-        <div class="cell">25</div>
-
-        <div class="cell">26</div>
-
-        <div class="cell ladder">27</div>
-
-        <div class="cell">28</div>
-
-        <div class="cell">29</div>
-
-        <div class="cell">30</div>
-
-        <div class="cell">20</div>
-
-        <div class="cell">19</div>
-
-        <div class="cell">18</div>
-
-        <div class="cell">17</div>
-
-        <div class="cell">16</div>
-
-        <div class="cell">15</div>
-
-        <div class="cell snake">14</div>
-
-        <div class="cell">13</div>
-
-        <div class="cell">12</div>
-
-        <div class="cell">11</div>
-
-        <div class="cell">1</div>
-
-        <div class="cell">2</div>
-
-        <div class="cell">3</div>
-
-        <div class="cell ladder">4</div>
-
-        <div class="cell">5</div>
-
-        <div class="cell">6</div>
-
-        <div class="cell">7</div>
-
-        <div class="cell snake">8</div>
-
-        <div class="cell">9</div>
-
-        <div class="cell">10</div>
-
-      </div>
-
-      <div>
-
-        <p>Turno del jugador: <span id="current-player">1</span></p>
-
-        <p>Puntos del jugador 1: <span id="player1-score">0</span></p>
-
-        <p>Puntos del jugador 2: <span id="player2-score">0</span></p>
-
-      </div>
-
-      <button onclick="rollDice()">Lanzar Dado</button>
-
-    </div>
-
-    <script>
-
-      let currentPlayer = 1;
-
-      let player1Score = 0;
-
-      let player2Score = 0;
-
-      const currentPlayerElement = document.getElementById('current-player');
-
-      const player1ScoreElement = document.getElementById('player1-score');
-
-      const player2ScoreElement = document.getElementById('player2-score');
-
-      function rollDice() {
-
-        const diceValue = Math.floor(Math.random() * 6) + 1;
-
-        const currentPosition = currentPlayer === 1 ? player1Score : player2Score;
-
-        const newPosition = currentPosition + diceValue;
-
-        currentPlayer = currentPlayer === 1 ? 2 : 1;
-
-        if (newPosition <= 100) {
-
-          if (newPosition === 4) {
-
-            newPosition = 14;
-
-          } else if (newPosition === 9) {
-
-            newPosition = 31;
-
-          } else if (newPosition === 17) {
-
-            newPosition = 7;
-
-          } else if (newPosition === 20) {
-
-            newPosition = 38;
-
-          } else if (newPosition === 28) {
-
-            newPosition = 84;
-
-          } else if (newPosition === 40) {
-
-            newPosition = 59;
-
-          } else if (newPosition === 51) {
-
-            newPosition = 67;
-
-          } else if (newPosition === 54) {
-
-            newPosition = 34;
-
-          } else if (newPosition === 62) {
-
-            newPosition = 19;
-
-          } else if (newPosition === 63) {
-
-            newPosition = 81;
-
-          } else if (newPosition === 64) {
-
-            newPosition = 60;
-
-          } else if (newPosition === 71) {
-
-            newPosition = 91;
-
-          } else if (newPosition === 87) {
-
-            newPosition = 24;
-
-          } else if (newPosition === 93) {
-
-            newPosition = 73;
-
-          } else if (newPosition === 95) {
-
-            newPosition = 75;
-
-          } else if (newPosition === 99) {
-
-            newPosition = 78;
-
-          }
-
-          if (currentPlayer === 1) {
-
-            player1Score = newPosition;
-
-            player1ScoreElement.textContent = player1Score;
-
-          } else {
-
-            player2Score = newPosition;
-
-            player2ScoreElement.textContent = player2Score;
-
-          }
-
-        }
-
-        currentPlayerElement.textContent = currentPlayer;
-
+  <h1>Snakes and Ladders</h1>
+  <div class="board" id="board"></div>
+  <div class="dice" id="dice"></div>
+  <button class="button" onclick="movePlayer()">Tirar dado</button>
+
+  <script>
+    const boardElement = document.getElementById('board');
+    const diceElement = document.getElementById('dice');
+    const cells = [];
+    const ladders = [
+      { start: 2, end: 38 },
+      { start: 4, end: 14 },
+      { start: 9, end: 31 },
+      { start: 33, end: 85 },
+      { start: 52, end: 88 },
+      { start: 80, end: 99 }
+    ];
+    const snakes = [
+      { start: 98, end: 79 },
+      { start: 95, end: 75 },
+      { start: 93, end: 73 },
+      { start: 87, end: 24 },
+      { start: 64, end: 60 },
+      { start: 62, end: 19 },
+      { start: 56, end: 53 },
+      { start: 49, end: 11 },
+      { start: 47, end: 26 },
+      { start: 16, end: 6 }
+    ];
+    const players = [
+      { id: 1, position: 1 },
+      { id: 2, position: 1 }
+    ];
+
+    function createBoard() {
+      for (let i = 1; i <= 100; i++) {
+        const cellElement = document.createElement('div');
+        cellElement.classList.add('cell');
+        cellElement.textContent = i;
+        cells[i] = cellElement;
+        boardElement.appendChild(cellElement);
       }
 
-    </script>
+      for (const ladder of ladders) {
+        const startCell = cells[ladder.start];
+        const endCell = cells[ladder.end];
+        startCell.classList.add('ladder-start');
+        endCell.classList.add('ladder-end');
+      }
 
-  </section>
+      for (const snake of snakes) {
+        const startCell = cells[snake.start];
+        const endCell = cells[snake.end];
+        startCell.classList.add('snake-start');
+        endCell.classList.add('snake-end');
+      }
 
+      updatePlayerPositions();
+    }
+
+    function updatePlayerPositions() {
+      for (const player of players) {
+        const playerCell = cells[player.position];
+        playerCell.classList.remove(`player${player.id === 1 ? 2 : 1}`);
+        playerCell.classList.add(`player${player.id}`);
+        const playerLabel = document.createElement('div');
+        playerLabel.classList.add('player-label');
+        playerLabel.textContent = `J${player.id}`;
+        playerCell.appendChild(playerLabel);
+      }
+    }
+
+    function rollDice() {
+      return Math.floor(Math.random() * 6) + 1;
+    }
+
+    function nextPlayer() {
+      const currentPlayer = players.shift();
+      players.push(currentPlayer);
+      diceElement.textContent = '';
+    }
+
+    function movePlayer() {
+      const currentPlayer = players[0];
+      const diceRoll = rollDice();
+      diceElement.textContent = `Jugador ${currentPlayer.id}: ${diceRoll}`;
+      const newPosition = currentPlayer.position + diceRoll;
+
+      if (newPosition <= 100) {
+        currentPlayer.position = newPosition;
+        updatePlayerPositions();
+        checkSnakeOrLadder(newPosition);
+        if (newPosition === 100) {
+          setTimeout(() => {
+            alert(`¡El Jugador ${currentPlayer.id} ganó!`);
+            resetGame();
+          }, 500);
+        } else {
+          setTimeout(nextPlayer, 500);
+        }
+      } else {
+        setTimeout(nextPlayer, 500);
+      }
+    }
+
+    function checkSnakeOrLadder(position) {
+      const ladder = ladders.find(ladder => ladder.start === position);
+      const snake = snakes.find(snake => snake.start === position);
+
+      if (ladder) {
+        setTimeout(() => {
+          updatePlayerPosition(ladder.end);
+        }, 500);
+      } else if (snake) {
+        setTimeout(() => {
+          updatePlayerPosition(snake.end);
+        }, 500);
+      }
+    }
+
+    function updatePlayerPosition(position) {
+      const currentPlayer = players[0];
+      const currentPlayerCell = cells[currentPlayer.position];
+      currentPlayerCell.classList.remove(`player${currentPlayer.id}`);
+      currentPlayerCell.style.backgroundColor = '';
+      currentPlayer.position = position;
+      const newPositionCell = cells[position];
+      newPositionCell.classList.add(`player${currentPlayer.id}`);
+      currentPlayerCell.style.backgroundColor = 'white';
+    }
+
+    function resetGame() {
+      for (const player of players) {
+        const playerCell = cells[player.position];
+        playerCell.classList.remove(`player${player.id}`);
+        playerCell.style.backgroundColor = 'white';
+        while (playerCell.firstChild) {
+          playerCell.removeChild(playerCell.firstChild);
+        }
+        player.position = 1;
+      }
+    }
+
+    createBoard();
+  </script>
 </body>
-
 </html>
-
