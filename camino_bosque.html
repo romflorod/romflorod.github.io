@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Arrastrar usuarios y colocar monstruos en una imagen</title>
+  <style>
+    #image-container {
+      position: relative;
+      display: inline-block;
+    }
+
+    #image-container img {
+      display: block;
+    }
+
+    .user {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      cursor: move;
+    }
+
+    .monster {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      pointer-events: none;
+    }
+
+    #user-list {
+      position: fixed;
+      top: 0;
+      right: 0;
+      padding: 10px;
+      background-color: #f0f0f0;
+    }
+
+    .user-item {
+      margin-bottom: 5px;
+    }
+
+    #button-container {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 10px;
+    }
+
+    .action-button {
+      margin-left: 10px;
+    }
+  </style>
+  <script>
+    var activeElement = null; // Elemento activo actualmente (usuario o monstruo)
+    var userCount = 0; // Contador de usuarios
+    var userList = []; // Lista de usuarios
+
+    function addElement(event) {
+      var container = document.getElementById('image-container');
+      var x = event.clientX - container.offsetLeft;
+      var y = event.clientY - container.offsetTop;
+
+      if (activeElement === 'user') {
+        var user = document.createElement('img');
+        user.className = 'user';
+        user.src = 'img/user.png';
+        user.style.left = (x - 40) + 'px';
+        user.style.top = (y - 40) + 'px';
+        container.appendChild(user);
+
+        // Agregar eventos de arrastrar al usuario
+        user.addEventListener('mousedown', startDrag);
+        user.addEventListener('mousemove', drag);
+        user.addEventListener('mouseup', endDrag);
+        user.addEventListener('mouseleave', endDrag);
+
+        // Incrementar contador de usuarios
+        userCount++;
+
+        // Agregar usuario a la lista
+        var userItem = document.createElement('div');
+        userItem.className = 'user-item';
+        userItem.textContent = 'Usuario ' + userCount;
+
+        // Agregar evento de clic para eliminar usuario
+        userItem.addEventListener('click', function() {
+          container.removeChild(user);
+          document.getElementById('user-list').removeChild(userItem);
+        });
+
+        // Agregar usuario a la lista
+        userList.push(userItem);
+        document.getElementById('user-list').appendChild(userItem);
+      } else if (activeElement === 'monster') {
+        var monster = document.createElement('img');
+        monster.className = 'monster';
+        monster.src = 'img/monster.png';
+        monster.style.left = (x - 50) + 'px';
+        monster.style.top = (y - 50) + 'px';
+        container.appendChild(monster);
+      }
+    }
+
+    function startDrag(event) {
+      activeElement = 'user';
+      var user = event.target;
+      user.style.zIndex = '1'; // Cambiar el índice Z para asegurarse de que el usuario esté por encima de otros elementos
+      user.style.pointerEvents = 'none'; // Desactivar eventos de clic mientras se arrastra
+    }
+
+    function drag(event) {
+      if (activeElement === 'user') {
+        var container = document.getElementById('image-container');
+        var user = event.target;
+        user.style.left = (event.clientX - container.offsetLeft - 40) + 'px';
+        user.style.top = (event.clientY - container.offsetTop - 40) + 'px';
+      }
+    }
+
+    function endDrag(event) {
+      if (activeElement === 'user') {
+        var user = event.target;
+        user.style.zIndex = 'auto'; // Restaurar el índice Z original
+        user.style.pointerEvents = 'auto'; // Reactivar eventos de clic
+      }
+    }
+
+    function switchToUser() {
+      activeElement = 'user';
+    }
+
+    function switchToMonster() {
+      activeElement = 'monster';
+    }
+
+    window.onload = function() {
+      var container = document.getElementById('image-container');
+      container.addEventListener('click', addElement);
+
+      var buttonContainer = document.createElement('div');
+      buttonContainer.id = 'button-container';
+
+      var userButton = document.createElement('button');
+      userButton.textContent = 'Colocar Usuario';
+      userButton.className = 'action-button';
+      userButton.addEventListener('click', switchToUser);
+      buttonContainer.appendChild(userButton);
+
+      var monsterButton = document.createElement('button');
+      monsterButton.textContent = 'Colocar Monstruo';
+      monsterButton.className = 'action-button';
+      monsterButton.addEventListener('click', switchToMonster);
+      buttonContainer.appendChild(monsterButton);
+
+      document.body.appendChild(buttonContainer);
+    };
+  </script>
+</head>
+<body>
+  <div id="image-container">
+    <img src="img/camino_bosque.jpg" alt="Camino del bosque">
+  </div>
+
+  <div id="user-list"></div>
+</body>
+</html>

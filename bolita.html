@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        #rectangulo {
+            width: 400px;
+            height: 400px;
+            border: 2px solid black;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        #bolita {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: red;
+            position: absolute;
+            left: 190px;
+            top: 190px;
+        }
+
+        #cuerda {
+            position: absolute;
+            width: 2px;
+            height: 0;
+            background-color: black;
+            transform-origin: center top;
+            z-index: 1;
+        }
+
+        #contador {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 18px;
+        }
+
+        #reiniciar {
+            position: absolute;
+            top: 40px;
+            right: 10px;
+            font-size: 14px;
+            padding: 5px 10px;
+            background-color: #f5f5f5;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="rectangulo">
+        <div id="bolita"></div>
+        <div id="cuerda"></div>
+    </div>
+    <div id="contador">Rebotes: 0</div>
+    <button id="reiniciar">Reiniciar</button>
+
+    <script>
+        // Obtener elementos del DOM
+        var rectangulo = document.getElementById("rectangulo");
+        var bolita = document.getElementById("bolita");
+        var cuerda = document.getElementById("cuerda");
+        var contador = document.getElementById("contador");
+        var reiniciarBtn = document.getElementById("reiniciar");
+
+        // Variables para el movimiento de la bola
+        var posX = 190;
+        var posY = 190;
+        var velocidadX = 0;
+        var velocidadY = 0;
+        var isCharging = false;
+        var cargaX = 0;
+        var cargaY = 0;
+        var rangoCarga = 50; // Rango de movimiento durante la carga (en píxeles)
+        var maxArrastreX = rectangulo.offsetWidth - bolita.offsetWidth;
+        var maxArrastreY = rectangulo.offsetHeight - bolita.offsetHeight;
+        var rebotes = 0;
+
+        // Iniciar el juego
+        function iniciarJuego() {
+            bolita.addEventListener("mousedown", cargarTirachinas);
+            document.addEventListener("mouseup", lanzarBolita);
+            reiniciarBtn.addEventListener("click", reiniciarJuego);
+            setInterval(moverBola, 10);
+        }
+
+        // Función para cargar el tirachinas
+        function cargarTirachinas(event) {
+            event.preventDefault();
+            isCharging = true;
+
+            cargaX = event.clientX;
+            cargaY = event.clientY;
+
+            document.addEventListener("mousemove", moverBolita);
+            actualizarCuerda();
+        }
+
+        // Función para mover la bola durante la carga
+        function moverBolita(event) {
+            if (isCharging) {
+                var deltaX = cargaX - event.clientX;
+                var deltaY = cargaY - event.clientY;
+
+                // Limitar el rango de movimiento durante la carga
+                var distancia = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+                if (distancia > rangoCarga) {
+                    var angulo = Math.atan2(deltaY, deltaX);
+                    deltaX = Math.cos(angulo) * rangoCarga;
+                    deltaY = Math.sin(angulo) * rangoCarga;
+                }
+
+                // Limitar el movimiento dentro del rectángulo durante la carga
+                var nuevaPosX = posX - deltaX;
+                var nuevaPosY = posY - deltaY;
+
+                nuevaPosX = Math.max(Math.min(nuevaPosX, maxArrastreX), 0);
+                nuevaPosY = Math.max(Math.min(nuevaPosY, maxArrastreY), 0);
+
+                deltaX = posX - nuevaPosX;
+                deltaY = posY - nuevaPosY;
+
+                // Actualizar posición de la bola durante la carga
+                bolita.style.left = nuevaPosX + "px";
+                bolita.style.top = nuevaPosY + "px";
+
+                actualizarCuerda();
+            }
+        }
+
+        // Función para lanzar la bola
+        function lanzarBolita(event) {
+            if (isCharging) {
+                isCharging = false;
+
+                // Calcular dirección y velocidad basada en la carga
+                var deltaX = cargaX - event.clientX;
+                var deltaY = cargaY - event.clientY;
+                var angulo = Math.atan2(deltaY, deltaX);
+                var distancia = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+                var factorVelocidad = Math.min(distancia / rangoCarga, 1); // Ajustar la velocidad según la distancia recorrida
+
+                velocidadX = Math.cos(angulo) * factorVelocidad * 5; // Multiplicar por 5 para ajustar la velocidad
+                velocidadY = Math.sin(angulo) * factorVelocidad * 5;
+
+                // Actualizar posición y velocidad de la bola
+                posX -= deltaX;
+                posY -= deltaY;
+
+                // Limitar el movimiento dentro del rectángulo después del lanzamiento
+                posX = Math.max(Math.min(posX, maxArrastreX), 0);
+                posY = Math.max(Math.min(posY, maxArrastreY), 0);
+
+                document.removeEventListener("mousemove", moverBolita);
+                cuerda.style.display = "none"; // Ocultar la cuerda al lanzar la bola
+            }
+        }
+
+        // Función para mover la bola
+        function moverBola() {
+            if (!isCharging) {
+                var maxPosX = rectangulo.offsetWidth - bolita.offsetWidth;
+                var maxPosY = rectangulo.offsetHeight - bolita.offsetHeight;
+
+                // Actualizar posición de la bola
+                posX += velocidadX;
+                posY += velocidadY;
+
+                // Comprobar colisiones con las paredes del rectángulo
+                if (posX <= 0 || posX >= maxPosX) {
+                    velocidadX *= -1;
+                    rebotes++;
+                }
+
+                if (posY <= 0 || posY >= maxPosY) {
+                    velocidadY *= -1;
+                    rebotes++;
+                }
+
+                // Actualizar posición en el DOM
+                bolita.style.left = posX + "px";
+                bolita.style.top = posY + "px";
+
+                // Actualizar contador de rebotes
+                contador.textContent = "Rebotes: " + rebotes;
+            }
+        }
+
+        // Función para actualizar la cuerda
+        function actualizarCuerda() {
+            var centroX = rectangulo.offsetWidth / 2;
+            var centroY = rectangulo.offsetHeight / 2;
+            var deltaX = cargaX - centroX;
+            var deltaY = cargaY - centroY;
+            var longitud = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+
+            cuerda.style.left = centroX + "px";
+            cuerda.style.top = centroY + "px";
+            cuerda.style.height = longitud + "px";
+            cuerda.style.transform = "rotate(" + Math.atan2(deltaY, deltaX) + "rad)";
+        }
+
+        // Función para reiniciar el juego
+        function reiniciarJuego() {
+            posX = 190;
+            posY = 190;
+            velocidadX = 0;
+            velocidadY = 0;
+            rebotes = 0;
+
+            bolita.style.left = "190px";
+            bolita.style.top = "190px";
+
+            contador.textContent = "Rebotes: 0";
+
+            cuerda.style.display = "block";
+        }
+
+        // Iniciar el juego al cargar la página
+        iniciarJuego();
+    </script>
+</body>
+</html>
