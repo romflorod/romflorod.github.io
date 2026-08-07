@@ -74,28 +74,3 @@ const navigationObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.25 });
 
 observedSections.forEach((section) => navigationObserver.observe(section));
-
-const progressBar = document.querySelector('#scrollProgress');
-let progressFrame = null;
-
-function updateScrollProgress() {
-  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-  const progress = scrollable > 0 ? Math.min(window.scrollY / scrollable, 1) : 0;
-  progressBar.style.transform = `scaleX(${progress})`;
-  progressFrame = null;
-}
-
-window.addEventListener('scroll', () => {
-  if (progressFrame !== null) return;
-  progressFrame = requestAnimationFrame(updateScrollProgress);
-}, { passive: true });
-
-updateScrollProgress();
-
-document.querySelectorAll('.project-card').forEach((card) => {
-  card.addEventListener('pointermove', (event) => {
-    const bounds = card.getBoundingClientRect();
-    card.style.setProperty('--spot-x', `${event.clientX - bounds.left}px`);
-    card.style.setProperty('--spot-y', `${event.clientY - bounds.top}px`);
-  }, { passive: true });
-});
