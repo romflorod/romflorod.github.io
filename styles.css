@@ -126,6 +126,8 @@ h1 em, .display em, .contact h2 em { color: var(--acid); font-style: normal; fon
 .toolbox-groups article:nth-child(even) { border-right: 0; }
 .toolbox-groups article:nth-child(n+3) { border-bottom: 0; }
 .toolbox-groups article:hover { background: var(--acid); }
+.toolbox-groups article.tool-primary { background: rgba(185,242,39,.16); }
+.toolbox-groups article.tool-primary:hover { background: var(--acid); }
 .tool-no { position: absolute; top: 18px; right: 18px; color: #7b8580; font-size: 7px; }
 .toolbox-groups h4 { max-width: 85%; font-size: 15px; margin: 20px 0 13px; }
 .toolbox-groups p { color: #626b66; font: 9px/1.9 var(--mono); margin: 0; }
