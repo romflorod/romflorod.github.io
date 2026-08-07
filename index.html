@@ -29,6 +29,7 @@
   <div class="cursor-glow" aria-hidden="true"></div>
 
   <header class="site-header">
+    <div class="scroll-progress" aria-hidden="true"><i id="scrollProgress"></i></div>
     <nav class="nav container" aria-label="Navegación principal">
       <a class="logo" href="#top" aria-label="Inicio"><b><span>R</span>F</b><small>ROMÁN FLORES<br>SOFTWARE ENGINEER</small></a>
       <div class="nav-center">
@@ -101,6 +102,15 @@
             <article><span class="tool-no mono">02</span><h4>Java & Spring</h4><p>Java · Spring Boot · REST APIs · Microservices · Clean Architecture · WSO2</p></article>
             <article><span class="tool-no mono">03</span><h4>Python & Django</h4><p>Python · Django · Data processing · GIS automation · Testing · AI integration</p></article>
             <article><span class="tool-no mono">04</span><h4 data-es="Datos & plataforma" data-en="Data & platform">Datos & plataforma</h4><p>Data Warehouse · PostgreSQL · SQL · Vector DB · Docker · CI/CD · OpenAPI</p></article>
+          </div>
+          <div class="architecture-flow">
+            <div class="flow-heading"><span class="mono">REFERENCE FLOW / AI SYSTEM</span><p data-es="De la petición al conocimiento, con límites claros entre capas." data-en="From request to knowledge, with clear boundaries between layers.">De la petición al conocimiento, con límites claros entre capas.</p></div>
+            <div class="flow-diagram" aria-label="Flujo de arquitectura de referencia">
+              <div class="flow-node"><span class="mono">01</span><b data-es="Interfaz" data-en="Interface">Interfaz</b><small>Client / Product</small></div><i>→</i>
+              <div class="flow-node"><span class="mono">02</span><b>API Layer</b><small>Spring / Django</small></div><i>→</i>
+              <div class="flow-node accent-node"><span class="mono">03</span><b>AI Orchestration</b><small>RAG / LLM / Guardrails</small></div><i>→</i>
+              <div class="flow-node"><span class="mono">04</span><b data-es="Capa de datos" data-en="Data layer">Capa de datos</b><small>Vector DB / SQL / DWH</small></div>
+            </div>
           </div>
         </div>
       </div>
