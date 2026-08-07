@@ -3,105 +3,146 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#090b10">
-  <meta name="description" content="Portfolio de Román Flores Rodríguez, ingeniero de software especializado en backend, IA generativa y sistemas geoespaciales.">
+  <meta name="theme-color" content="#07110f">
+  <meta name="description" content="Román Flores — Software Engineer especializado en backend, inteligencia artificial generativa y sistemas geoespaciales.">
   <meta property="og:title" content="Román Flores — Software Engineer">
-  <meta property="og:description" content="Backend, AI & Geospatial Systems">
+  <meta property="og:description" content="Backend architecture, Generative AI & Geospatial Systems">
   <meta property="og:image" content="1.jpeg">
   <title>Román Flores — Software Engineer</title>
   <link rel="icon" href="favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
 </head>
 <body>
-  <div class="noise" aria-hidden="true"></div>
-  <header class="nav-wrap">
-    <nav class="nav shell" aria-label="Main navigation">
-      <a class="brand" href="#top" aria-label="Román Flores, home">RF<span>.</span></a>
-      <div class="nav-links">
-        <a href="#about" data-i18n="nav.about">Perfil</a>
-        <a href="#experience" data-i18n="nav.experience">Experiencia</a>
-        <a href="#work" data-i18n="nav.work">Trabajo</a>
-        <a href="#contact" data-i18n="nav.contact">Contacto</a>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <nav class="nav container" aria-label="Navegación principal">
+      <a class="logo" href="#top" aria-label="Inicio"><span>R</span>F</a>
+      <div class="nav-center">
+        <a href="#profile" data-es="Perfil" data-en="Profile">Perfil</a>
+        <a href="#experience" data-es="Experiencia" data-en="Experience">Experiencia</a>
+        <a href="#projects" data-es="Proyectos" data-en="Projects">Proyectos</a>
       </div>
-      <button class="lang" id="langToggle" type="button" aria-label="Switch language"><span class="active">ES</span><span>EN</span></button>
+      <div class="nav-end">
+        <button class="language" id="languageToggle" type="button" aria-label="Cambiar idioma"><span>ES</span><i></i><span>EN</span></button>
+        <a class="nav-contact" href="mailto:romanflodriguez13@gmail.com"><span data-es="Hablemos" data-en="Let's talk">Hablemos</span> ↗</a>
+      </div>
     </nav>
   </header>
 
   <main id="top">
-    <section class="hero shell">
+    <section class="hero container">
+      <div class="hero-grid-bg" aria-hidden="true"></div>
       <div class="hero-copy reveal">
-        <p class="eyebrow"><span class="status-dot"></span><span data-i18n="hero.available">Sevilla, España · Construyendo sistemas que escalan</span></p>
-        <h1><span data-i18n="hero.line1">Ingeniería sólida.</span><br><em data-i18n="hero.line2">Inteligencia aplicada.</em></h1>
-        <p class="intro" data-i18n="hero.intro">Soy Román, ingeniero de software especializado en backend, inteligencia artificial generativa y sistemas geoespaciales. Convierto problemas complejos en productos fiables y mantenibles.</p>
+        <div class="availability"><span></span><span data-es="Sevilla · Disponible para retos ambiciosos" data-en="Seville · Open to ambitious challenges">Sevilla · Disponible para retos ambiciosos</span></div>
+        <p class="hero-overline mono">SOFTWARE ENGINEER / BACKEND / AI / GIS</p>
+        <h1><span data-es="Construyo sistemas" data-en="I build systems">Construyo sistemas</span><br><em data-es="que entienden el mundo." data-en="that understand the world.">que entienden el mundo.</em></h1>
+        <p class="hero-lead" data-es="Soy Román Flores. Diseño backend, microservicios y productos de IA que transforman datos complejos —incluidos datos geoespaciales— en decisiones y experiencias útiles." data-en="I'm Román Flores. I design backend systems, microservices and AI products that turn complex data —including geospatial data— into useful decisions and experiences.">Soy Román Flores. Diseño backend, microservicios y productos de IA que transforman datos complejos —incluidos datos geoespaciales— en decisiones y experiencias útiles.</p>
         <div class="hero-actions">
-          <a class="button primary" href="#work"><span data-i18n="hero.cta">Ver mi trabajo</span><span aria-hidden="true">↘</span></a>
-          <a class="button ghost cv-link" href="Román Flores Esp.pdf" target="_blank"><span data-i18n="hero.cv">Descargar CV</span><span aria-hidden="true">↓</span></a>
+          <a class="button button-light" href="#projects"><span data-es="Explorar mi trabajo" data-en="Explore my work">Explorar mi trabajo</span><b>↓</b></a>
+          <a class="button button-line cv-link" href="Román Flores Esp.pdf" target="_blank"><span data-es="Ver currículum" data-en="View résumé">Ver currículum</span><b>↗</b></a>
         </div>
       </div>
-      <div class="portrait-wrap reveal">
-        <div class="portrait-label mono">SOFTWARE<br>ENGINEER</div>
-        <img src="1.jpeg" alt="Retrato de Román Flores" width="909" height="1600">
-        <div class="orbit" aria-hidden="true"></div>
+
+      <div class="hero-stage reveal">
+        <div class="coordinate mono">37.3891° N<br>5.9845° W</div>
+        <div class="portrait-halo"></div>
+        <img src="1.jpeg" alt="Román Flores" width="909" height="1600">
+        <svg class="orbit-svg" viewBox="0 0 500 500" aria-hidden="true"><circle cx="250" cy="250" r="205"/><path d="M60 320 C170 130 335 100 455 260"/><circle class="orbit-dot" cx="455" cy="260" r="7"/></svg>
+        <div class="role-card glass"><span class="pulse"></span><div><small data-es="ROL ACTUAL" data-en="CURRENT ROLE">ROL ACTUAL</small><strong data-es="Ingeniero de Software" data-en="Software Engineer">Ingeniero de Software</strong></div></div>
+        <div class="stack-card glass"><small>CORE STACK</small><div><span>Java</span><span>Python</span><span>Spring</span><span>LLMs</span></div></div>
       </div>
-      <div class="scroll-cue mono" aria-hidden="true"><span>SCROLL</span><i></i></div>
+
+      <div class="hero-foot reveal">
+        <span class="mono" data-es="INGENIERÍA CON CONTEXTO" data-en="ENGINEERING WITH CONTEXT">INGENIERÍA CON CONTEXTO</span>
+        <div class="hero-facts"><p><b>03</b><span data-es="dominios conectados" data-en="connected domains">dominios conectados</span></p><p><b>2023</b><span data-es="inicio profesional" data-en="professional start">inicio profesional</span></p><p><b>ES / EN / FR</b><span data-es="comunicación global" data-en="global communication">comunicación global</span></p></div>
+      </div>
     </section>
 
-    <section class="statement" id="about">
-      <div class="shell statement-grid reveal">
-        <p class="section-index mono">01 / <span data-i18n="sections.profile">PERFIL</span></p>
-        <div>
-          <h2 data-i18n="about.title">Diseño software en la intersección entre <span>datos, territorio e inteligencia.</span></h2>
-          <div class="about-cols">
-            <p data-i18n="about.p1">Trabajo en productos donde la arquitectura importa: plataformas geoespaciales, microservicios empresariales y flujos de IA capaces de operar más allá de una demo.</p>
-            <p data-i18n="about.p2">Mi enfoque combina criterio técnico, visión de producto y comunicación clara. Desde una API hasta una arquitectura RAG, busco soluciones sencillas de operar y preparadas para evolucionar.</p>
-          </div>
+    <section class="profile section" id="profile">
+      <div class="container">
+        <div class="section-label reveal"><span>01</span><p data-es="La propuesta" data-en="The proposition">La propuesta</p><i></i></div>
+        <div class="profile-grid">
+          <h2 class="display reveal" data-es="No solo escribo código.<br><em>Diseño conexiones.</em>" data-en="I don't just write code.<br><em>I design connections.</em>">No solo escribo código.<br><em>Diseño conexiones.</em></h2>
+          <div class="profile-copy reveal"><p data-es="Entre servicios que deben escalar, modelos que necesitan contexto y datos espaciales que cuentan una historia. Mi trabajo consiste en convertir esas piezas en sistemas claros, seguros y mantenibles." data-en="Between services that need to scale, models that need context and spatial data that tells a story. My work is turning those pieces into clear, secure and maintainable systems.">Entre servicios que deben escalar, modelos que necesitan contexto y datos espaciales que cuentan una historia. Mi trabajo consiste en convertir esas piezas en sistemas claros, seguros y mantenibles.</p><p data-es="Combino fundamentos de ingeniería de software con experimentación aplicada. La tecnología es el medio; el objetivo es entregar valor real sin hipotecar el futuro del producto." data-en="I combine software engineering fundamentals with applied experimentation. Technology is the means; the goal is delivering real value without compromising the product's future.">Combino fundamentos de ingeniería de software con experimentación aplicada. La tecnología es el medio; el objetivo es entregar valor real sin hipotecar el futuro del producto.</p></div>
+        </div>
+
+        <div class="capability-map reveal">
+          <div class="capability core"><span class="mono">CORE</span><strong data-es="Arquitectura de software" data-en="Software architecture">Arquitectura de software</strong><p data-es="El centro que conecta producto, datos e infraestructura." data-en="The core connecting product, data and infrastructure.">El centro que conecta producto, datos e infraestructura.</p></div>
+          <div class="capability"><span class="cap-no mono">A / 01</span><div class="cap-icon">⌘</div><strong>Backend systems</strong><p>Java · Spring Boot · Python<br>REST · Microservices · Docker</p></div>
+          <div class="capability accent"><span class="cap-no mono">A / 02</span><div class="cap-icon">✦</div><strong>Applied intelligence</strong><p>LLMs · RAG · GenAI<br>Vector databases · Automation</p></div>
+          <div class="capability"><span class="cap-no mono">A / 03</span><div class="cap-icon">◎</div><strong>Spatial systems</strong><p>GIS · QGIS · Data pipelines<br>Validation · Transformation</p></div>
+          <svg class="map-lines" viewBox="0 0 1000 300" preserveAspectRatio="none" aria-hidden="true"><path d="M500 150 L160 150 M500 150 L840 70 M500 150 L840 235"/></svg>
         </div>
       </div>
     </section>
 
-    <section class="expertise shell">
-      <div class="section-heading reveal"><p class="section-index mono">02 / <span data-i18n="sections.focus">FOCO</span></p><h2 data-i18n="focus.heading">Lo que construyo</h2></div>
-      <div class="expertise-grid">
-        <article class="expertise-card reveal"><span class="card-no mono">01</span><div class="icon-code">{ }</div><h3 data-i18n="focus.backend.title">Backend & arquitectura</h3><p data-i18n="focus.backend.body">Servicios robustos, APIs y arquitecturas de microservicios con Java, Spring Boot y Python.</p><div class="tags"><span>Java</span><span>Spring Boot</span><span>Python</span><span>REST</span><span>Docker</span></div></article>
-        <article class="expertise-card featured reveal"><span class="card-no mono">02</span><div class="icon-code">✦</div><h3 data-i18n="focus.ai.title">IA generativa</h3><p data-i18n="focus.ai.body">RAG, integración de LLMs y automatización inteligente pensada para casos reales de negocio.</p><div class="tags"><span>LLMs</span><span>RAG</span><span>GenAI</span><span>Vector DB</span></div></article>
-        <article class="expertise-card reveal"><span class="card-no mono">03</span><div class="icon-code">⌖</div><h3 data-i18n="focus.gis.title">Sistemas geoespaciales</h3><p data-i18n="focus.gis.body">Pipelines y aplicaciones GIS para validar, transformar y analizar datos espaciales a escala.</p><div class="tags"><span>GIS</span><span>QGIS</span><span>PostgreSQL</span><span>Data pipelines</span></div></article>
-      </div>
-    </section>
-
-    <section class="experience" id="experience">
-      <div class="shell">
-        <div class="section-heading reveal"><p class="section-index mono">03 / <span data-i18n="sections.path">TRAYECTORIA</span></p><h2 data-i18n="experience.heading">Experiencia</h2></div>
+    <section class="experience section" id="experience">
+      <div class="container">
+        <div class="section-label reveal"><span>02</span><p data-es="Trayectoria" data-en="Journey">Trayectoria</p><i></i></div>
+        <div class="experience-heading reveal"><h2 class="display" data-es="De construir software<br>a <em>diseñar sistemas.</em>" data-en="From building software<br>to <em>designing systems.</em>">De construir software<br>a <em>diseñar sistemas.</em></h2><p data-es="Una evolución deliberada desde el desarrollo backend hacia arquitecturas distribuidas, IA aplicada y procesamiento geoespacial." data-en="A deliberate evolution from backend development towards distributed architecture, applied AI and geospatial processing.">Una evolución deliberada desde el desarrollo backend hacia arquitecturas distribuidas, IA aplicada y procesamiento geoespacial.</p></div>
         <div class="timeline">
-          <article class="job reveal"><div class="job-date mono" data-i18n="job1.date">NOV 2025 — AHORA</div><div class="job-main"><p class="company">COTESA · <span data-i18n="job1.company">Centro de Observación Espacial</span></p><h3 data-i18n="job1.role">Ingeniero de Software · GIS, Microservicios e IA</h3><p data-i18n="job1.body">Desarrollo de plataformas geoespaciales, pipelines de datos y soluciones de IA generativa. Arquitecturas backend con Java, Spring Boot y Python orientadas a sistemas distribuidos.</p></div><div class="job-mark">C</div></article>
-          <article class="job reveal"><div class="job-date mono" data-i18n="job2.date">JUN 2025 — AHORA</div><div class="job-main"><p class="company">NTT DATA</p><h3 data-i18n="job2.role">Ingeniero de Software · Arquitectura & WSO2</h3><p data-i18n="job2.body">Diseño de arquitecturas empresariales, gobierno de APIs con WSO2 y OpenAPI, coordinación técnica e integración de soluciones inteligentes.</p></div><div class="job-mark">N</div></article>
-          <article class="job reveal"><div class="job-date mono">OCT 2023 — JUN 2025</div><div class="job-main"><p class="company">NTT DATA</p><h3 data-i18n="job3.role">Junior Software Engineer · Arquitectura & GenAI</h3><p data-i18n="job3.body">Microservicios con Spring, contenerización con Docker y propuestas RAG/LLM. Creación de formación técnica para adopción de IA generativa y GitHub Copilot.</p></div><div class="job-mark">N</div></article>
+          <article class="timeline-item reveal">
+            <div class="time mono"><span data-es="NOV 2025 — ACTUAL" data-en="NOV 2025 — PRESENT">NOV 2025 — ACTUAL</span><i class="current"></i></div>
+            <div class="company-mark">CO</div>
+            <div class="job"><span>COTESA · <span data-es="CENTRO DE OBSERVACIÓN ESPACIAL" data-en="SPATIAL OBSERVATION CENTER">CENTRO DE OBSERVACIÓN ESPACIAL</span></span><h3 data-es="Ingeniero de Software — GIS, Microservicios & IA" data-en="Software Engineer — GIS, Microservices & AI">Ingeniero de Software — GIS, Microservicios & IA</h3><p data-es="Diseño de plataformas geoespaciales y servicios distribuidos. Desarrollo pipelines de validación y transformación de datos espaciales, APIs REST y soluciones RAG/LLM aplicadas a flujos GIS." data-en="Designing geospatial platforms and distributed services. Building spatial data validation and transformation pipelines, REST APIs and RAG/LLM solutions applied to GIS workflows.">Diseño de plataformas geoespaciales y servicios distribuidos. Desarrollo pipelines de validación y transformación de datos espaciales, APIs REST y soluciones RAG/LLM aplicadas a flujos GIS.</p><div class="job-tags"><span>GIS</span><span>Python</span><span>Java</span><span>Spring Boot</span><span>RAG</span></div></div>
+          </article>
+          <article class="timeline-item reveal">
+            <div class="time mono"><span data-es="JUN 2025 — ACTUAL" data-en="JUN 2025 — PRESENT">JUN 2025 — ACTUAL</span><i class="current"></i></div>
+            <div class="company-mark">NTT</div>
+            <div class="job"><span>NTT DATA</span><h3 data-es="Ingeniero de Software — Arquitectura, APIs & IA" data-en="Software Engineer — Architecture, APIs & AI">Ingeniero de Software — Arquitectura, APIs & IA</h3><p data-es="Arquitecturas empresariales con Java y Python, gobierno API-first mediante WSO2 y OpenAPI, definición de soluciones técnicas con cliente y coordinación del trabajo de equipo." data-en="Enterprise architectures with Java and Python, API-first governance through WSO2 and OpenAPI, client-facing technical solution design and team coordination.">Arquitecturas empresariales con Java y Python, gobierno API-first mediante WSO2 y OpenAPI, definición de soluciones técnicas con cliente y coordinación del trabajo de equipo.</p><div class="job-tags"><span>WSO2</span><span>OpenAPI</span><span>Microservices</span><span>GenAI</span></div></div>
+          </article>
+          <article class="timeline-item reveal">
+            <div class="time mono"><span>OCT 2023 — JUN 2025</span></div>
+            <div class="company-mark">NTT</div>
+            <div class="job"><span>NTT DATA</span><h3 data-es="Junior Engineer — Arquitectura & GenAI" data-en="Junior Engineer — Architecture & GenAI">Junior Engineer — Arquitectura & GenAI</h3><p data-es="Desarrollo y dockerización de microservicios Spring 2/3, integración entre módulos y diseño de arquitecturas RAG. Creación de formación técnica para adopción de IA generativa y GitHub Copilot." data-en="Development and containerisation of Spring 2/3 microservices, module integration and RAG architecture design. Technical enablement for generative AI and GitHub Copilot adoption.">Desarrollo y dockerización de microservicios Spring 2/3, integración entre módulos y diseño de arquitecturas RAG. Creación de formación técnica para adopción de IA generativa y GitHub Copilot.</p><div class="job-tags"><span>Spring</span><span>Docker</span><span>LLMs</span><span>GitHub Copilot</span></div></div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="work shell" id="work">
-      <div class="section-heading reveal"><p class="section-index mono">04 / <span data-i18n="sections.work">TRABAJO</span></p><h2 data-i18n="work.heading">Proyectos seleccionados</h2></div>
-      <div class="projects">
-        <a class="project main-project reveal" href="https://github.com/romflorod/tfg-2023" target="_blank" rel="noreferrer"><div class="project-visual map-visual"><div class="map-grid"></div><div class="map-route"></div><span class="map-pin p1"></span><span class="map-pin p2"></span><span class="map-pin p3"></span><div class="visual-caption mono">GEOSPATIAL / AI / 2023</div></div><div class="project-info"><div><p class="mono">01 — TFG</p><h3 data-i18n="work.tfg.title">Proyecto final de ingeniería</h3><p data-i18n="work.tfg.body">Investigación y desarrollo aplicado, desde el diseño técnico hasta una solución funcional.</p></div><span class="arrow">↗</span></div></a>
-        <a class="project reveal" href="https://github.com/ISPP-G7/bart" target="_blank" rel="noreferrer"><div class="project-visual bart-visual"><span>BART</span><div class="terminal mono">$ build --collaborative<br><b>✓ product ready</b></div></div><div class="project-info"><div><p class="mono">02 — PRODUCT</p><h3>BART</h3><p data-i18n="work.bart.body">Proyecto de producto desarrollado en equipo con prácticas de ingeniería de software.</p></div><span class="arrow">↗</span></div></a>
-        <a class="project legacy reveal" href="tetris.html"><div class="project-visual legacy-visual"><div class="blocks"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span class="mono">WHERE IT STARTED</span></div><div class="project-info"><div><p class="mono">03 — 2022</p><h3 data-i18n="work.legacy.title">Un proyecto del archivo</h3><p data-i18n="work.legacy.body">El Tetris con el que aprendí a convertir curiosidad en código.</p></div><span class="arrow">↗</span></div></a>
+    <section class="projects section" id="projects">
+      <div class="container">
+        <div class="section-label reveal"><span>03</span><p data-es="Laboratorio personal" data-en="Personal lab">Laboratorio personal</p><i></i></div>
+        <div class="projects-heading reveal"><h2 class="display" data-es="Proyectos que muestran<br><em>cómo pienso.</em>" data-en="Projects that show<br><em>how I think.</em>">Proyectos que muestran<br><em>cómo pienso.</em></h2><p data-es="Código público seleccionado por lo que demuestra, no por llenar espacio." data-en="Public code selected for what it demonstrates, not to fill space.">Código público seleccionado por lo que demuestra, no por llenar espacio.</p></div>
+
+        <article class="project-card project-featured reveal">
+          <a class="project-visual media-visual" href="https://github.com/romflorod/culture_java" target="_blank" rel="noreferrer" aria-label="MediaTracker AI en GitHub"><div class="media-ui"><div class="media-sidebar"><b>M</b><i></i><i></i><i></i></div><div class="media-main"><div class="media-top"><span>MediaTracker AI</span><em>● ONLINE</em></div><div class="media-row"><div class="poster p-a"></div><div class="poster p-b"></div><div class="poster p-c"></div></div><div class="recommend"><span>✦ AI RECOMMENDATION</span><i></i><i></i></div></div></div><span class="visual-tag mono">JAVA / SPRING BOOT / GENAI</span></a>
+          <div class="project-content"><div class="project-number mono">01 / FEATURED</div><p class="project-kind" data-es="ARQUITECTURA MODULAR + IA" data-en="MODULAR ARCHITECTURE + AI">ARQUITECTURA MODULAR + IA</p><h3>MediaTracker AI</h3><p data-es="Aplicación para descubrir y seguir anime, cine, libros y manga. Backend modular con autenticación, persistencia e integración de APIs externas, diseñado desde el inicio para recomendaciones con modelos generativos." data-en="An application to discover and track anime, film, books and manga. Modular backend with authentication, persistence and external API integration, designed from day one for generative model recommendations.">Aplicación para descubrir y seguir anime, cine, libros y manga. Backend modular con autenticación, persistencia e integración de APIs externas, diseñado desde el inicio para recomendaciones con modelos generativos.</p><div class="project-stack"><span>Java 17+</span><span>Spring Boot</span><span>JPA / Hibernate</span><span>Jikan API</span><span>OMDb</span></div><a class="text-link" href="https://github.com/romflorod/culture_java" target="_blank" rel="noreferrer"><span data-es="Ver repositorio" data-en="View repository">Ver repositorio</span> ↗</a></div>
+        </article>
+
+        <div class="project-pair">
+          <article class="project-card compact reveal"><a class="project-visual bot-visual" href="https://github.com/romflorod/chatbotCV" target="_blank" rel="noreferrer"><div class="chat"><p><span>RF</span><i></i><i></i></p><p class="answer"><span>AI</span><i></i><i></i><i></i></p><div>Ask my experience_</div></div><span class="visual-tag mono">PYTHON / CONVERSATIONAL UI</span></a><div class="project-content"><div class="project-number mono">02 / EXPERIMENT</div><h3 data-es="Chatbot de currículum" data-en="Résumé chatbot">Chatbot de currículum</h3><p data-es="Una interfaz conversacional en Python para explorar experiencia profesional mediante preguntas, con almacenamiento de prompts y una UI propia." data-en="A Python conversational interface to explore professional experience through questions, with prompt storage and a custom UI.">Una interfaz conversacional en Python para explorar experiencia profesional mediante preguntas, con almacenamiento de prompts y una UI propia.</p><a class="text-link" href="https://github.com/romflorod/chatbotCV" target="_blank" rel="noreferrer">GitHub ↗</a></div></article>
+          <article class="project-card compact reveal"><a class="project-visual valorant-visual" href="https://github.com/romflorod/tfg-2023" target="_blank" rel="noreferrer"><div class="v-shape">V</div><div class="team-dots"><i></i><i></i><i></i><i></i><i></i></div><span class="visual-tag mono">DJANGO / PRODUCT / TEAM</span></a><div class="project-content"><div class="project-number mono">03 / THESIS</div><h3>Valor Groups</h3><p data-es="TFG colaborativo: plataforma Django para encontrar equipo, consultar estadísticas y organizar torneos de Valorant, con tests, Docker y CI en GitHub Actions." data-en="Collaborative thesis: a Django platform to find teammates, view statistics and organise Valorant tournaments, with tests, Docker and GitHub Actions CI.">TFG colaborativo: plataforma Django para encontrar equipo, consultar estadísticas y organizar torneos de Valorant, con tests, Docker y CI en GitHub Actions.</p><a class="text-link" href="https://github.com/romflorod/tfg-2023" target="_blank" rel="noreferrer">GitHub ↗</a></div></article>
+        </div>
       </div>
     </section>
 
-    <section class="education shell reveal">
-      <p class="section-index mono">05 / <span data-i18n="sections.education">FORMACIÓN</span></p>
-      <div class="degree"><span class="degree-year mono">2016—2023</span><div><h2 data-i18n="education.degree">Grado en Ingeniería Informática</h2><p data-i18n="education.track">Ingeniería del Software · Universidad de Sevilla</p></div><span class="degree-icon">US</span></div>
-      <div class="languages"><span data-i18n="languages.label">IDIOMAS</span><strong data-i18n="languages.es">Español · Nativo</strong><strong data-i18n="languages.en">Inglés · Profesional</strong><strong data-i18n="languages.fr">Francés · Intermedio</strong></div>
+    <section class="principles section">
+      <div class="container">
+        <div class="section-label reveal"><span>04</span><p data-es="Cómo trabajo" data-en="How I work">Cómo trabajo</p><i></i></div>
+        <div class="principles-grid">
+          <div class="principles-title reveal"><h2 class="display" data-es="Complejidad dentro.<br><em>Claridad fuera.</em>" data-en="Complexity inside.<br><em>Clarity outside.</em>">Complejidad dentro.<br><em>Claridad fuera.</em></h2><p data-es="Tres principios para tomar mejores decisiones técnicas." data-en="Three principles for better technical decisions.">Tres principios para tomar mejores decisiones técnicas.</p></div>
+          <div class="principle-list"><article class="reveal"><span class="mono">01</span><div><h3 data-es="Arquitectura con propósito" data-en="Architecture with purpose">Arquitectura con propósito</h3><p data-es="Cada patrón debe resolver un problema, no decorar un diagrama." data-en="Every pattern must solve a problem, not decorate a diagram.">Cada patrón debe resolver un problema, no decorar un diagrama.</p></div></article><article class="reveal"><span class="mono">02</span><div><h3 data-es="IA con contexto y control" data-en="AI with context and control">IA con contexto y control</h3><p data-es="Modelos integrados en procesos medibles, trazables y útiles." data-en="Models integrated into measurable, traceable and useful processes.">Modelos integrados en procesos medibles, trazables y útiles.</p></div></article><article class="reveal"><span class="mono">03</span><div><h3 data-es="Comunicación como herramienta" data-en="Communication as a tool">Comunicación como herramienta</h3><p data-es="Alinear negocio, usuarios y tecnología también es ingeniería." data-en="Aligning business, users and technology is also engineering.">Alinear negocio, usuarios y tecnología también es ingeniería.</p></div></article></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="education section">
+      <div class="container education-grid reveal"><div><span class="mono">05 / EDUCATION</span><h2 data-es="Ingeniería Informática" data-en="Computer Engineering">Ingeniería Informática</h2><p data-es="Especialidad en Ingeniería del Software<br>Universidad de Sevilla · 2016—2023" data-en="Software Engineering track<br>University of Seville · 2016—2023">Especialidad en Ingeniería del Software<br>Universidad de Sevilla · 2016—2023</p></div><div class="language-list"><span class="mono" data-es="IDIOMAS" data-en="LANGUAGES">IDIOMAS</span><p><b data-es="Español" data-en="Spanish">Español</b><em data-es="Nativo" data-en="Native">Nativo</em></p><p><b data-es="Inglés" data-en="English">Inglés</b><em data-es="Profesional" data-en="Professional">Profesional</em></p><p><b data-es="Francés" data-en="French">Francés</b><em data-es="Intermedio" data-en="Intermediate">Intermedio</em></p></div></div>
     </section>
 
     <section class="contact" id="contact">
-      <div class="shell contact-inner reveal"><p class="section-index mono">06 / <span data-i18n="sections.contact">CONTACTO</span></p><p class="contact-kicker" data-i18n="contact.kicker">¿Tienes un reto interesante?</p><h2 data-i18n="contact.title">Construyamos algo<br><em>que importe.</em></h2><a class="email" href="mailto:romanflodriguez13@gmail.com">romanflodriguez13@gmail.com <span>↗</span></a><div class="contact-links"><a href="https://www.linkedin.com/in/roman-flores-6856ba268" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="https://github.com/romflorod" target="_blank" rel="noreferrer">GitHub ↗</a><a class="cv-link" href="Román Flores Esp.pdf" target="_blank"><span data-i18n="contact.cv">Currículum</span> ↗</a></div></div>
+      <div class="contact-orbit" aria-hidden="true"></div>
+      <div class="container contact-inner reveal"><span class="mono">06 / <span data-es="SIGUIENTE PASO" data-en="NEXT STEP">SIGUIENTE PASO</span></span><p data-es="¿Un sistema complejo? ¿Una idea ambiciosa?" data-en="A complex system? An ambitious idea?">¿Un sistema complejo? ¿Una idea ambiciosa?</p><h2 data-es="Hablemos de<br><em>lo que viene.</em>" data-en="Let's talk about<br><em>what's next.</em>">Hablemos de<br><em>lo que viene.</em></h2><a class="contact-email" href="mailto:romanflodriguez13@gmail.com">romanflodriguez13@gmail.com <b>↗</b></a><div class="social-row"><a href="https://www.linkedin.com/in/roman-flores-6856ba268" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="https://github.com/romflorod" target="_blank" rel="noreferrer">GitHub ↗</a><a class="cv-link" href="Román Flores Esp.pdf" target="_blank"><span data-es="Currículum" data-en="Résumé">Currículum</span> ↗</a></div></div>
     </section>
   </main>
-  <footer class="footer"><div class="shell"><span>© <span id="year"></span> ROMÁN FLORES</span><span data-i18n="footer">Diseñado y construido con intención.</span><a href="#top">↑ TOP</a></div></footer>
+
+  <footer><div class="container"><a class="logo" href="#top"><span>R</span>F</a><p>© <span id="year"></span> ROMÁN FLORES RODRÍGUEZ</p><p data-es="Diseñado para contar una evolución." data-en="Designed to tell a progression.">Diseñado para contar una evolución.</p><a href="#top">TOP ↑</a></div></footer>
 </body>
 </html>
