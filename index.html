@@ -1,690 +1,107 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-  <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NFJ891ZT3Y"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-NFJ891ZT3Y');
-</script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Soy Román Flores Rodríguez, un programador full stack con experiencia en el desarrollo de aplicaciones web y móviles. Echa un vistazo a mi portafolio y conoce mis habilidades y proyectos." />
-    <meta name="keywords" content="Román Flores Rodríguez, Programador Full Stack, etsii, programador sevilla, ciberseguridad, hacking ético, pen-testing, analista, programador con experienia, CEO, Desarrollador web, Desarrollador móvil, Portafolio" />
-    <meta name="author" content="Román Flores Rodríguez" />
-    <meta name="robots" content="index, follow" />
-    <title>Roman Flores Rodriguez | Programador Full Stack | Portfolio</title>
-    <link rel="icon" type="image/png" href="favicon.png">
-    <title>Román Flores Rodríguez - Programador Fullstack</title>
-    <meta name="theme-color" content="#003366">
-    <meta name="google-site-verification" content=1gDsXItlWjPUTfXJHjBr87P-mA1ZqP5qrTnVpoSrAKs>
-    <style>
-          /* Enlaces */
-        a {
-        position: relative;
-        text-decoration: none;
-        color: #333;
-        font-size: 1.2rem;
-        padding: -259px;
-        background-color: #eee;
-        border: 1px solid #333;
-        color: #666;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        cursor: pointer;
-        }
-
-        a::before {
-        content: "";
-        position: absolute;
-        bottom: -2px;
-        left: 0;
-        width: 0%;
-        height: 2px;
-        background-color: #333;
-        transition: width 0.3s ease-in-out;
-        }
-
-        a:hover::before {
-        width: 100%;
-        }
-
-      
-      /* Estilos globales */
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-    
-      body {
-        font-family: 'Roboto', sans-serif;
-        font-size: 40px;
-        letter-spacing: 0.05em;
-        background-color: #fff;
-        color: #333;        
-        margin: 0;
-        background-image: url('fondogif3.gif');
-        animation: animacion-fondo 10s ease-in-out infinite;
-        background-size: cover;
-      }
-      
-      .fondo{
-      position:absolute;
-      width: 120%;
-      z-index: -4;
-      background-size: cover;
-    }
-      .fondo2{
-        position:absolute;
-        width: 110%;
-        z-index: -4;
-      }
-
-      
-    
-      /* Encabezado */
-      header {
-        background-color: #333;
-        color: #fff;
-        padding: 20px;
-      }
-    
-      /* Contenido */
-      section {
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-    
-      button {
-        padding: 20px;
-        font-size: 24px;
-        background-color: #ff6f61;
-        color: #fff;
-        border: none;
-        cursor: pointer;
-        border-radius: 10px;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-        transition: background-color 0.3s ease-in-out;
-        margin-top: 20px;
-      }
-
-      button:hover {
-        background-color: #e85a4f;
-        box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.25);
-        transform: translateY(-2px);
-      }
-
-      button:active {
-        background-color: #d44c3f;
-        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
-        transform: translateY(2px);
-      }
-    
-      h1 {
-        margin: 0;
-        font-size: 48px;
-        font-weight: bold;
-        text-align: center;
-        text-transform: uppercase;
-        letter-spacing: 8px;
-        color: #ffffff;
-        text-shadow: 2px 2px 2px #000000;
-      }
-      
-    
-      h2 {
-        font-size: 60px;
-        font-weight: bold;
-        color: #333;
-        margin-bottom: 20px;
-        text-shadow: 3px 3px 3px #ccc;
-        animation: title-anim 2s ease-in-out infinite alternate;
-      }
-      
-      @keyframes title-anim {
-        0% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(-10px) rotate(2deg);
-        }
-        100% {
-          transform: translateY(0);
-        }
-      }
-      
-      h3 {
-        font-size: 48px;
-        font-weight: bold;
-        color: #333;
-        margin-bottom: 10px;
-        border-bottom: 2px solid #ccc;
-        padding-bottom: 5px;
-        text-shadow: 2px 2px 2px #ccc;
-        letter-spacing: 2px;
-        animation: title-anim 2s ease-in-out infinite alternate;
-      }
-      
-      @keyframes title-anim {
-        0% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(-10px);
-        }
-        100% {
-          transform: translateY(0);
-        }
-      }
-      
-      
-     
-    
-      ul {
-        margin-bottom: 20px;  
-      }
-    
-      li {
-        font-size: 18px;
-        line-height: 1.5;
-      }
-    
-      /* Juegos */
-      .game {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 20px 0;
-      }
-    
-      .game h3 {
-        font-size: 24px;
-        margin-bottom: 10px;
-      }
-    
-      .game p {
-        margin-bottom: 10px;
-      }
-    
-      .game button {
-        padding: 10px;
-        font-size: 18px;
-        background-color: #ff6f61;
-        color: #fff;
-        border: none;
-        cursor: pointer;
-        transition: background-color 0.3s ease-in-out;
-        box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
-      }
-    
-      .game button:hover {
-        background-color: #e85a4f;
-      }
-    
-      /* Pie de página */
-      footer {
-        background-color: #333;
-        color: #fff;
-        padding: 20px;
-        text-align: center;
-      }
-    
-     /* Sección de habilidades */
-    .skills {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      margin-bottom: 20px;
-      gap: 20px;
-    }
-
-    .skill {
-      width: 400px;
-      margin-bottom: 20px;
-      background-color: #fff;
-      border: 1px solid #ddd;
-      padding: 20px;
-      border-radius: 5px;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease-in-out;
-    }
-
-    .skill:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    .skill:active {
-      background-color: #eee;
-    }
-
-    .skill h3 {
-      font-size: 24px;
-      margin-bottom: 10px;
-    }
-    .skills .skill li {
-      max-height: 25px;
-      }
-
-
-    .skill ul {
-      margin-bottom: 10px;
-      border: 2px solid #ccc;
-    background-color: #f7f7f7;
-    margin: 20px;
-    padding: 20px;
-    border-radius: 10px;
-    }
-
-    .skill li {
-      max-height: 25px;
-      font-size: 18px;
-      line-height: 1.5;
-      transition: all 0.3s ease-in-out;
-
-    }
-
-    .skill li:hover {
-      color: #ff6f61;
-      transform: scale(1.1);
-    }
-    .skill li span {
-    display: inline-block;
-    width: 100px;
-    height: 25px;
-    background-color: #ccc;
-    border-radius: 10px;
-    }
-    .skill li span.html {
-      width: 90%;
-    }
-    .skill li span.css {
-      width: 80%;
-    }
-    .skill li span.js {
-      width: 70%;
-    }
-
-       
-/*indexingg*/
-/* Estilos base */
-#skills-container {
-  border: 2px solid #ccc;
-  background-color: #f7f7f7;
-  margin: 20px;
-  padding: 20px;
-  border-radius: 10px;
-}
-
-#skills-list {
-  background-color: #f7f7f7;
-  border: 2px solid #ccc;
-  border-radius: 10px;
-  padding: 20px;
-  display: inline-block;
-  box-shadow: 0px 0px 10px #ccc;
-}
-
-/* Estilos para pantallas pequeñas */
-@media only screen and (max-width: 600px) {
-  #skills-list {
-    display: block;
-    margin-bottom: 20px;
-  }
-}
-
-
-#skills-list li {
-  list-style: none;
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  background-image: url('tools.png');
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: left center;
-  padding-left: 50px;
-  position: relative;
-}
-
-#skills-list li::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 0, 0, 0.3);
-  z-index: -1;
-  border-radius: 5px;
-  transform: scale(0);
-  transition: all 0.3s ease;
-}
-
-#skills-list li:hover::before {
-  transform: scale(1);
-}
-
-#skills-list img {
-  margin-right: 30px;
-}
-
-#skills-list div {
-  margin-left: auto;
-  justify-content: flex-end; /* Alineación a la derecha */
-  background-color: rgba(54, 162, 235, 0.2);
-  width: 120px;
-  height: 20px;
-  display: inline-block;
-  margin-right: 20px;
-}
-
-#skills-list div div {
-  margin-left: auto;
-  justify-content: flex-end; /* Alineación a la derecha */
-  background-color: rgba(54, 162, 235, 1);
-  height: 400px;
-}
-
-#skills-list div:nth-child(2) {
-  margin-right: 10px;
-}
-
-  #edulinks li {
-      list-style: none;
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      background-image: url('edu.png');
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: left center;
-      padding-left: 50px;
-    }
-    #sociallinks li {
-      list-style: none;
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      background-image: url('sociales.png');
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: left center;
-      padding-left: 50px;
-    }
-
-
-    /* Estilos para pantallas pequeñas */
-    @media (max-width: 768px) {
-      section {
-        padding: 10px;
-      }
-
-      .game {
-        margin: 10px 0;
-      }
-
-      .skill {
-        width: 400px;
-            }
-    }
-    /*animaciones*/
-    p {
-    font-size: 26px;
-    line-height: 1.5;
-    margin-bottom: 20px;
-  }
-  
-  .animate {
-    border: 2px solid #000;
-    padding: 20px;
-    border-radius: 10px;
-    background-color: #f0f0f0;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    line-height: 1.5;
-    text-align: center;
-  }
-  
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  #ip-container {
-    border: 2px solid red;
-    padding: 10px;
-    border-radius: 20px;
-    background-color: #ffe6e6;
-    text-align: center;
-    font-size: 20px;
-    font-weight: bold;
-    font-family: Arial, sans-serif;
-    animation: shake 0.5s;
-    animation-iteration-count: infinite;
-  }
-  
-  @keyframes shake {
-    0% { transform: translate(0, 0); }
-    25% { transform: translate(-5px, 5px); }
-    50% { transform: translate(0, 0); }
-    75% { transform: translate(5px, -5px); }
-    100% { transform: translate(0, 0); }
-  }
-  
-  
-  
-    </style>
-    
-    
-  </head>
-  <body>
-    <header>
-      <h1>Román Flores Rodríguez</h1>
-    </header>
-    <section>
-      <h2>¡Bienvenido!</h2>
-
-      <hr>
-      <div class="programador">
-        <p class="animate">
-          ¡Hola! Soy un desarrollador fullstack con amplia experiencia en el desarrollo de aplicaciones de alta calidad. Mis habilidades incluyen el dominio de lenguajes de programación como Java y Python, así como una amplia experiencia en desarrollo web utilizando HTML, CSS y JavaScript. Además, tengo una sólida comprensión de bases de datos tanto SQL como NoSQL, así como de Big Data y Data Warehouse. Mi experiencia en inteligencia artificial incluye tanto Machine Learning como Deep Learning, lo que me permite desarrollar soluciones avanzadas para problemas complejos. Estoy en constante búsqueda de nuevos desafíos para seguir mejorando mis habilidades y lograr los mejores resultados para mis clientes. Si estás buscando un desarrollador capacitado en estas áreas, no dudes en contactarme. ¡Estoy emocionado de trabajar contigo en tu próximo proyecto!        </p>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090b10">
+  <meta name="description" content="Portfolio de Román Flores Rodríguez, ingeniero de software especializado en backend, IA generativa y sistemas geoespaciales.">
+  <meta property="og:title" content="Román Flores — Software Engineer">
+  <meta property="og:description" content="Backend, AI & Geospatial Systems">
+  <meta property="og:image" content="1.jpeg">
+  <title>Román Flores — Software Engineer</title>
+  <link rel="icon" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <header class="nav-wrap">
+    <nav class="nav shell" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="Román Flores, home">RF<span>.</span></a>
+      <div class="nav-links">
+        <a href="#about" data-i18n="nav.about">Perfil</a>
+        <a href="#experience" data-i18n="nav.experience">Experiencia</a>
+        <a href="#work" data-i18n="nav.work">Trabajo</a>
+        <a href="#contact" data-i18n="nav.contact">Contacto</a>
       </div>
-      
-     <div style="width: 300px; margin: 0 auto; padding: 20px; background-color: #f7f7f7; border: 2px solid #ccc; border-radius: 10px; box-shadow: 0px 0px 10px #ccc;">
-  <div style="width: 150px; height: 150px; margin: 0 auto; overflow: hidden; border-radius: 50%; box-shadow: 0px 0px 10px #ccc;">
-    <img src="1.jpeg" alt="Imagen personal" style="width: 100%; height: auto;">
-  </div>
-  
-  <button style="display: block; margin: 20px auto 10px auto; padding: 10px 20px; border: none; border-radius: 5px; background-color: #4CAF50; color: white; font-size: 18px; cursor: pointer;" onclick="window.location.href='mailto:romanflodriguez13@gmail.com'">¡Contáctame!</button>
-</div>
-<br>
-      <div id="ip-container">
-        <p id="ip"></p>
+      <button class="lang" id="langToggle" type="button" aria-label="Switch language"><span class="active">ES</span><span>EN</span></button>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero shell">
+      <div class="hero-copy reveal">
+        <p class="eyebrow"><span class="status-dot"></span><span data-i18n="hero.available">Sevilla, España · Construyendo sistemas que escalan</span></p>
+        <h1><span data-i18n="hero.line1">Ingeniería sólida.</span><br><em data-i18n="hero.line2">Inteligencia aplicada.</em></h1>
+        <p class="intro" data-i18n="hero.intro">Soy Román, ingeniero de software especializado en backend, inteligencia artificial generativa y sistemas geoespaciales. Convierto problemas complejos en productos fiables y mantenibles.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#work"><span data-i18n="hero.cta">Ver mi trabajo</span><span aria-hidden="true">↘</span></a>
+          <a class="button ghost cv-link" href="Román Flores Esp.pdf" target="_blank"><span data-i18n="hero.cv">Descargar CV</span><span aria-hidden="true">↓</span></a>
+        </div>
       </div>
-      <script>
-          fetch('https://api.ipify.org?format=json')
-              .then(response => response.json())
-              .then(data => document.getElementById('ip').innerHTML = `Su dirección IP es: ${data.ip}`);
-      </script>
-      <br>  
-      <h3>Habilidades destacadas</h3>
-      <div class="skills-container">
-      <ul id="skills-list">
-        <li></li>
-        <li>Java
-          <div style="background-color: rgba(54, 162, 235, 0.2); width: 100px; height: 20px; display: inline-block;">
-            <div class="java-bar" style="background-color: rgba(54, 162, 235, 1); width: 0%; height: 100%;"></div>
-          </div>
-        </li>
-        <li>Python
-          <div style="background-color: rgba(54, 162, 235, 0.2); width: 100px; height: 20px; display: inline-block;">
-            <div class="python-bar" style="background-color: rgba(54, 162, 235, 1); width: 0%; height: 100%;"></div> 
-          </div>
-        </li>
-        <li>HTML
-          <div style="background-color: rgba(54, 162, 235, 0.2); width: 100px; height: 20px; display: inline-block;">
-            <div class="html-bar" style="background-color: rgba(54, 162, 235, 1); width: 0%; height: 100%;"></div>
-          </div>
-        </li>
-        <li>CSS
-          <div style="background-color: rgba(54, 162, 235, 0.2); width: 100px; height: 20px; display: inline-block;">
-            <div class="css-bar" style="background-color: rgba(54, 162, 235, 1); width: 0%; height: 100%;"></div>
-          </div>
-        </li>
-        <li>JavaScript
-          <div style="background-color: rgba(54, 162, 235, 0.2); width: 100px; height: 20px; display: inline-block;">
-            <div class="javascript-bar" style="background-color: rgba(54, 162, 235, 1); width: 0%; height: 100%;"></div>
-          </div>
-        </li>
-        <li>SQL & NoSQL
-          <div style="background-color: rgba(54, 162, 235, 0.2); width: 100px; height: 20px; display: inline-block;">
-            <div class="ddbb-bar" style="background-color: rgba(54, 162, 235, 1); width: 0%; height: 100%;"></div>
-          </div>
-        </li>
-        <li>Machine learning
-          <div style="background-color: rgba(54, 162, 235, 0.2); width: 100px; height: 20px; display: inline-block;">
-            <div class="machine-learning-bar" style="background-color: rgba(54, 162, 235, 1); width: 0%; height: 100%;"></div>
-          </div>
-        </li>
-        <li>Deep learning
-          <div style="background-color: rgba(54, 162, 235, 0.2); width: 100px; height: 20px; display: inline-block;">
-            <div class="deep-learning-bar" style="background-color: rgba(54, 162, 235, 1); width: 0%; height: 100%;"></div>
-          </div>
-        </li>
-        <li>Data warehouse
-          <div style="background-color: rgba(54, 162, 235, 0.2); width: 100px; height: 20px; display: inline-block;">
-            <div class="data-warehouse-bar" style="background-color: rgba(54, 162, 235, 1); width: 0%; height: 100%;"></div>
-          </div>
-        </li>
-        <li>Big data
-          <div style="background-color: rgba(54, 162, 235, 0.2); width: 100px; height: 20px; display: inline-block;">
-            <div class="big-data-bar" style="background-color: rgba(54, 162, 235, 1); width: 0%; height: 100%;"></div>
-          </div>
-        </li>
-     
-        <script>
-          // Obtener todas las barras
-        const javaBar = document.querySelector('.java-bar');
-        const pythonBar = document.querySelector('.python-bar');
-        const htmlBar = document.querySelector('.html-bar');
-        const cssBar = document.querySelector('.css-bar');
-        const javascriptBar = document.querySelector('.javascript-bar');
-        const ddbbBar = document.querySelector('.ddbb-bar');
-        const machineLearningBar = document.querySelector('.machine-learning-bar');
-        const deepLearningBar = document.querySelector('.deep-learning-bar');
-        const dataWarehouseBar = document.querySelector('.data-warehouse-bar');
-        const bigDataBar = document.querySelector('.big-data-bar');
-
-        // Establecer la duración de la animación en milisegundos
-        const duration = 2000;
-
-        // Establecer el valor final de cada barra
-        const javaValue = 100;
-        const pythonValue = 100;
-        const htmlValue = 100;
-        const cssValue = 80;
-        const javascriptValue = 80;
-        const ddbbValue = 100;
-        const machineLearningValue = 70;
-        const deepLearningValue = 60;
-        const dataWarehouseValue = 100;
-        const bigdataValue = 70;
-
-        // Función para animar la barra
-        function animateBar(bar, finalValue) {
-          // Calcular el incremento para cada iteración
-          const increment = finalValue / (duration / 10);
-
-          // Establecer el valor inicial en cero
-          let currentValue = 0;
-
-          // Crear un intervalo que se ejecuta cada 10 milisegundos
-          const interval = setInterval(() => {
-            // Incrementar el valor actual
-            currentValue += increment;
-
-            // Verificar si se ha alcanzado el valor final
-            if (currentValue >= finalValue) {
-              // Establecer el valor final y detener el intervalo
-              bar.style.width = `${finalValue}%`;
-              clearInterval(interval);
-            } else {
-              // Actualizar el ancho de la barra con el valor actual
-              bar.style.width = `${currentValue}%`;
-            }
-          }, 10);
-        }
-
-        // Animar cada barra con su valor final correspondiente
-        animateBar(javaBar, javaValue);
-        animateBar(pythonBar, pythonValue);
-        animateBar(htmlBar, htmlValue);
-        animateBar(cssBar, cssValue);
-        animateBar(javascriptBar, javascriptValue);
-        animateBar(ddbbBar, ddbbValue);
-        animateBar(machineLearningBar, machineLearningValue);
-        animateBar(deepLearningBar, deepLearningValue);
-        animateBar(dataWarehouseBar, dataWarehouseValue);
-        animateBar(bigDataBar, bigdataValue);
-
-        </script>
-            <a href="habilidadespersonales.html">Vea gráfico responsivo de habilidades personales</a>
-
-        </ul>
+      <div class="portrait-wrap reveal">
+        <div class="portrait-label mono">SOFTWARE<br>ENGINEER</div>
+        <img src="1.jpeg" alt="Retrato de Román Flores" width="909" height="1600">
+        <div class="orbit" aria-hidden="true"></div>
       </div>
-      </section>
+      <div class="scroll-cue mono" aria-hidden="true"><span>SCROLL</span><i></i></div>
+    </section>
 
-      </section>
-      <section>
-          <h3>Proyectos de interés</h3>
-          <p>Aquí te presento algunos de mis proyectos más interesantes:</p>
-          <ul id="edulinks">
-              <li><a href="https://github.com/romflorod/tfg-2023">TFG 2023</a></li>
-              <li><a href="https://github.com/ISPP-G7/bart">BART</a></li>
-          </ul>
-      </section>
-      <section>
-            <h3>Redes sociales profesionales</h3>
-            <ul id="sociallinks">
-              <li><a href="https://www.linkedin.com/in/roman-flores-6856ba268">LinkedIn</a></li>
-            <li><a href="https://twitter.com/romanflodriguez">Twitter</a></li>
-            <li><a href="https://github.com/romflorod">GitHub</a></li>
-          </ul>
-      </section>
-      <section>
-        <br>
-        <h3>Accede a juegos hechos por mí en HTML</h3>
-        <hr>
-        <P></P>
-        <button onclick="window.open('juegos.html', '_blank')">Jugar</button>
-      </section>
-      <section>
-        <br>
-        <h3>Utilidades hechas por mí en HTML</h3>
-        <hr>
-        <P></P>
-        <button onclick="window.open('utilidades.html', '_blank')">Acceder</button>
-      </section>
-      <section>
-        <br>
-        <h3>Mis herramientas para Dragones y Mazmorras</h3>
-        <hr>
-        <P></P>
-        <button onclick="window.open('/DragonesYMazmorras', '_blank')">Acceder</button>
-      </section>
-      
-      <footer>
-        <p>&copy; 2023 Román Flores Rodríguez - Página de GitHub</p>
-      </footer>
-      
-    </body>
-  </html>
+    <section class="statement" id="about">
+      <div class="shell statement-grid reveal">
+        <p class="section-index mono">01 / <span data-i18n="sections.profile">PERFIL</span></p>
+        <div>
+          <h2 data-i18n="about.title">Diseño software en la intersección entre <span>datos, territorio e inteligencia.</span></h2>
+          <div class="about-cols">
+            <p data-i18n="about.p1">Trabajo en productos donde la arquitectura importa: plataformas geoespaciales, microservicios empresariales y flujos de IA capaces de operar más allá de una demo.</p>
+            <p data-i18n="about.p2">Mi enfoque combina criterio técnico, visión de producto y comunicación clara. Desde una API hasta una arquitectura RAG, busco soluciones sencillas de operar y preparadas para evolucionar.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="expertise shell">
+      <div class="section-heading reveal"><p class="section-index mono">02 / <span data-i18n="sections.focus">FOCO</span></p><h2 data-i18n="focus.heading">Lo que construyo</h2></div>
+      <div class="expertise-grid">
+        <article class="expertise-card reveal"><span class="card-no mono">01</span><div class="icon-code">{ }</div><h3 data-i18n="focus.backend.title">Backend & arquitectura</h3><p data-i18n="focus.backend.body">Servicios robustos, APIs y arquitecturas de microservicios con Java, Spring Boot y Python.</p><div class="tags"><span>Java</span><span>Spring Boot</span><span>Python</span><span>REST</span><span>Docker</span></div></article>
+        <article class="expertise-card featured reveal"><span class="card-no mono">02</span><div class="icon-code">✦</div><h3 data-i18n="focus.ai.title">IA generativa</h3><p data-i18n="focus.ai.body">RAG, integración de LLMs y automatización inteligente pensada para casos reales de negocio.</p><div class="tags"><span>LLMs</span><span>RAG</span><span>GenAI</span><span>Vector DB</span></div></article>
+        <article class="expertise-card reveal"><span class="card-no mono">03</span><div class="icon-code">⌖</div><h3 data-i18n="focus.gis.title">Sistemas geoespaciales</h3><p data-i18n="focus.gis.body">Pipelines y aplicaciones GIS para validar, transformar y analizar datos espaciales a escala.</p><div class="tags"><span>GIS</span><span>QGIS</span><span>PostgreSQL</span><span>Data pipelines</span></div></article>
+      </div>
+    </section>
+
+    <section class="experience" id="experience">
+      <div class="shell">
+        <div class="section-heading reveal"><p class="section-index mono">03 / <span data-i18n="sections.path">TRAYECTORIA</span></p><h2 data-i18n="experience.heading">Experiencia</h2></div>
+        <div class="timeline">
+          <article class="job reveal"><div class="job-date mono" data-i18n="job1.date">NOV 2025 — AHORA</div><div class="job-main"><p class="company">COTESA · <span data-i18n="job1.company">Centro de Observación Espacial</span></p><h3 data-i18n="job1.role">Ingeniero de Software · GIS, Microservicios e IA</h3><p data-i18n="job1.body">Desarrollo de plataformas geoespaciales, pipelines de datos y soluciones de IA generativa. Arquitecturas backend con Java, Spring Boot y Python orientadas a sistemas distribuidos.</p></div><div class="job-mark">C</div></article>
+          <article class="job reveal"><div class="job-date mono" data-i18n="job2.date">JUN 2025 — AHORA</div><div class="job-main"><p class="company">NTT DATA</p><h3 data-i18n="job2.role">Ingeniero de Software · Arquitectura & WSO2</h3><p data-i18n="job2.body">Diseño de arquitecturas empresariales, gobierno de APIs con WSO2 y OpenAPI, coordinación técnica e integración de soluciones inteligentes.</p></div><div class="job-mark">N</div></article>
+          <article class="job reveal"><div class="job-date mono">OCT 2023 — JUN 2025</div><div class="job-main"><p class="company">NTT DATA</p><h3 data-i18n="job3.role">Junior Software Engineer · Arquitectura & GenAI</h3><p data-i18n="job3.body">Microservicios con Spring, contenerización con Docker y propuestas RAG/LLM. Creación de formación técnica para adopción de IA generativa y GitHub Copilot.</p></div><div class="job-mark">N</div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="work shell" id="work">
+      <div class="section-heading reveal"><p class="section-index mono">04 / <span data-i18n="sections.work">TRABAJO</span></p><h2 data-i18n="work.heading">Proyectos seleccionados</h2></div>
+      <div class="projects">
+        <a class="project main-project reveal" href="https://github.com/romflorod/tfg-2023" target="_blank" rel="noreferrer"><div class="project-visual map-visual"><div class="map-grid"></div><div class="map-route"></div><span class="map-pin p1"></span><span class="map-pin p2"></span><span class="map-pin p3"></span><div class="visual-caption mono">GEOSPATIAL / AI / 2023</div></div><div class="project-info"><div><p class="mono">01 — TFG</p><h3 data-i18n="work.tfg.title">Proyecto final de ingeniería</h3><p data-i18n="work.tfg.body">Investigación y desarrollo aplicado, desde el diseño técnico hasta una solución funcional.</p></div><span class="arrow">↗</span></div></a>
+        <a class="project reveal" href="https://github.com/ISPP-G7/bart" target="_blank" rel="noreferrer"><div class="project-visual bart-visual"><span>BART</span><div class="terminal mono">$ build --collaborative<br><b>✓ product ready</b></div></div><div class="project-info"><div><p class="mono">02 — PRODUCT</p><h3>BART</h3><p data-i18n="work.bart.body">Proyecto de producto desarrollado en equipo con prácticas de ingeniería de software.</p></div><span class="arrow">↗</span></div></a>
+        <a class="project legacy reveal" href="tetris.html"><div class="project-visual legacy-visual"><div class="blocks"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span class="mono">WHERE IT STARTED</span></div><div class="project-info"><div><p class="mono">03 — 2022</p><h3 data-i18n="work.legacy.title">Un proyecto del archivo</h3><p data-i18n="work.legacy.body">El Tetris con el que aprendí a convertir curiosidad en código.</p></div><span class="arrow">↗</span></div></a>
+      </div>
+    </section>
+
+    <section class="education shell reveal">
+      <p class="section-index mono">05 / <span data-i18n="sections.education">FORMACIÓN</span></p>
+      <div class="degree"><span class="degree-year mono">2016—2023</span><div><h2 data-i18n="education.degree">Grado en Ingeniería Informática</h2><p data-i18n="education.track">Ingeniería del Software · Universidad de Sevilla</p></div><span class="degree-icon">US</span></div>
+      <div class="languages"><span data-i18n="languages.label">IDIOMAS</span><strong data-i18n="languages.es">Español · Nativo</strong><strong data-i18n="languages.en">Inglés · Profesional</strong><strong data-i18n="languages.fr">Francés · Intermedio</strong></div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="shell contact-inner reveal"><p class="section-index mono">06 / <span data-i18n="sections.contact">CONTACTO</span></p><p class="contact-kicker" data-i18n="contact.kicker">¿Tienes un reto interesante?</p><h2 data-i18n="contact.title">Construyamos algo<br><em>que importe.</em></h2><a class="email" href="mailto:romanflodriguez13@gmail.com">romanflodriguez13@gmail.com <span>↗</span></a><div class="contact-links"><a href="https://www.linkedin.com/in/roman-flores-6856ba268" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="https://github.com/romflorod" target="_blank" rel="noreferrer">GitHub ↗</a><a class="cv-link" href="Román Flores Esp.pdf" target="_blank"><span data-i18n="contact.cv">Currículum</span> ↗</a></div></div>
+    </section>
+  </main>
+  <footer class="footer"><div class="shell"><span>© <span id="year"></span> ROMÁN FLORES</span><span data-i18n="footer">Diseñado y construido con intención.</span><a href="#top">↑ TOP</a></div></footer>
+</body>
+</html>
