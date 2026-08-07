@@ -16,6 +16,9 @@
 html { scroll-behavior: smooth; overflow-x: clip; }
 body { margin: 0; color: var(--paper); background: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.65; overflow-x: clip; }
 a { color: inherit; }
+.skip-link { position: fixed; z-index: 100; top: 12px; left: 12px; padding: 10px 14px; color: var(--ink); background: var(--acid); font: 10px var(--mono); text-decoration: none; transform: translateY(-160%); transition: transform .2s; }
+.skip-link:focus { transform: translateY(0); }
+:focus-visible { outline: 2px solid var(--acid); outline-offset: 4px; }
 .container { width: min(1200px, calc(100% - 56px)); margin-inline: auto; }
 .mono { font-family: var(--mono); letter-spacing: .08em; }
 .grain { position: fixed; inset: 0; z-index: 20; pointer-events: none; opacity: .035; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
@@ -112,6 +115,21 @@ h1 em, .display em, .contact h2 em { color: var(--acid); font-style: normal; fon
 .capability.accent .tech-list span { border-color: rgba(7,17,15,.25); background: rgba(255,255,255,.2); }
 .map-lines { position: absolute; inset: 16% 0; width: 100%; height: 68%; z-index: 1; }
 .map-lines path { fill: none; stroke: rgba(7,17,15,.25); stroke-width: 1; stroke-dasharray: 4 5; }
+.toolbox { margin-top: 90px; border: 1px solid rgba(7,17,15,.2); display: grid; grid-template-columns: .8fr 1.2fr; background: #deded5; }
+.toolbox-intro { padding: 42px; border-right: 1px solid rgba(7,17,15,.18); }
+.toolbox-intro > span { color: #68746e; font-size: 7px; }
+.toolbox-intro h3 { font-size: clamp(27px,3vw,40px); line-height: 1.08; letter-spacing: -.05em; margin: 35px 0 18px; }
+.toolbox-intro h3 em { color: #4f6c17; font-style: normal; }
+.toolbox-intro p { max-width: 350px; color: #68706c; font-size: 12px; }
+.toolbox-groups { display: grid; grid-template-columns: 1fr 1fr; }
+.toolbox-groups article { position: relative; min-height: 175px; padding: 32px; border-right: 1px solid rgba(7,17,15,.15); border-bottom: 1px solid rgba(7,17,15,.15); transition: background .22s; }
+.toolbox-groups article:nth-child(even) { border-right: 0; }
+.toolbox-groups article:nth-child(n+3) { border-bottom: 0; }
+.toolbox-groups article:hover { background: var(--acid); }
+.tool-no { position: absolute; top: 18px; right: 18px; color: #7b8580; font-size: 7px; }
+.toolbox-groups h4 { max-width: 85%; font-size: 15px; margin: 20px 0 13px; }
+.toolbox-groups p { color: #626b66; font: 9px/1.9 var(--mono); margin: 0; }
+.toolbox-groups article:hover p { color: #425020; }
 
 .experience { background: var(--ink-2); }
 .experience-heading, .projects-heading { display: flex; justify-content: space-between; align-items: end; margin-bottom: 75px; }
@@ -248,6 +266,8 @@ footer p, footer > div > a:last-child { margin: 0; font: 8px var(--mono); text-d
   .job { padding-right: 62px; }
   .company-mark { width: 42px; height: 42px; }
   .language-list { border-left: 0; padding-left: 0; }
+  .toolbox { grid-template-columns: 1fr; }
+  .toolbox-intro { border-right: 0; border-bottom: 1px solid rgba(7,17,15,.18); }
 }
 
 @media (max-width: 620px) {
@@ -271,6 +291,12 @@ footer p, footer > div > a:last-child { margin: 0; font: 8px var(--mono); text-d
   .capability, .capability:nth-of-type(2), .capability:nth-of-type(3), .capability:nth-of-type(4) { margin: 10px 0; }
   .capability.core { position: relative; width: 100%; left: auto; top: auto; transform: none; }
   .map-lines { display: none; }
+  .toolbox { margin-top: 60px; }
+  .toolbox-intro { padding: 28px; }
+  .toolbox-groups { grid-template-columns: 1fr; }
+  .toolbox-groups article { min-height: 145px; padding: 26px 28px; border-right: 0; border-bottom: 1px solid rgba(7,17,15,.15); }
+  .toolbox-groups article:nth-child(n+3) { border-bottom: 1px solid rgba(7,17,15,.15); }
+  .toolbox-groups article:last-child { border-bottom: 0; }
   .timeline { border-top: 0; padding-left: 7px; }
   .timeline::before { left: 7px; top: 4px; bottom: 20px; }
   .timeline-item { grid-template-columns: 1fr; grid-template-rows: auto auto; gap: 14px; padding: 34px 0 38px 32px; }
